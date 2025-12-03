@@ -53,7 +53,7 @@
         </div>
         
         <h3 style="color: #4a148c; margin-top: 30px;">緣分俱足，我們為您點亮方向</h3>
-        <p>隨緣堂堅守傳統演算法的精確性，同時結合現代網路技術，消除命理的門檻。我們提供的不是宿命論斷，而是給予您一個清晰的視野，助您活出圓滿人生。</p>
+        <p>隨緣堂堅守傳統演算法的精確性，同時結合現代網路技術，消除命理的門檻。我們提供的不是宿命論斷，而是給予您一個清晰的視野，讓您能順著天賦的潮流，避開暗礁，掌握主動權，活出最圓滿的人生。</p>
     </div>
 
     <div class="container" id="bazi-tool">
@@ -80,7 +80,7 @@
         <h2>📚 隨緣堂命理學堂</h2>
         <p>知識是改變命運的力量。我們將複雜的命理學，轉化為您能輕鬆理解和應用的實用智慧。</p>
         <ul class="article-list">
-            <li><a href="#">**【新手必讀】一分鐘看懂你的「日主」是什麼？八字命盤的真正核心**</a> (八字入門)</li>
+            <li><a href="article-bazi-intro.html">**【新手必讀】一分鐘看懂你的「日主」是什麼？八字命盤的真正核心**</a> (八字入門)</li>
             <li><a href="#">當財星遇到食傷：隨緣堂解析您的「財富格局」與賺錢模式</a> (八字進階)</li>
             <li><a href="#">紫微斗數入門：十四顆主星的性格速查表 (內含命宮查詢法)</a> (紫微入門)</li>
             <li><a href="#">月老紅線在哪裡？從紫微命盤「夫妻宮」看您未來伴侶的類型與個性</a> (紫微情感)</li>
@@ -101,23 +101,16 @@
     </footer>
 
     <script>
-        // === JavaScript: 八字排盤演算法 ===
+        // === JavaScript: 八字排盤演算法 (與前一版相同) ===
         
-        // 天干與地支的陣列
         const TIAN_GAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
         const DI_ZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
 
-        /**
-         * 簡易計算日柱干支 (使用儒略日簡化計算，對於日柱干支的準確性高)
-         */
         function calculateDayGanZhi(dateStr) {
             const date = new Date(dateStr);
-            // 參考基準日：1900年1月1日 (庚子)
             const referenceDate = new Date('1900/01/01');
-            // 計算自基準日以來經過的天數
             const diffDays = Math.floor((date - referenceDate) / (1000 * 60 * 60 * 24));
             
-            // 1900/1/1 是庚子日，庚為天干第 7 位 (index 6)，子為地支第 1 位 (index 0)
             const ganIndex = (6 + diffDays) % 10;
             const zhiIndex = (0 + diffDays) % 12;
 
@@ -127,16 +120,11 @@
             };
         }
 
-        /**
-         * 簡易計算年柱干支 (使用陽曆年模擬，不考慮農曆正月初一)
-         */
         function calculateYearGanZhi(year) {
-            // 參考基準年：1984年 (甲子)
             const yearIndex = (year - 1984) % 60; 
             const ganIndex = yearIndex % 10;
             const zhiIndex = yearIndex % 12;
             
-            // 修正負數索引
             const finalGan = TIAN_GAN[(ganIndex + 10) % 10];
             const finalZhi = DI_ZHI[(zhiIndex + 12) % 12];
             
@@ -146,18 +134,12 @@
             };
         }
 
-        /**
-         * 簡易模擬時柱干支 (這是最不準確的部分，因為需要真太陽時)
-         * 時辰地支根據時間區間固定，時干根據日干推算（五鼠遁）。
-         */
         function calculateHourGanZhi(dayGan, timeStr) {
             const hour = parseInt(timeStr.split(':')[0]);
             
-            // 簡易時辰地支 (時辰：子(23-01), 丑(01-03), ..., 亥(21-23))
             const zhiIndex = Math.floor((hour + 1) / 2) % 12;
             const hourZhi = DI_ZHI[zhiIndex];
 
-            // 時干推算 (五鼠遁/五虎遁口訣的簡化)
             const dayGanIndex = TIAN_GAN.indexOf(dayGan);
             const hourGanStart = (dayGanIndex * 12 + zhiIndex) % 10;
             const hourGan = TIAN_GAN[hourGanStart % 10]; 
@@ -168,9 +150,6 @@
             };
         }
 
-        /**
-         * 核心：生成八字排盤結果
-         */
         function generateBazi() {
             const dateStr = document.getElementById('birthDate').value;
             const timeStr = document.getElementById('birthTime').value;
@@ -184,18 +163,13 @@
             const date = new Date(dateStr);
             const year = date.getFullYear();
 
-            // 1. 計算日柱 (最準確)
             const dayGanZhi = calculateDayGanZhi(dateStr);
-            
-            // 2. 計算年柱 (準確，不考慮農曆年起始)
             const yearGanZhi = calculateYearGanZhi(year);
 
-            // 3. 模擬月柱 (需要複雜的節氣計算，此處為隨機/固定值，僅為結構完整)
-            // 專業版需使用五虎遁計算，並校正節氣。
-            const monthGan = '庚'; // 模擬
-            const monthZhi = '子'; // 模擬
+            // 模擬月柱
+            const monthGan = '庚'; 
+            const monthZhi = '子'; 
 
-            // 4. 模擬時柱 (準確性較低，但有基本邏輯)
             const hourGanZhi = calculateHourGanZhi(dayGanZhi.gan, timeStr);
 
             const mockResult = `
@@ -208,7 +182,7 @@
                     <tr><td>地支</td><td>${yearGanZhi.zhi}</td><td>${monthZhi}</td><td>${dayGanZhi.zhi}</td><td>${hourGanZhi.zhi}</td></tr>
                 </table>
                 <p style="margin-top: 20px; font-style: italic; color: #00796b;">
-                    注意：此為單一程式碼檔案極速版。日柱計算邏輯完整，月柱與時柱為簡化或模擬，用於展示結構。
+                    注意：此為單一程式碼檔案極速版。月柱與時柱為簡化或模擬。
                 </p>
             `;
             
