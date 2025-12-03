@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 知命隨緣，創造無限</title>
     <style>
-        /* CSS: 最終美化與排版 */
+        /* CSS: 網站視覺風格 V3.3 */
         :root {
-            --primary-color: #5d35b6; /* 主紫色 (智慧) */
-            --secondary-color: #7c4dff; /* 亮紫色 */
-            --red-accent: #c62828; /* 中國紅 (強調/熱情) */
+            --primary-color: #5d35b6; 
+            --secondary-color: #7c4dff; 
+            --red-accent: #c62828; 
             --bg-light: #f8f7ff;
             --text-dark: #333;
             --text-light: white;
             --card-bg: #fff;
-            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); /* 柔和陰影 */
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); 
         }
 
         body { 
@@ -24,7 +24,7 @@
             background-color: var(--bg-light); 
             color: var(--text-dark); 
             line-height: 1.8;
-            scroll-behavior: smooth; /* 平滑滾動 */
+            scroll-behavior: smooth; 
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
@@ -173,7 +173,7 @@
             background-color: #f3e5f5; 
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05); /* 輕微邊框 */
             transition: box-shadow 0.3s, background-color 0.3s;
         }
         .article-list li:hover {
@@ -194,7 +194,7 @@
             padding-top: 50px; 
             margin-top: 50px;
             border-top: 2px dashed #eee;
-            display: block;
+            display: block; 
         }
         .article-content a { color: var(--red-accent); }
         .article-content .key-point { 
@@ -253,89 +253,4 @@
             const offsetYear = year - 1984;
             const ganIndex = (offsetYear % 10 + 10) % 10;
             const zhiIndex = (offsetYear % 12 + 12) % 12;
-            return { gan: TIAN_GAN[ganIndex], zhi: DI_ZHI[zhiIndex] };
-        }
-
-        // 3. 時柱干支計算 (五鼠遁日歌修正版)
-        function calculateHourGanZhi(dayGan, timeStr) {
-            const hour = parseInt(timeStr.split(':')[0]);
-            let hourZhiIndex;
-            if (hour >= 23 || hour < 1) { 
-                hourZhiIndex = 0; // 子時
-            } else {
-                hourZhiIndex = Math.floor((hour + 1) / 2) % 12;
-            }
-            const hourZhi = DI_ZHI[hourZhiIndex];
-
-            const dayGanMap = { "甲": 0, "己": 0, "乙": 2, "庚": 2, "丙": 4, "辛": 4, "丁": 6, "壬": 6, "戊": 8, "癸": 8 };
-            const zishiGanIndex = dayGanMap[dayGan]; 
-            const hourGanIndex = (zishiGanIndex + hourZhiIndex) % 10;
-            const hourGan = TIAN_GAN[hourGanIndex]; 
-
-            return { gan: hourGan, zhi: hourZhi };
-        }
-        
-        // 4. 月柱干支計算 (簡化版)
-        function calculateMonthGanZhi(year, month) {
-            const yearGan = calculateYearGanZhi(year).gan;
-            const yearGanMap = { "甲": 2, "己": 2, "乙": 4, "庚": 4, "丙": 6, "辛": 6, "丁": 8, "壬": 8, "戊": 0, "癸": 0 };
-
-            const zhiIndex = (month + 10) % 12; 
-            const monthZhi = DI_ZHI[zhiIndex];
-            
-            const yinYueGanIndex = yearGanMap[yearGan]; 
-            const monthGanIndex = (yinYueGanIndex + zhiIndex - 2 + 10) % 10; 
-            const monthGan = TIAN_GAN[monthGanIndex];
-
-            return { gan: monthGan, zhi: monthZhi };
-        }
-
-
-        // 5. 整合顯示函數 (被按鈕呼叫)
-        function generateBazi() {
-            const dateStr = document.getElementById('birthDate').value;
-            const timeStr = document.getElementById('birthTime').value;
-            const resultDiv = document.getElementById('baziResult');
-            
-            try {
-                if (!dateStr || !timeStr) {
-                    resultDiv.innerHTML = '<p style="color: var(--red-accent); font-weight: bold;">請輸入完整的出生日期和時間！</p>';
-                    return;
-                }
-
-                const date = new Date(dateStr);
-                const year = date.getFullYear();
-                const month = date.getMonth() + 1;
-
-                const dayGanZhi = calculateDayGanZhi(dateStr);
-                const yearGanZhi = calculateYearGanZhi(year);
-                const hourGanZhi = calculateHourGanZhi(dayGanZhi.gan, timeStr);
-                const monthGanZhi = calculateMonthGanZhi(year, month); 
-
-                const mockResult = `
-                    <h4 style="color: var(--red-accent); font-size: 1.4em; text-align: center;">✅ 八字排盤結果 (系統計算版)</h4>
-                    <p style="text-align: center;">
-                        <strong>日主（命主）為：</strong><strong style="color: var(--primary-color); font-size: 1.5em;">${dayGanZhi.gan}</strong>
-                        <span style="display: block; font-size: 0.9em; color: #777;">（您的核心個性與本質）</span>
-                    </p>
-                    <table class="bazi-table">
-                        <tr><th>柱</th><th>年柱</th><th>月柱</th><th>日柱</th><th>時柱</th></tr>
-                        <tr><td>天干</td><td>${yearGanZhi.gan}</td><td>${monthGanZhi.gan}</td><td>${dayGanZhi.gan}</td><td>${hourGanZhi.gan}</td></tr>
-                        <tr><td>地支</td><td>${yearGanZhi.zhi}</td><td>${monthGanZhi.zhi}</td><td>${dayGanZhi.zhi}</td><td>${hourGanZhi.zhi}</td></tr>
-                    </table>
-                    <p style="margin-top: 20px; font-style: italic; color: #00796b;">
-                        *注意：時柱邏輯 (五鼠遁日歌) 已修正為精確版。
-                    </p>
-                `;
-                
-                resultDiv.innerHTML = mockResult;
-
-                // 【核心修正 V3.2】排盤完成後，自動捲動到結果區塊
-                document.getElementById('baziResult').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-
-            } catch(e) {
-                // 如果計算出錯，顯示錯誤信息
-                resultDiv.innerHTML = `<p style="color: var(--red-accent); font-weight: bold;">八字排盤計算失敗！請檢查日期是否正確。</p><p style="font-size: 0.8em; color: #777;">錯誤詳情: ${e.message}</p>`;
+            return
