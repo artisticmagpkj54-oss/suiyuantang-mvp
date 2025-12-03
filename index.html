@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 知命隨緣，創造無限</title>
     <style>
-        /* CSS: 保持美化版樣式 (為節省篇幅，大部分 CSS 保持不變) */
+        /* CSS 變數：引入新的品味配色 */
         :root {
-            --primary-color: #5d35b6; /* 主紫色 */
+            --primary-color: #5d35b6; /* 主紫色 (智慧) */
             --secondary-color: #7c4dff; /* 亮紫色 */
-            --accent-color: #ffd700; /* 金色 (用於關鍵強調) */
+            --red-accent: #c62828; /* 中國紅 (強調/熱情) */
             --bg-light: #f8f7ff;
             --text-dark: #333;
             --text-light: white;
+            --card-bg: #fff;
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); /* 柔和陰影 */
         }
 
         body { 
@@ -21,26 +23,24 @@
             padding: 0; 
             background-color: var(--bg-light); 
             color: var(--text-dark); 
-            line-height: 1.8; 
-            /* 新增：平滑滾動，讓頁面切換看起來更自然 */
-            scroll-behavior: smooth; 
+            line-height: 1.8;
+            scroll-behavior: smooth; /* 平滑滾動，優化錨點體驗 */
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
             color: var(--text-light); 
-            padding: 30px 0; 
+            padding: 40px 0; /* 增加空間，更有氣勢 */
             text-align: center; 
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
         }
-        header h1 { margin: 0; font-size: 2.8em; font-weight: 700; }
-        header p { margin: 5px 0 0; font-size: 1.2em; opacity: 0.9; }
+        header h1 { margin: 0; font-size: 3.0em; font-weight: 700; }
+        header p { margin: 8px 0 0; font-size: 1.3em; opacity: 0.9; }
         
         nav { 
             background-color: #4a148c; 
             text-align: center; 
             padding: 10px 0; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* 固定導航欄，讓連結一直可點擊 */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,88 +50,92 @@
             text-decoration: none; 
             padding: 10px 25px; 
             display: inline-block; 
-            transition: background-color 0.3s, transform 0.2s; 
+            transition: background-color 0.3s, color 0.3s; 
             font-weight: 500;
         }
         nav a:hover { 
-            background-color: #6a1b9a; 
-            transform: scale(1.05); 
+            background-color: var(--red-accent); /* 導航欄滑過變紅 */
+            color: white;
         }
 
         .container { 
             width: 90%; 
-            max-width: 1100px; 
+            max-width: 1200px; /* 拓寬最大寬度 */
             margin: 40px auto; 
             padding: 40px; 
-            background-color: white; 
-            border-radius: 16px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            background-color: var(--card-bg); 
+            border-radius: 12px; 
+            box-shadow: var(--shadow-subtle); 
         }
         h2 { 
             color: var(--primary-color); 
-            border-bottom: 4px solid var(--secondary-color); 
+            border-bottom: 4px solid var(--red-accent); /* H2底部使用紅色強調 */
             padding-bottom: 15px; 
             margin-top: 0; 
-            font-size: 2em;
+            font-size: 2.2em;
             text-align: center;
+            font-weight: 600;
         }
         h3 { 
             color: var(--primary-color); 
             margin-top: 30px; 
-            font-size: 1.5em;
-        }
-        
-        /* 命理重要性區塊樣式 */
-        .importance-card {
-            display: flex;
-            background-color: #fce4ec; 
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-        .importance-card h3 {
-            color: #d81b60; 
-            border-left: 5px solid #ff4081;
-            padding-left: 10px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .importance-card ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-        .importance-card li {
-            position: relative;
-            margin-bottom: 15px;
+            font-size: 1.7em;
+            border-left: 5px solid var(--secondary-color);
             padding-left: 15px;
         }
+        
+        /* 命理重要性區塊 (紅色卡片) */
+        .importance-card {
+            background-color: #ffebee; /* 淺紅底 */
+            border-left: 10px solid var(--red-accent); 
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 30px;
+        }
+        .importance-card h3 {
+            color: var(--red-accent); 
+            border: none;
+            padding-left: 0;
+        }
         .importance-card li::before {
-            content: '✓';
-            color: #ff4081;
+            content: '★';
+            color: var(--red-accent);
             font-weight: bold;
             position: absolute;
             left: 0;
         }
-        
-        .tool-box { 
-            border: none;
-            padding: 30px; 
-            border-radius: 10px; 
-            margin-bottom: 25px; 
-            background-color: #e3f2fd; 
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+
+        /* 表單/工具區塊 */
+        .tool-box, form { 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        
-        input[type="date"], input[type="time"] { 
+        .tool-box {
+            background-color: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        input[type="date"], input[type="time"], input[type="text"], input[type="email"], textarea { 
             background-color: white;
-            border: 1px solid #b39ddb; 
+            border: 1px solid #b39ddb;
             padding: 12px; 
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
         }
         
         button { 
-            background-color: var(--accent-color); 
-            color: var(--primary-color); 
+            background-color: var(--red-accent); /* 按鈕使用紅色 */
+            color: var(--text-light); 
             padding: 12px 30px; 
             border: none; 
             border-radius: 50px; 
@@ -139,63 +143,70 @@
             font-size: 1.1em; 
             font-weight: bold;
             transition: background-color 0.3s, transform 0.2s; 
+            margin-top: 10px;
         }
         button:hover { 
-            background-color: #ffc107; 
+            background-color: #e53935; 
             transform: translateY(-2px); 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
+        /* 文章列表/內容 */
         .article-list {
             list-style: none;
             padding: 0;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 三欄響應式佈局 */
             gap: 20px;
             margin-top: 30px;
         }
         .article-list li {
-            flex: 1 1 calc(33.33% - 20px); 
-            min-width: 250px;
             background-color: #f3e5f5; 
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             transition: box-shadow 0.3s, background-color 0.3s;
         }
-        .article-list li:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            background-color: #ede7f6;
-        }
         .article-list a {
             color: var(--primary-color); 
             text-decoration: none; 
             display: block;
         }
-        .article-list span {
-            display: block;
-            font-size: 0.9em;
-            color: #9c27b0;
-            margin-top: 5px;
+        .article-list a:hover {
+            text-decoration: underline;
+            color: var(--red-accent);
         }
-        
-        .result-panel { 
-            border-left: 8px solid var(--secondary-color); 
-            background-color: #e1f5fe; 
-        }
-        .bazi-table th { background-color: #b2ebf2; color: #004d40; }
-        
-        /* 文章內容頁面優化 */
+
         .article-content { 
-            padding-top: 20px; 
-            /* 為了錨點跳轉，讓文章內容預設是可見的 */
-            display: block;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
+            padding-top: 50px; 
+            margin-top: 50px;
+            border-top: 2px dashed #eee;
         }
-        .article-content h3 { border-left: 5px solid var(--secondary-color); }
-        .article-content .key-point { background-color: #fffde7; border-left: 5px solid var(--accent-color); }
+        .article-content a { color: var(--red-accent); }
+        .article-content .key-point { 
+            background-color: #fffde7; 
+            border-left: 5px solid var(--accent-color); 
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        /* 八字表格 */
+        .bazi-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 15px; 
+            text-align: center;
+        }
+        .bazi-table th, .bazi-table td {
+            border: 1px solid #ccc; 
+            padding: 10px;
+        }
+        .bazi-table th { 
+            background-color: var(--primary-color); 
+            color: white; 
+            font-weight: bold;
+        }
 
         footer { 
             background-color: #333; 
@@ -211,7 +222,7 @@
 <body>
 
     <header>
-        <h1>隨緣堂 | 知命隨緣，創造無限</h1>
+        <h1>🔮 隨緣堂 | 知命隨緣，創造無限</h1>
         <p>融合東方智慧與現代科技的命理探索平台</p>
     </header>
 
@@ -219,6 +230,7 @@
         <a href="#home">首頁</a>
         <a href="#bazi-tool">八字排盤 (核心)</a>
         <a href="#articles">命理文章</a>
+        <a href="#booking">預約諮詢</a>
         <a href="#about">關於我們</a>
     </nav>
 
@@ -231,31 +243,28 @@
             </p>
             <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px;">
                 <a href="#bazi-tool"><button>🔮 免費八字精排</button></a>
-                <a href="#articles"><button style="background-color: #66bb6a; color: white;">📚 探索命理學堂</button></a>
+                <a href="#booking"><button style="background-color: #4CAF50; color: white;">📞 立即預約諮詢</button></a>
             </div>
         </div>
         
         <div class="importance-card">
             <div style="flex: 1;">
-                <h3 style="color: #d81b60;">💡 為什麼命理學對現代人如此重要？</h3>
-                <p>「隨緣堂」認為，命理並非宿命論，而是您的人生指南針。它能協助您在迷霧中精準定位。</p>
+                <h3>💡 命理學對現代人：知命而造命！</h3>
+                <p>我們堅信，命理學是讓您掌握人生的**科學工具**，而非迷信。它提供了一個觀察自我的客觀視角。</p>
             </div>
             <div style="flex: 1;">
                 <ul>
-                    <li>**趨吉避凶：** 提前掌握運勢高低點，在低谷時保守，在高點時抓住機遇。</li>
-                    <li>**知人善用：** 深入了解自身性格與潛能，選擇最能發揮天賦的事業跑道。</li>
-                    <li>**關係和諧：** 洞悉伴侶、家人、同事的命理特質，改善溝通和相處方式。</li>
+                    <li>**趨吉避凶：** 提前掌握運勢高低點，避開人生陷阱。</li>
+                    <li>**知人善用：** 深入了解自身性格與潛能，選擇最能發揮天賦的事業。</li>
+                    <li>**關係和諧：** 洞悉伴侶、家人特質，從根本改善溝通和相處方式。</li>
                 </ul>
             </div>
         </div>
-
-        <h3 style="text-align: center; color: var(--primary-color); margin-top: 50px;">緣分俱足，我們為您點亮方向</h3>
-        <p style="text-align: center; color: #555;">隨緣堂致力於以現代科技結合傳統命理，提供最客觀、最具建設性的生命指引。讓您能順著天賦的潮流，避開暗礁，掌握主動權。</p>
     </div>
 
     <div class="container" id="bazi-tool">
         <h2 id="section-bazi">🛠️ 八字命盤分析工具</h2>
-        <p style="text-align: center;">八字學是時間的藝術。請務必輸入**陽曆**出生日期與**精確**時間，以確保排盤的準確性。</p>
+        <p style="text-align: center; color: var(--red-accent); font-weight: bold;">請務必輸入**陽曆**日期與**精確**時間，以確保排盤的準確性。</p>
         <div class="tool-box">
             <form id="baziForm">
                 <label for="birthDate">出生日期 (陽曆)：</label>
@@ -268,128 +277,96 @@
             </form>
         </div>
 
-        <div class="result-panel" id="baziResult">
+        <div class="result-panel" id="baziResult" style="padding: 20px; margin-top: 20px;">
             請輸入日期與時間後，點擊按鈕進行排盤。
         </div>
     </div>
     
+    <div class="container" id="booking">
+        <h2 id="section-booking">📝 預約諮詢系統</h2>
+        <p style="text-align: center;">請填寫您的資訊，我們將在 24 小時內回覆您，安排最適合的諮詢服務。</p>
+        
+        <div class="tool-box" style="background-color: #fbecec;">
+            <form action="https://formspree.io/f/mqkvnqqe" method="POST">
+                
+                <p style="color: var(--red-accent); font-weight: bold;">[請注意] 此為 Formspree 佔位符。首次提交後，請到 jackkok1388@gmail.com 信箱點擊確認連結！</p>
+                
+                <label for="name">您的姓名：</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="email">您的 Email：</label>
+                <input type="email" name="_replyto" id="email" required placeholder="我們將回覆到此信箱">
+                
+                <label for="service">諮詢服務類型：</label>
+                <input type="text" name="service" id="service" list="services" required placeholder="例如：八字事業分析、感情合婚">
+                <datalist id="services">
+                    <option value="八字事業分析">
+                    <option value="感情合婚/擇日">
+                    <option value="流年運勢詳解">
+                    <option value="陽宅風水佈局">
+                </datalist>
+
+                <label for="message">您想諮詢的主要問題：</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+
+                <input type="hidden" name="_next" value="https://your-github-username.github.io/your-repo-name/#booking-success" />
+                
+                <button type="submit" style="background-color: #4CAF50;">📧 確認預約並送出</button>
+            </form>
+        </div>
+
+        <div id="booking-success" style="padding: 20px; border: 3px solid green; background-color: #e8f5e9; border-radius: 8px; margin-top: 30px; display: none;">
+            <h3>預約成功！</h3>
+            <p>您的預約資料已成功送出。我們已將資料發送到 jackkok1388@gmail.com。</p>
+            <p>我們將儘快審核並回覆您，請留意您的電子郵件（包括垃圾郵件夾）。</p>
+            <a href="#home" style="color: var(--primary-color); font-weight: bold;">→ 返回首頁</a>
+        </div>
+    </div>
+
+
     <div class="container" id="articles">
         <h2 id="section-articles">📚 隨緣堂命理學堂</h2>
         <p style="text-align: center;">知識是改變命運的力量。點擊標題，頁面會自動滾動到文章內容。</p>
         
         <ul class="article-list">
-            <li><a href="#article1">**【新手必讀】一分鐘看懂你的「日主」是什麼？**</a><span>(八字入門)</span></li>
-            <li><a href="#article2">當財星遇到食傷：隨緣堂解析您的「財富格局」與賺錢模式</a><span>(八字進階)</span></li>
+            <li><a href="#article1">【新手必讀】一分鐘看懂你的「日主」是什麼？</a><span>(八字入門)</span></li>
+            <li><a href="#article2">當財星遇到食傷：解析您的「財富格局」與賺錢模式</a><span>(八字進階)</span></li>
             <li><a href="#article3">紫微斗數入門：十四顆主星的性格速查表</a><span>(紫微入門)</span></li>
-            <li><a href="#article4">月老紅線在哪裡？從紫微命盤「夫妻宮」看您未來伴侶的類型與個性</a><span>(紫微情感)</span></li>
+            <li><a href="#article4">月老紅線在哪裡？從夫妻宮看您未來伴侶的類型與個性</a><span>(紫微情感)</span></li>
             <li><a href="#article5">急需指引？易經六爻起卦法：問事、事業、感情的快速決策之道</a><span>(六爻入門)</span></li>
             <li><a href="#article6">小資族居家佈局：掌握三個「陽宅三要」原則，提升財運與健康</a><span>(風水居家)</span></li>
-            <li><a href="#article7">【流年解析】您知道嗎？流年運勢的「太歲」與「犯沖」是怎麼一回事？</a><span>(運勢趨勢)</span></li>
+            <li><a href="#article7">【流年解析】流年運勢的「太歲」與「犯沖」是怎麼一回事？</a><span>(運勢趨勢)</span></li>
+            <li style="border: 1px solid var(--red-accent);"><a href="#article8">擇日學實用指南：買房入宅、開業、嫁娶的吉日良辰怎麼選？</a><span>(擇日專欄)</span></li>
+            <li style="border: 1px solid var(--red-accent);"><a href="#article9">面相學：從「三停」與「五官」看您的天生格局與流年運勢</a><span>(面相專欄)</span></li>
         </ul>
 
         <div id="article-content-wrapper">
             
             <div id="article1" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
                 <h2>【新手必讀】一分鐘看懂你的「日主」是什麼？</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：八字學院 / 入門基礎</p>
-                <p>在八字命理學中，我們常說「算八字」，但八個字裡，哪個字才是最重要的？答案是：**日主** (或稱日元、命主)。日主就像是您靈魂的代號，是分析一切的起點。</p>
-                <h3>什麼是「日主」？</h3>
-                <div class="key-point"><p><strong>日主，就是您八字命盤中「日柱」的「天干」那個字。</strong></p><p>它代表了您最核心的性格、天賦、以及您在世界上扮演的角色。了解日主，就是了解您最原始的本質。</p></div>
-                <p>您不需要自己查詢複雜的曆法！只需回到 <a href="#bazi-tool">**八字排盤工具**</a>，輸入您的陽曆出生日期和時間，工具就會自動幫您計算出八字。</p>
-            </div>
-
+                </div>
+            
             <div id="article2" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
-                <h2>當財星遇到食傷：隨緣堂解析您的「財富格局」與賺錢模式</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：八字學院 / 進階實戰</p>
-                <p>在八字命盤中，財運並非只有「財星」才能決定。真正高級的財富格局，往往涉及「食傷」與「財星」之間的完美配合。了解這個機制，您就能找到最適合自己的生財之道。</p>
-                <h3>什麼是「食傷生財」？</h3>
-                <div class="key-point"><p><strong>食傷生財</strong> 是指命盤中，代表創意、口才、技能、表達的 **食神與傷官** (簡稱食傷)，去生助代表財富、資源的 **正財與偏財** (簡稱財星)。</p><p>這種格局的財富來源，是透過您的**創意、專業技能、服務或獨特產品**而獲得。</p></div>
-                <p>無論您的命盤是哪一種，都建議您利用您的天賦。如果您有食傷生財的結構，就多投入創意和專業技能的提升吧！</p>
-            </div>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>當財星遇到食傷：解析您的「財富格局」與賺錢模式</h2>
+                </div>
             
             <div id="article3" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
                 <h2>紫微斗數入門：十四顆主星的性格速查表</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：紫微學院 / 主星基礎</p>
-                <p>紫微斗數的核心是十四顆主星，它們坐落於您的命宮，決定了您約 70% 的先天性格。了解主星，是開啟紫微大門的第一步。</p>
-                <h3>十四主星速查</h3>
-                <ul>
-                    <li>**開創型 (七殺、破軍、廉貞、貪狼)：** 敢衝敢闖，行動力強，變化快速，不喜受拘束。</li>
-                    <li>**領導型 (紫微、天府、武曲、天相)：** 穩重、有擔當，喜歡規劃和掌控全局。</li>
-                    <li>**支援型 (太陽、巨門、天機)：** 聰明、善於思考、溝通，樂於助人與服務。</li>
-                    <li>**合作型 (太陰、天梁、天同)：** 溫和、內斂、重情感，需要穩定與安全感。</li>
-                </ul>
-            </div>
-            
+                </div>
+
             <div id="article4" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
-                <h2>月老紅線在哪裡？從紫微命盤「夫妻宮」看您未來伴侶的類型與個性</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：紫微學院 / 情感婚姻</p>
-                <p>在紫微斗數中，**夫妻宮** 是觀察婚姻狀況和伴侶特徵最重要的宮位。夫妻宮主星的性質，會顯現在您所吸引的對象類型上。</p>
-                <h3>夫妻宮主星簡述</h3>
-                <ul>
-                    <li>**七殺/破軍：** 伴侶個性強勢、脾氣較硬，感情關係變化多。</li>
-                    <li>**天府/天相：** 伴侶氣質高貴、穩重可靠，注重門當戶對。</li>
-                    <li>**天機/巨門：** 伴侶思緒靈活、能言善道，但容易爭執或溝通過多。</li>
-                </ul>
-                <p>要準確了解您的夫妻宮，請務必排盤！</p>
-            </div>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>月老紅線在哪裡？從夫妻宮看您未來伴侶的類型與個性</h2>
+                </div>
 
             <div id="article5" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
                 <h2>急需指引？易經六爻起卦法：問事、事業、感情的快速決策之道</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：易經六爻學院 / 快速入門</p>
-                <p>六爻是易經的實戰應用，透過銅錢或程式起卦，可以針對單一事件做出「是」或「否」的判斷，以及事件發展的細節。</p>
-                <h3>六爻的關鍵：世應與六親</h3>
-                <div class="key-point"><p>**世爻** 代表問卜者自己；**應爻** 代表事件的對方或結果。兩者的關係決定了事情的成敗。**六親** (父母、子孫、官鬼、妻財、兄弟) 則代表事件中的各類人物和事物。</p></div>
-                <p>六爻是一種非常實用且具體的回饋工具，是您遇到人生選擇時的最佳參謀。</p>
-            </div>
+                </div>
 
             <div id="article6" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
                 <h2>小資族居家佈局：掌握三個「陽宅三要」原則，提升財運與健康</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：風水學院 / 基礎佈局</p>
-                <p>陽宅三要，指的是決定一間房子風水好壞的三個最重要的位置：**門 (大門)、主 (主臥室/爐灶)、灶 (廚房/爐灶)**。</p>
-                <h3>掌握三要，風水不差</h3>
-                <ul>
-                    <li>**門：** 納氣之口。應寬敞明亮，不宜對沖或有煞氣。</li>
-                    <li>**主：** 主人活動空間。床位應靠牆，避開樑壓頂和門沖。</li>
-                    <li>**灶：** 財富與健康之源。灶位應穩固，避開水火相沖 (水槽與爐灶不宜緊鄰)。</li>
-                </ul>
-            </div>
-
-            <div id="article7" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: #d81b60;">↑ 返回文章列表</a>
-                <h2>【流年解析】您知道嗎？流年運勢的「太歲」與「犯沖」是怎麼一回事？</h2>
-                <p style="font-style: italic; color: #757575;">發佈於：運勢趨勢 / 流年分析</p>
-                <p>「犯太歲」是每個人都會遇到的運勢週期。太歲，即當年的地支（例如甲辰年的「辰」）。</p>
-                <h3>犯太歲的四種基本情況</h3>
-                <ul>
-                    <li>**值太歲 (本命年)：** 當年地支與您生肖相同 (例如屬龍遇到辰年)。多數為變動、挑戰年。</li>
-                    <li>**沖太歲：** 當年地支與您生肖對沖 (例如屬狗遇到辰年)。多為衝突、搬遷、大變化年。</li>
-                    <li>**刑、害、破太歲：** 運勢波動較小，多影響人際關係或健康。</li>
-                </ul>
-                <p>犯太歲並非大凶，而是提醒您需要保守行事、多加謹慎的一年。</p>
-            </div>
-            
-        </div>
-    </div>
-
-
-    <div class="container" id="about">
-        <h2 id="section-about">ℹ️ 關於隨緣堂 | 知命、惜緣、造命</h2>
-        <p style="font-weight: bold;">核心理念：隨緣堂相信，最好的預測是創造。</p>
-        <p>「隨緣堂」的創立，源於對東方命理學的敬重與熱愛。我們堅守傳統演算法的精確性，同時結合現代網路技術，提供給您清晰的視野，讓您能順著天賦的潮流，掌握主動權，活出最圓滿的人生。</p>
-    </div>
-
-    <footer>
-        &copy; 2025 隨緣堂版權所有 | 網站已切換為錨點連結，確保在所有瀏覽器上都能運作。
-    </footer>
-
-    <script>
-        // === JavaScript: 八字排盤演算法 (僅在按鈕點擊時運行) ===
-        // ... (八字排盤的四個函式和 generateBazi 函式內容保持不變，因為這部分功能是正確的) ...
-
-        const TIAN_GAN
