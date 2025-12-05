@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 專業命理諮詢服務</title>
     <style>
-        /* CSS: 網站視覺風格 V4.0 (專業升級版) */
+        /* CSS: 網站視覺風格 V5.0 (專業配色 & 功能轉型) */
         :root {
-            /* 專業色調調整 */
+            /* 專業色調 */
             --primary-color: #4a148c; /* 深紫 (專業) */
             --secondary-color: #6a1b9a; /* 亮紫 */
-            --red-accent: #b71c1c; /* 深紅 (強調) */
+            --red-accent: #880e4f; /* 酒紅/深紅 (強調) */
             --gold-accent: #ffb300; /* 金色 (權威) */
-            --bg-light: #fdfdff;
+            --bg-body: #f0f0f0; /* 網站底色改為柔和淺灰 */
+            --bg-light: #fdfdff; /* 容器底色 */
             --text-dark: #212121;
             --text-light: white;
-            --card-bg: #fff;
         }
 
         body { 
             font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background-color: var(--bg-light); 
+            background-color: var(--bg-body); /* 應用新的底色 */
             color: var(--text-dark); 
             line-height: 1.8;
-            /* 移除所有滾動行為和固定定位 CSS，確保錨點跳轉穩定 */
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
             color: var(--text-light); 
-            padding: 50px 0; /* 增加頂部空間 */
+            padding: 50px 0; 
             text-align: center; 
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
         }
@@ -56,14 +55,13 @@
         }
 
         .container { 
-            /* 移除複雜的邊距調整，確保錨點精確定位 */
             width: 90%; 
             max-width: 1200px; 
             margin: 40px auto; 
             padding: 40px; 
-            background-color: var(--card-bg); 
+            background-color: var(--bg-light); /* 容器內部保持淺色，形成層次感 */
             border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 更深的陰影 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
         }
         h2 { 
             color: var(--primary-color); 
@@ -82,7 +80,7 @@
             padding-left: 15px;
         }
         
-        /* 命理重要性區塊 (紅色卡片) */
+        /* 命理重要性區塊 (酒紅色卡片) */
         .importance-card {
             background-color: #fce4ec; /* 柔和粉紅背景 */
             border-left: 10px solid var(--red-accent); 
@@ -92,7 +90,7 @@
             display: flex;
             gap: 30px;
         }
-
+        
         /* 預約系統樣式 */
         .tool-box {
             background-color: #e8eaf6; /* 淺藍紫底色 */
@@ -138,18 +136,21 @@
         }
         .article-content a { color: var(--gold-accent); }
         .article-content .key-point { 
-            background-color: #fff8e1; /* 柔和黃色提示 */
+            background-color: #fff8e1; 
             border-left: 5px solid var(--gold-accent); 
             padding: 20px;
             margin: 20px 0;
             border-radius: 6px;
         }
+        
+        /* 隱藏八字表格樣式 (因功能已移除) */
+        .bazi-table { display: none; }
 
 
     </style>
 
     <script>
-        // === JavaScript: 八字排盤邏輯 (已移除計算，轉為引導) ===
+        // === JavaScript: 八字功能已移除，保留引導函數 ===
 
         function generateBazi() {
             const dateStr = document.getElementById('birthDate').value;
@@ -161,29 +162,28 @@
                 return;
             }
 
-            // 【V4.0 核心變更】移除複雜且易錯的排盤計算，改為引導用戶預約
+            // 【V5.0 核心變更】移除所有計算，改為引導用戶預約
             const date = new Date(dateStr);
-            const mockYear = date.getFullYear();
             const mockDate = date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
             
             const mockResult = `
                 <h4 style="color: var(--red-accent); font-size: 1.4em; text-align: center;">💡 免費查詢結果（系統簡排版）</h4>
                 <p style="text-align: center;">
                     您輸入的日期是 **${mockDate}**，時間是 **${timeStr}**。
-                    <span style="display: block; font-size: 0.9em; color: var(--text-dark);">（命理學排盤需精確到節氣，本系統僅供參考）</span>
+                    <span style="display: block; font-size: 0.9em; color: var(--text-dark);">（命理學排盤需精確到節氣，請預約專業服務）</span>
                 </p>
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="#booking"><button style="background-color: var(--gold-accent); color: var(--text-dark);">✅ 立即預約，獲取精準排盤與詳解</button></a>
+                    <a href="#booking"><button style="background-color: var(--gold-accent); color: var(--text-dark);">✅ 立即預約，獲取精準分析</button></a>
                 </div>
             `;
             
             resultDiv.innerHTML = mockResult;
 
-            // 使用最穩定的 HTML 錨點跳轉
+            // 使用最穩定的 HTML 錨點跳轉到結果
             window.location.href = '#baziResult';
         }
 
-        // 頁面載入時處理預約成功顯示 (保留，雖然 mailto 不會用到)
+        // 頁面載入時處理預約成功顯示 (保留，確保錨點功能穩定)
         document.addEventListener('DOMContentLoaded', () => {
             if (window.location.hash === '#booking-success') {
                 const successDiv = document.getElementById('booking-success');
@@ -255,7 +255,7 @@
             </form>
         </div>
 
-        <div class="result-panel" id="baziResult" style="padding: 20px; margin-top: 20px; border: 1px solid #eee; border-radius: 8px;">
+        <div class="result-panel" id="baziResult" style="padding: 20px; margin-top: 20px; border: 1px solid #ccc; border-radius: 8px;">
             請輸入日期與時間後，點擊按鈕進行排盤。
         </div>
     </div>
@@ -264,7 +264,7 @@
         <h2 id="section-booking">📝 預約諮詢系統</h2>
         <p style="text-align: center;">請填寫您的資訊，我們將在 24 小時內回覆您，安排最適合的諮詢服務。</p>
         
-        <div class="tool-box" style="background-color: #fbecec;">
+        <div class="tool-box" style="background-color: #e8eaf6;">
             <form action="mailto:jackkok1388@gmail.com" method="POST" enctype="text/plain"> 
                 
                 <p style="color: var(--red-accent); font-weight: bold;">[請注意] 提交後會自動開啟您電腦上的 Email 程式！您需要點擊傳送。</p>
@@ -289,6 +289,11 @@
                 
                 <button type="submit" style="background-color: #4CAF50;">📧 確認預約並送出 (將開啟信箱)</button>
             </form>
+        </div>
+
+        <div id="booking-success" style="padding: 20px; border: 3px solid green; background-color: #e8f5f9; border-radius: 8px; margin-top: 30px; display: none;">
+            <h3>預約成功！</h3>
+            <p>您的預約資料將透過您的 Email 程式傳送。請勿關閉視窗，點擊傳送即可。</p>
         </div>
     </div>
 
@@ -496,7 +501,7 @@
             <div id="article27" class="article-content">
                 <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
                 <h2>【八字實戰】三會局、三合局的能量整合與爆發</h2>
-                <p>地支中的三會局（如亥子丑會水局）和三合局（如申子辰合水局），代表命盤中五行力量的整合與強化。一旦遇到大運或流年引動，會使命主在短時間內爆發強大的運勢能量，成就大事。</p>
+                <p>地支中的三會局（如亥子丑會水局）和三合局（如申子辰合水局）代表命盤中五行力量的整合與強化。一旦遇到大運或流年引動，會使命主在短時間內爆發強大的運勢能量，成就大事。</p>
             </div>
             
         </div>
@@ -510,7 +515,7 @@
     </div>
 
     <footer>
-        &copy; 2025 隨緣堂版權所有 | 網站已升級 V4.0 最終專業穩定版。
+        &copy; 2025 隨緣堂版權所有 | 網站已升級 V5.0 最終專業穩定版。
     </footer>
 
 </body>
