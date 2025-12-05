@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 知命隨緣，創造無限</title>
     <style>
-        /* CSS: 網站視覺風格 V3.7 (最保守版) */
+        /* CSS: 網站視覺風格 V3.8 (極簡保守版) */
         :root {
             --primary-color: #5d35b6; 
             --secondary-color: #7c4dff; 
@@ -23,7 +23,7 @@
             background-color: var(--bg-light); 
             color: var(--text-dark); 
             line-height: 1.8;
-            /* 移除平滑滾動，使用 HTML 預設的快速跳轉 */
+            /* 移除所有滾動行為和固定定位 CSS */
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
@@ -40,19 +40,16 @@
             text-align: center; 
             padding: 10px 0; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* 移除固定導航欄，改為普通定位 */
         }
         nav a { 
             color: var(--text-light); 
             text-decoration: none; 
             padding: 10px 25px; 
             display: inline-block; 
-            transition: background-color 0.3s, color 0.3s; 
             font-weight: 500;
         }
         nav a:hover { 
             background-color: var(--red-accent); 
-            color: white;
         }
 
         .container { 
@@ -73,61 +70,32 @@
             text-align: center;
             font-weight: 600;
         }
-        h3 { 
-            color: var(--primary-color); 
-            margin-top: 30px; 
-            font-size: 1.7em;
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-        }
+        /* (其他 CSS 樣式保持 V3.7 極簡版一致) */
         
-        /* 命理重要性區塊 (紅色卡片) */
         .importance-card {
             background-color: #ffebee; 
             border-left: 10px solid var(--red-accent); 
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             gap: 30px;
         }
-        .importance-card h3 {
-            color: var(--red-accent); 
-            border: none;
-            padding-left: 0;
-        }
-        .importance-card ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-        .importance-card li {
-            position: relative;
-            margin-bottom: 15px;
-            padding-left: 15px;
-        }
-        .importance-card li::before {
-            content: '★';
-            color: var(--red-accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* 表單/工具區塊 */
-        .tool-box, form { 
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        
         .tool-box {
             background-color: #e3f2fd;
             padding: 30px;
             border-radius: 10px;
-            margin-bottom: 25px;
         }
         
-        /* 文章列表/內容 */
+        button { 
+            background-color: var(--red-accent); 
+            color: var(--text-light); 
+            padding: 12px 30px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+        }
+        
         .article-list {
             list-style: none;
             padding: 0;
@@ -136,48 +104,12 @@
             gap: 20px;
             margin-top: 30px;
         }
-        .article-list li {
-            background-color: #f3e5f5; 
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05); 
-            transition: box-shadow 0.3s, background-color 0.3s;
-        }
-        .article-list li:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            background-color: #ede7f6;
-        }
-        .article-list a {
-            color: var(--primary-color); 
-            text-decoration: none; 
-            display: block;
-        }
-        .article-list a:hover {
-            text-decoration: underline;
-            color: var(--red-accent);
-        }
-
         .article-content { 
             padding-top: 20px; 
             margin-top: 20px;
             border-top: 2px dashed #eee;
-            display: block; 
-            /* 修正：為確保文章標題被錨點定位，將容器變成定位點 */
-            padding: 40px; 
-            background-color: white;
         }
-        
-        /* 八字表格 */
-        .bazi-table th { background-color: var(--primary-color); color: white; font-weight: bold; }
 
-        footer { 
-            background-color: #333; 
-            color: white; 
-            text-align: center; 
-            padding: 20px 0; 
-            margin-top: 50px; 
-            font-size: 0.9em; 
-        }
 
     </style>
 
@@ -278,11 +210,8 @@
                 
                 resultDiv.innerHTML = mockResult;
 
-                // 排盤完成後，自動捲動到結果區塊 (使用最穩定的行為)
-                document.getElementById('baziResult').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
+                // 移除平滑捲動，改為標準 HTML 跳轉到結果位置
+                window.location.href = '#baziResult';
 
             } catch(e) {
                 // 如果計算出錯，顯示錯誤信息
@@ -296,7 +225,8 @@
                 const successDiv = document.getElementById('booking-success');
                 if (successDiv) {
                     successDiv.style.display = 'block';
-                    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+                    // 移除平滑捲動
+                    window.location.href = '#booking';
                 }
             }
         });
@@ -365,4 +295,145 @@
             </form>
         </div>
 
-        <div
+        <div class="result-panel" id="baziResult" style="padding: 20px; margin-top: 20px;">
+            請輸入日期與時間後，點擊按鈕進行排盤。
+        </div>
+    </div>
+    
+    <div class="container" id="booking">
+        <h2 id="section-booking">📝 預約諮詢系統</h2>
+        <p style="text-align: center;">請填寫您的資訊，我們將在 24 小時內回覆您，安排最適合的諮詢服務。</p>
+        
+        <div class="tool-box" style="background-color: #fbecec;">
+            <form action="mailto:jackkok1388@gmail.com" method="POST" enctype="text/plain"> 
+                
+                <p style="color: var(--red-accent); font-weight: bold;">[請注意] 提交後會自動開啟您電腦上的 Email 程式！您需要點擊傳送。</p>
+                
+                <label for="name">您的姓名：</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="email">您的 Email：</label>
+                <input type="email" name="_replyto" id="email" required placeholder="您的聯絡信箱">
+                
+                <label for="service">諮詢服務類型：</label>
+                <input type="text" name="service" id="service" list="services" required placeholder="例如：八字事業分析、感情合婚">
+                <datalist id="services">
+                    <option value="八字事業分析">
+                    <option value="感情合婚/擇日">
+                    <option value="流年運勢詳解">
+                    <option value="陽宅風水佈局">
+                </datalist>
+
+                <label for="message">您想諮詢的主要問題：</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+                
+                <button type="submit" style="background-color: #4CAF50;">📧 確認預約並送出 (將開啟信箱)</button>
+            </form>
+        </div>
+
+        <div id="booking-success" style="padding: 20px; border: 3px solid green; background-color: #e8f5f9; border-radius: 8px; margin-top: 30px; display: none;">
+            <h3>預約成功！</h3>
+            <p>您的預約資料將透過您的 Email 程式傳送。請勿關閉視窗，點擊傳送即可。</p>
+        </div>
+    </div>
+
+
+    <div class="container" id="articles">
+        <h2 id="section-articles">📚 隨緣堂命理學堂</h2>
+        <p style="text-align: center; color: var(--red-accent); font-weight: bold;">[注意] 此為單檔案測試版，排盤不含精確節氣。請使用下方預約諮詢服務。</p>
+        <p style="text-align: center;">知識是改變命運的力量。點擊標題，頁面會自動滾動到文章內容。</p>
+        
+        <ul class="article-list">
+            <li><a href="#article1">**【新手必讀】一分鐘看懂你的「日主」是什麼？**</a><span>(八字入門)</span></li>
+            <li><a href="#article2">當財星遇到食傷：隨緣堂解析您的「財富格局」與賺錢模式</a><span>(八字進階)</span></li>
+            <li><a href="#article3">紫微斗數入門：十四顆主星的性格速查表</a><span>(紫微入門)</span></li>
+            <li><a href="#article4">月老紅線在哪裡？從夫妻宮看您未來伴侶的類型與個性</a><span>(紫微情感)</span></li>
+            <li><a href="#article5">急需指引？易經六爻起卦法：問事、事業、感情的快速決策之道</a><span>(六爻入門)</span></li>
+            <li><a href="#article6">小資族居家佈局：掌握三個「陽宅三要」原則，提升財運與健康</a><span>(風水居家)</span></li>
+            <li><a href="#article7">【流年解析】流年運勢的「太歲」與「犯沖」是怎麼一回事？</a><span>(運勢趨勢)</span></li>
+            <li style="border: 1px solid var(--red-accent);"><a href="#article8">擇日學實用指南：買房入宅、開業、嫁娶的吉日良辰怎麼選？</a><span>(擇日專欄)</span></li>
+            <li style="border: 1px solid var(--red-accent);"><a href="#article9">面相學：從「三停」與「五官」看您的天生格局與流年運勢</a><span>(面相專欄)</span></li>
+        </ul>
+
+        <div id="article-content-wrapper">
+            
+            <div id="article1" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>【新手必讀】一分鐘看懂你的「日主」是什麼？</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：八字學院 / 入門基礎</p>
+                <p>在八字命理學中，我們常說「算八字」，但八個字裡，哪個字才是最重要的？答案是：**日主** (或稱日元、命主)。日主就像是您靈魂的代號，是分析一切的起點。</p>
+                <h3>什麼是「日主」？</h3>
+                <div class="key-point"><p><strong>日主，就是您八字命盤中「日柱」的「天干」那個字。</strong></p><p>它代表了您最核心的性格、天賦、以及您在世界上扮演的角色。了解日主，就是了解您最原始的本質。</p></div>
+                <p>您不需要自己查詢複雜的曆法！只需回到 <a href="#bazi-tool">**八字排盤工具**</a>，輸入您的陽曆出生日期和時間，工具就會自動幫您計算出八字。</p>
+            </div>
+
+            <div id="article2" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>當財星遇到食傷：解析您的「財富格局」與賺錢模式</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：八字學院 / 進階實戰</p>
+                <p>在八字命盤中，財運並非只有「財星」才能決定。真正高級的財富格局，往往涉及「食傷」與「財星」之間的完美配合。了解這個機制，您就能找到最適合自己的生財之道。</p>
+                <h3>什麼是「食傷生財」？</h3>
+                <div class="key-point"><p><strong>食傷生財</strong> 是指命盤中，代表創意、口才、技能、表達的 **食神與傷官** (簡稱食傷)，去生助代表財富、資源的 **正財與偏財** (簡稱財星)。</p><p>這種格局的財富來源，是透過您的**創意、專業技能、服務或獨特產品**而獲得。</p></div>
+                <p>無論您的命盤是哪一種，都建議您利用您的天賦。如果您有食傷生財的結構，就多投入創意和專業技能的提升吧！</p>
+            </div>
+            
+            <div id="article3" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>紫微斗數入門：十四顆主星的性格速查表</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：紫微學院 / 主星基礎</p>
+                <p>紫微斗數的核心是十四顆主星，它們坐落於您的命宮，決定了您約 70% 的先天性格。了解主星，是開啟紫微大門的第一步。</p>
+                <h3>十四主星速查</h3>
+                <ul>
+                    <li>**開創型 (七殺、破軍、廉貞、貪狼)：** 敢衝敢闖，行動力強，變化快速，不喜受拘束。</li>
+                    <li>**領導型 (紫微、天府、武曲、天相)：** 穩重、有擔當，喜歡規劃和掌控全局。</li>
+                    <li>**支援型 (太陽、巨門、天機)：** 聰明、善於思考、溝通，樂於助人與服務。</li>
+                    <li>**合作型 (太陰、天梁、天同)：** 溫和、內斂、重情感，需要穩定與安全感。</li>
+                </ul>
+            </div>
+            
+            <div id="article4" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>月老紅線在哪裡？從夫妻宮看您未來伴侶的類型與個性</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：紫微學院 / 情感婚姻</p>
+                <p>在紫微斗數中，**夫妻宮** 是觀察婚姻狀況和伴侶特徵最重要的宮位。夫妻宮主星的性質，會顯現在您所吸引的對象類型上。</p>
+                <h3>夫妻宮主星簡述</h3>
+                <ul>
+                    <li>**七殺/破軍：** 伴侶個性強勢、脾氣較硬，感情關係變化多。</li>
+                    <li>**天府/天相：** 伴侶氣質高貴、穩重可靠，注重門當戶對。</li>
+                    <li>**天機/巨門：** 伴侶思緒靈活、能言善道，但容易爭執或溝通過多。</li>
+                </ul>
+                <p>要準確了解您的夫妻宮，請務必排盤！</p>
+            </div>
+
+            <div id="article5" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>急需指引？易經六爻起卦法：問事、事業、感情的快速決策之道</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：易經六爻學院 / 快速入門</p>
+                <p>六爻是易經的實戰應用，透過銅錢或程式起卦，可以針對單一事件做出「是」或「否」的判斷，以及事件發展的細節。</p>
+                <h3>六爻的關鍵：世應與六親</h3>
+                <div class="key-point"><p>**世爻** 代表問卜者自己；**應爻** 代表事件的對方或結果。兩者的關係決定了事情的成敗。**六親** (父母、子孫、官鬼、妻財、兄弟) 則代表事件中的各類人物和事物。</p></div>
+                <p>六爻是一種非常實用且具體的回饋工具，是您遇到人生選擇時的最佳參謀。</p>
+            </div>
+
+            <div id="article6" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>小資族居家佈局：掌握三個「陽宅三要」原則，提升財運與健康</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：風水學院 / 基礎佈局</p>
+                <p>陽宅三要，指的是決定一間房子風水好壞的三個最重要的位置：**門 (大門)、主 (主臥室/爐灶)、灶 (廚房/爐灶)**。</p>
+                <h3>掌握三要，風水不差</h3>
+                <ul>
+                    <li>**門：** 納氣之口。應寬敞明亮，不宜對沖或有煞氣。</li>
+                    <li>**主：** 主人活動空間。床位應靠牆，避開樑壓頂和門沖。</li>
+                    <li>**灶：** 財富與健康之源。灶位應穩固，避開水火相沖 (水槽與爐灶不宜緊鄰)。</li>
+                </ul>
+            </div>
+
+            <div id="article7" class="article-content">
+                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
+                <h2>【流年解析】流年運勢的「太歲」與「犯沖」是怎麼一回事？</h2>
+                <p style="font-style: italic; color: #757575;">發佈於：運勢趨勢 / 流年分析</p>
+                <p>「犯太歲」是每個人都會遇到的運勢週期。太歲，即當年的地支（例如甲辰年的「辰」）。</p>
+                <h3>犯太歲的四種基本情況</h3>
+                <ul>
+                    <li>**值太歲 (本命年)：** 當年地支與您生肖相同 (例如屬龍遇到辰年)。多數為變動、挑戰年。</li>
+                    <li>**沖太歲：** 當年地支與您生肖對沖 (例如屬狗遇到辰年)。多
