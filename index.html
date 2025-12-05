@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 專業命理諮詢服務</title>
     <style>
-        /* CSS: 網站視覺風格 V5.0 (專業配色 & 功能轉型) */
+        /* CSS: 網站視覺風格 V6.0 (最終視覺強化版) */
         :root {
             /* 專業色調 */
             --primary-color: #4a148c; /* 深紫 (專業) */
             --secondary-color: #6a1b9a; /* 亮紫 */
             --red-accent: #880e4f; /* 酒紅/深紅 (強調) */
             --gold-accent: #ffb300; /* 金色 (權威) */
-            --bg-body: #f0f0f0; /* 網站底色改為柔和淺灰 */
+            --bg-body: #f0f0f0; /* 網站底色柔和淺灰 */
             --bg-light: #fdfdff; /* 容器底色 */
             --text-dark: #212121;
             --text-light: white;
@@ -22,22 +22,25 @@
             font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background-color: var(--bg-body); /* 應用新的底色 */
+            background-color: var(--bg-body); 
             color: var(--text-dark); 
             line-height: 1.8;
+            /* 視覺強化：增加微妙的背景紋理 */
+            background-image: linear-gradient(45deg, #f0f0f0 25%, #f4f4f4 25%, #f4f4f4 50%, #f0f0f0 50%, #f0f0f0 75%, #f4f4f4 75%, #f4f4f4 100%);
+            background-size: 40px 40px;
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
             color: var(--text-light); 
             padding: 50px 0; 
             text-align: center; 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* 更強烈的陰影 */
         }
         header h1 { margin: 0; font-size: 3.2em; font-weight: 700; }
         header p { margin: 10px 0 0; font-size: 1.4em; opacity: 0.9; }
         
         nav { 
-            background-color: #311b92; /* 更深的導航欄 */
+            background-color: #311b92; 
             text-align: center; 
             padding: 12px 0; 
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -59,13 +62,17 @@
             max-width: 1200px; 
             margin: 40px auto; 
             padding: 40px; 
-            background-color: var(--bg-light); /* 容器內部保持淺色，形成層次感 */
+            background-color: var(--bg-light); 
             border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* 視覺強化：柔和立體的陰影 */
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-3px);
         }
         h2 { 
             color: var(--primary-color); 
-            border-bottom: 4px solid var(--gold-accent); /* 專業金色線條 */
+            border-bottom: 4px solid var(--gold-accent); 
             padding-bottom: 15px; 
             margin-top: 0; 
             font-size: 2.5em;
@@ -73,7 +80,7 @@
             font-weight: 700;
         }
         h3 { 
-            color: var(--red-accent); /* 小標題使用強調紅 */
+            color: var(--red-accent); 
             margin-top: 30px; 
             font-size: 1.8em;
             border-left: 5px solid var(--secondary-color);
@@ -82,21 +89,23 @@
         
         /* 命理重要性區塊 (酒紅色卡片) */
         .importance-card {
-            background-color: #fce4ec; /* 柔和粉紅背景 */
+            background-color: #fce4ec; 
             border-left: 10px solid var(--red-accent); 
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
             display: flex;
             gap: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
         
         /* 預約系統樣式 */
         .tool-box {
-            background-color: #e8eaf6; /* 淺藍紫底色 */
+            background-color: #e8eaf6; 
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 25px;
+            border: 1px solid #c5cae9;
         }
         
         button { 
@@ -108,10 +117,11 @@
             cursor: pointer; 
             font-size: 1.2em; 
             font-weight: bold;
-            transition: background-color 0.3s; 
+            transition: background-color 0.3s, box-shadow 0.3s; 
         }
         button:hover { 
             background-color: #d32f2f; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* 文章列表/內容 */
@@ -128,21 +138,18 @@
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s;
+        }
+        .article-list li:hover {
+            background-color: #fffde7; /* 鼠標懸停時的金色提示 */
         }
         .article-content { 
             padding-top: 40px; 
             margin-top: 40px;
             border-top: 2px dashed #ccc;
         }
-        .article-content a { color: var(--gold-accent); }
-        .article-content .key-point { 
-            background-color: #fff8e1; 
-            border-left: 5px solid var(--gold-accent); 
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
+
         /* 隱藏八字表格樣式 (因功能已移除) */
         .bazi-table { display: none; }
 
@@ -150,7 +157,7 @@
     </style>
 
     <script>
-        // === JavaScript: 八字功能已移除，保留引導函數 ===
+        // === JavaScript: 八字功能已移除，保留引導函數 (代碼清理) ===
 
         function generateBazi() {
             const dateStr = document.getElementById('birthDate').value;
@@ -162,7 +169,7 @@
                 return;
             }
 
-            // 【V5.0 核心變更】移除所有計算，改為引導用戶預約
+            // 【V6.0 核心變更】移除所有計算，改為引導用戶預約
             const date = new Date(dateStr);
             const mockDate = date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
             
@@ -183,7 +190,7 @@
             window.location.href = '#baziResult';
         }
 
-        // 頁面載入時處理預約成功顯示 (保留，確保錨點功能穩定)
+        // 頁面載入時處理錨點跳轉 (保留，確保功能穩定)
         document.addEventListener('DOMContentLoaded', () => {
             if (window.location.hash === '#booking-success') {
                 const successDiv = document.getElementById('booking-success');
@@ -205,15 +212,15 @@
     </header>
 
     <nav>
-        <a href="#home">首頁</a>
-        <a href="#bazi-tool">免費簡排</a>
-        <a href="#articles">命理文章</a>
-        <a href="#booking">預約諮詢</a>
-        <a href="#about">關於我們</a>
+        <a href="#home">🌟 首頁</a>
+        <a href="#bazi-tool">🗓️ 免費簡排</a>
+        <a href="#articles">📚 命理文章</a>
+        <a href="#booking">📝 預約諮詢</a>
+        <a href="#about">ℹ️ 關於我們</a>
     </nav>
 
     <div class="container" id="home">
-        <h2 id="section-home">🔥 歡迎來到隨緣堂</h2>
+        <h2 id="section-home">🌟 歡迎來到隨緣堂</h2>
         
         <div style="text-align: center;">
             <p style="font-size: 1.4em; color: var(--primary-color); font-weight: 500;">
@@ -241,7 +248,7 @@
     </div>
 
     <div class="container" id="bazi-tool">
-        <h2 id="section-bazi">🛠️ 命盤排盤簡測工具 (轉為預約引導)</h2>
+        <h2 id="section-bazi">🗓️ 命盤排盤簡測工具 (轉為預約引導)</h2>
         <p style="text-align: center; color: var(--red-accent); font-weight: bold;">[重要] 本工具僅提供簡易排盤輔助。精準分析請預約專業服務。</p>
         <div class="tool-box">
             <form id="baziForm">
@@ -290,233 +297,8 @@
                 <button type="submit" style="background-color: #4CAF50;">📧 確認預約並送出 (將開啟信箱)</button>
             </form>
         </div>
-
-        <div id="booking-success" style="padding: 20px; border: 3px solid green; background-color: #e8f5f9; border-radius: 8px; margin-top: 30px; display: none;">
-            <h3>預約成功！</h3>
-            <p>您的預約資料將透過您的 Email 程式傳送。請勿關閉視窗，點擊傳送即可。</p>
-        </div>
     </div>
 
 
     <div class="container" id="articles">
-        <h2 id="section-articles">📚 隨緣堂命理學堂</h2>
-        <p style="text-align: center; color: var(--red-accent); font-weight: bold;">[知識庫] 點擊標題，立即跳轉到文章內容。</p>
-        
-        <ul class="article-list">
-            <li><a href="#article1">**【入門】一分鐘看懂你的「日主」是什麼？**</a></li>
-            <li><a href="#article2">【財富】食傷生財：解析您的賺錢模式</a></li>
-            <li><a href="#article3">【紫微】十四顆主星的性格速查表</a></li>
-            <li><a href="#article4">【情感】夫妻宮看未來伴侶的類型</a></li>
-            <li><a href="#article5">【易經】六爻起卦法：快速決策之道</a></li>
-            <li><a href="#article6">【風水】小資族居家佈局：陽宅三要</a></li>
-            <li><a href="#article7">【流年】流年運勢的「太歲」與「犯沖」</a></li>
-            <li><a href="#article8">【擇日】買房、開業的吉日良辰怎麼選？</a></li>
-            <li><a href="#article9">【面相】從「三停」看您的天生格局</a></li>
-            <li><a href="#article10">【命盤】大運與流年：運勢的十年與一年週期</a></li>
-            <li><a href="#article11">【五行】五行平衡與命局缺憾的影響</a></li>
-            <li><a href="#article12">【十神】從十神關係看您的社交與職場人脈</a></li>
-            <li><a href="#article13">【紫微進階】祿權科忌：四化星對人生的影響</a></li>
-            <li><a href="#article14">【風水進階】如何運用玄空飛星提升財位？</a></li>
-            <li><a href="#article15">【易經進階】梅花易數：時間與空間的預測</a></li>
-            <li><a href="#article16">【婚姻】桃花星與紅鸞星對感情的雙面影響</a></li>
-            <li><a href="#article17">【事業】從官殺看您的管理風格與事業成就</a></li>
-            <li><a href="#article18">【健康】八字五行與身體器官的對應關係</a></li>
-            <li><a href="#article19">【紫微實戰】解讀兄弟宮：手足情誼與合夥關係</a></li>
-            <li><a href="#article20">【風水實戰】辦公室座位佈局提升效率與升遷</a></li>
-            <li><a href="#article21">【面相進階】氣色與紋路：面相的短期預測</a></li>
-            <li><a href="#article22">【神煞】天乙貴人與文昌星的開運妙用</a></li>
-            <li><a href="#article23">【命理哲學】知命、順命、造命的層次與區別</a></li>
-            <li><a href="#article24">【現代應用】八字命理如何應用於生涯規劃？</a></li>
-            <li><a href="#article25">【擇日進階】嫁娶擇日中「翁姑禁忌」的考量</a></li>
-            <li><a href="#article26">【紫微宮位】田宅宮與不動產投資的關係</a></li>
-            <li><a href="#article27">【八字實戰】三會局、三合局的能量整合與爆發</a></li>
-        </ul>
-
-        <div id="article-content-wrapper">
-            
-            <div id="article1" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【入門】一分鐘看懂你的「日主」是什麼？</h2>
-                <p>在八字命理學中，日主 (日元、命主) 是分析一切的起點。它代表了您最核心的性格、天賦、以及您在世界上扮演的角色。</p>
-                <div class="key-point"><p><strong>日主，就是您八字命盤中「日柱」的「天干」那個字。</strong>了解日主，就是了解您最原始的本質。</p></div>
-                <p>請到 <a href="#bazi-tool">**免費排盤簡測工具**</a> 填寫您的資訊，並預約我們的精準分析服務。</p>
-            </div>
-            
-            <div id="article2" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【財富】食傷生財：解析您的賺錢模式</h2>
-                <p>食傷生財是一種高級的財富格局。代表創意和表達的 **食神與傷官** (食傷)，去生助代表財富的 **正財與偏財** (財星)。這意味著您的財富來源，是透過您的**創意、專業技能、服務或獨特產品**而獲得。</p>
-            </div>
-
-            <div id="article3" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【紫微】十四顆主星的性格速查表</h2>
-                <p>紫微斗數的核心是十四顆主星，坐落於命宮，決定了您約 70% 的先天性格。</p>
-                <ul>
-                    <li>**開創型：** 七殺、破軍、廉貞、貪狼 (敢衝敢闖，行動力強)。</li>
-                    <li>**領導型：** 紫微、天府、武曲、天相 (穩重、有擔當，喜歡規劃)。</li>
-                    <li>**支援型：** 太陽、巨門、天機 (聰明、善於思考、溝通)。</li>
-                    <li>**合作型：** 太陰、天梁、天同 (溫和、內斂、重情感)。</li>
-                </ul>
-            </div>
-            
-            <div id="article4" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【情感】夫妻宮看未來伴侶的類型</h2>
-                <p>夫妻宮是觀察婚姻狀況和伴侶特徵最重要的宮位。例如，夫妻宮有七殺/破軍，伴侶個性可能強勢；有天府/天相，伴侶可能穩重可靠。</p>
-            </div>
-
-            <div id="article5" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【易經】六爻起卦法：快速決策之道</h2>
-                <p>六爻是易經的實戰應用，可以針對單一事件做出「是」或「否」的判斷。核心概念是 **世爻** (問卜者自己) 和 **應爻** (事件的結果)，以及 **六親** 的力量對比。</p>
-            </div>
-
-            <div id="article6" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【風水】小資族居家佈局：陽宅三要</h2>
-                <p>陽宅三要指的是決定一間房子風水好壞的三個最重要的位置：**門、主、灶**。門納氣、主掌主人運勢、灶關乎財富與健康。確保這三要位置得當，風水就不會太差。</p>
-            </div>
-
-            <div id="article7" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【流年】流年運勢的「太歲」與「犯沖」</h2>
-                <p>「犯太歲」是指流年的地支與您本命地支的關係。**值太歲** (本命年) 和 **沖太歲** (對沖年) 都代表運勢變動、挑戰和變化。這不是大凶，而是提醒您應保守謹慎。</p>
-            </div>
-            
-            <div id="article8" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【擇日】買房、開業的吉日良辰怎麼選？</h2>
-                <p>擇日學的關鍵在於避開「沖煞」和找到「旺氣」。重要原則包括：避開與當事人年命相沖的日子，選擇「成、開、定」等吉神值日，並配合月令五行。</p>
-            </div>
-
-            <div id="article9" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【面相】從「三停」看您的天生格局</h2>
-                <p>面相學將人的臉分成三個區域（三停）：**上停** (額頭至眉，早年運勢與智慧)、**中停** (眉至鼻，中年運勢與事業)、**下停** (人中至下巴，晚年運勢與地產)。三停勻稱者，一生格局平穩。</p>
-            </div>
-
-            <div id="article10" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【命盤】大運與流年：運勢的十年與一年週期</h2>
-                <p>八字命理中，**大運**掌管人生十年氣運，影響宏觀人生走向；**流年**掌管當年氣運，影響具體事件。分析時必須將兩者結合，才能看到運勢的起伏與趨勢。</p>
-            </div>
-            
-            <div id="article11" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【五行】五行平衡與命局缺憾的影響</h2>
-                <p>五行（金木水火土）是命理學的基礎。五行相生相剋，若命局五行失衡（太旺或太弱），則易在相關面向出現問題。例如缺水可能影響智慧或腎臟健康。</p>
-            </div>
-
-            <div id="article12" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【十神】從十神關係看您的社交與職場人脈</h2>
-                <p>十神是日主與其他天干地支五行關係的代名詞（如正官、偏財、食神）。它們也代表了社會關係：例如「正官」可能代表上司、配偶；「比劫」代表同事、朋友。</p>
-            </div>
-
-            <div id="article13" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【紫微進階】祿權科忌：四化星對人生的影響</h2>
-                <p>四化星（祿、權、科、忌）是紫微斗數中動態的能量，它們依附在主星上，使星曜產生變動：祿主福氣財運，權主權勢競爭，科主名聲科甲，忌主是非阻礙。</p>
-            </div>
-
-            <div id="article14" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【風水進階】如何運用玄空飛星提升財位？</h2>
-                <p>玄空飛星是風水學中判斷氣場變化的方法。每年都有不同的星曜飛臨不同方位。要提升財位，需找出當年的「八白財星」或「九紫吉星」飛臨的方位並加以催旺。</p>
-            </div>
-
-            <div id="article15" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【易經進階】梅花易數：時間與空間的預測</h2>
-                <p>梅花易數是一種簡便的起卦法，它利用時間（如年、月、日、時）或物件數量來起卦，直接判斷吉凶和事情發展。它注重外應和靈感，是一種高層次的預測學。</p>
-            </div>
-
-            <div id="article16" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【婚姻】桃花星與紅鸞星對感情的雙面影響</h2>
-                <p>桃花星（如貪狼、廉貞）主異性緣和魅力，但若配置不當，可能導致感情複雜。紅鸞星主喜慶、婚緣，多指正式的婚姻關係。兩者應區分對待。</p>
-            </div>
-
-            <div id="article17" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【事業】從官殺看您的管理風格與事業成就</h2>
-                <p>八字中的「官殺」（正官和偏官/七殺）代表事業、名譽、權力與壓力。官殺旺的人有管理能力，自我要求高。但若官殺太重，則壓力過大，需有印星來平衡。</p>
-            </div>
-
-            <div id="article18" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【健康】八字五行與身體器官的對應關係</h2>
-                <p>五行與人體器官有對應：木主肝膽、火主心臟、土主脾胃、金主肺、水主腎。八字中某一行太弱或太旺，可能影響對應器官的健康，需從生活和飲食中調和。</p>
-            </div>
-
-            <div id="article19" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【紫微實戰】解讀兄弟宮：手足情誼與合夥關係</h2>
-                <p>兄弟宮除了看與兄弟姐妹的關係，也代表您的人際交往能力、合夥運勢以及現金的積存能力。宮位吉利，則手足情深，合夥順利；宮位不吉，則容易有金錢和人際糾紛。</p>
-            </div>
-
-            <div id="article20" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【風水實戰】辦公室座位佈局提升效率與升遷</h2>
-                <p>辦公室座位應：背後有靠（靠牆或高櫃），不宜背對門窗；面前視野開闊，不宜正對柱子或牆角。座位上方不宜有樑壓頂，這些佈局都能提升效率與穩定性。</p>
-            </div>
-
-            <div id="article21" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【面相進階】氣色與紋路：面相的短期預測</h2>
-                <p>面相學不僅看骨相，也看氣色。氣色黃潤主吉利，灰暗主晦氣；突發的紋路（如額頭青筋）則可能預示短期內的健康或壓力問題。氣色變化通常預示一週到一月的運勢。</p>
-            </div>
-
-            <div id="article22" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【神煞】天乙貴人與文昌星的開運妙用</h2>
-                <p>神煞是八字命理中輔助判斷的符號。天乙貴人是最強大的貴人星，主逢凶化吉。文昌星主智慧、學業、考試。在流年或大運遇到這些神煞，運勢通常會有加成效果。</p>
-            </div>
-
-            <div id="article23" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【命理哲學】知命、順命、造命的層次與區別</h2>
-                <p>命理學的終極目標是造命。**知命**是了解天賦和運勢曲線；**順命**是順應大勢，在對的時間做對的事；**造命**則是在知順的基礎上，主動創造，改變行為和環境來最大化潛能。</p>
-            </div>
-
-            <div id="article24" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【現代應用】八字命理如何應用於生涯規劃？</h2>
-                <p>八字能準確看出個人的優勢（如食傷的創意、比劫的行動力）和劣勢。將這些天賦對應到現代職業（例如，食傷重適合公關、行銷；官殺旺適合管理、法律），是現代生涯規劃的基礎。</p>
-            </div>
-
-            <div id="article25" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【擇日進階】嫁娶擇日中「翁姑禁忌」的考量</h2>
-                <p>在傳統嫁娶擇日中，除了避開新人與日子的沖煞，還需考量「翁姑禁忌」，即避開對公婆或岳父母不利的日子。這確保婚姻能得到長輩的祝福與支持，是家庭和睦的重要考量。</p>
-            </div>
-
-            <div id="article26" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【紫微宮位】田宅宮與不動產投資的關係</h2>
-                <p>紫微斗數中的田宅宮，不僅代表居住環境，也是不動產和財富累積的重要指標。田宅宮吉利，通常暗示有良好的房產運和穩定的資產；若有煞星，則可能房產有糾紛或難以守財。</p>
-            </div>
-
-            <div id="article27" class="article-content">
-                <a href="#articles" style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--red-accent);">↑ 返回文章列表</a>
-                <h2>【八字實戰】三會局、三合局的能量整合與爆發</h2>
-                <p>地支中的三會局（如亥子丑會水局）和三合局（如申子辰合水局）代表命盤中五行力量的整合與強化。一旦遇到大運或流年引動，會使命主在短時間內爆發強大的運勢能量，成就大事。</p>
-            </div>
-            
-        </div>
-    </div>
-
-
-    <div class="container" id="about">
-        <h2 id="section-about">ℹ️ 關於隨緣堂 | 知命、惜緣、造命</h2>
-        <p style="font-weight: bold;">核心理念：隨緣堂相信，最好的預測是創造。</p>
-        <p>「隨緣堂」的創立，源於對東方命理學的敬重與熱愛。我們致力於以現代科技結合傳統命理，提供最客觀、最具建設性的生命指引。讓您能順著天賦的潮流，避開暗礁，掌握主動權，活出最圓滿的人生。</p>
-    </div>
-
-    <footer>
-        &copy; 2025 隨緣堂版權所有 | 網站已升級 V5.0 最終專業穩定版。
-    </footer>
-
-</body>
-</html>
+        <h2
