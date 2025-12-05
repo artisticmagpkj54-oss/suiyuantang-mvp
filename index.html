@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 隨緣堂 | 知命隨緣，創造無限</title>
     <style>
-        /* CSS: 網站視覺風格 V3.6 (最終穩定版) */
+        /* CSS: 網站視覺風格 V3.7 (最保守版) */
         :root {
             --primary-color: #5d35b6; 
             --secondary-color: #7c4dff; 
@@ -14,7 +14,6 @@
             --text-dark: #333;
             --text-light: white;
             --card-bg: #fff;
-            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); 
         }
 
         body { 
@@ -24,7 +23,7 @@
             background-color: var(--bg-light); 
             color: var(--text-dark); 
             line-height: 1.8;
-            scroll-behavior: smooth; 
+            /* 移除平滑滾動，使用 HTML 預設的快速跳轉 */
         }
         header { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
@@ -41,9 +40,7 @@
             text-align: center; 
             padding: 10px 0; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            /* 移除固定導航欄，改為普通定位 */
         }
         nav a { 
             color: var(--text-light); 
@@ -61,15 +58,11 @@
         .container { 
             width: 90%; 
             max-width: 1200px; 
-            /* 核心修正 V3.5：增加頂部緩衝，避免導航欄遮擋內容 */
-            padding-top: 100px; 
-            margin-top: -60px; 
-            
             margin: 40px auto; 
             padding: 40px; 
             background-color: var(--card-bg); 
             border-radius: 12px; 
-            box-shadow: var(--shadow-subtle); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
         }
         h2 { 
             color: var(--primary-color); 
@@ -133,37 +126,7 @@
             border-radius: 10px;
             margin-bottom: 25px;
         }
-        input[type="date"], input[type="time"], input[type="text"], input[type="email"], textarea { 
-            background-color: white;
-            border: 1px solid #b39ddb;
-            padding: 12px; 
-            border-radius: 6px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-        input:focus, textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
         
-        button { 
-            background-color: var(--red-accent); 
-            color: var(--text-light); 
-            padding: 12px 30px; 
-            border: none; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-size: 1.1em; 
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.2s; 
-            margin-top: 10px;
-        }
-        button:hover { 
-            background-color: #e53935; 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         /* 文章列表/內容 */
         .article-list {
             list-style: none;
@@ -195,6 +158,211 @@
         }
 
         .article-content { 
-            padding-top: 50px; 
-            margin-top: 50px;
-            border-top:
+            padding-top: 20px; 
+            margin-top: 20px;
+            border-top: 2px dashed #eee;
+            display: block; 
+            /* 修正：為確保文章標題被錨點定位，將容器變成定位點 */
+            padding: 40px; 
+            background-color: white;
+        }
+        
+        /* 八字表格 */
+        .bazi-table th { background-color: var(--primary-color); color: white; font-weight: bold; }
+
+        footer { 
+            background-color: #333; 
+            color: white; 
+            text-align: center; 
+            padding: 20px 0; 
+            margin-top: 50px; 
+            font-size: 0.9em; 
+        }
+
+    </style>
+
+    <script>
+        // === JavaScript: 八字排盤演算法 (V3.1 修正版) ===
+        const TIAN_GAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+        const DI_ZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+
+        // 1. 日柱干支計算
+        function calculateDayGanZhi(dateStr) {
+            const dateFromEpoch = new Date(dateStr);
+            const epoch = new Date('1899-12-31');
+            const days = Math.floor((dateFromEpoch - epoch) / (1000 * 60 * 60 * 24));
+            const ganIndex = (5 + days) % 10;
+            const zhiIndex = (11 + days) % 12;
+            return { gan: TIAN_GAN[ganIndex], zhi: DI_ZHI[zhiIndex] };
+        }
+
+        // 2. 年柱干支計算
+        function calculateYearGanZhi(year) {
+            const offsetYear = year - 1984;
+            const ganIndex = (offsetYear % 10 + 10) % 10;
+            const zhiIndex = (offsetYear % 12 + 12) % 12;
+            return { gan: TIAN_GAN[ganIndex], zhi: DI_ZHI[zhiIndex] };
+        }
+
+        // 3. 時柱干支計算 (五鼠遁日歌修正版)
+        function calculateHourGanZhi(dayGan, timeStr) {
+            const hour = parseInt(timeStr.split(':')[0]);
+            let hourZhiIndex;
+            if (hour >= 23 || hour < 1) { 
+                hourZhiIndex = 0; // 子時
+            } else {
+                hourZhiIndex = Math.floor((hour + 1) / 2) % 12;
+            }
+            const hourZhi = DI_ZHI[hourZhiIndex];
+
+            const dayGanMap = { "甲": 0, "己": 0, "乙": 2, "庚": 2, "丙": 4, "辛": 4, "丁": 6, "壬": 6, "戊": 8, "癸": 8 };
+            const zishiGanIndex = dayGanMap[dayGan]; 
+            const hourGanIndex = (zishiGanIndex + hourZhiIndex) % 10;
+            const hourGan = TIAN_GAN[hourGanIndex]; 
+
+            return { gan: hourGan, zhi: hourZhi };
+        }
+        
+        // 4. 月柱干支計算 (簡化版)
+        function calculateMonthGanZhi(year, month) {
+            const yearGan = calculateYearGanZhi(year).gan;
+            const yearGanMap = { "甲": 2, "己": 2, "乙": 4, "庚": 4, "丙": 6, "辛": 6, "丁": 8, "壬": 8, "戊": 0, "癸": 0 };
+
+            const zhiIndex = (month + 10) % 12; 
+            const monthZhi = DI_ZHI[zhiIndex];
+            
+            const yinYueGanIndex = yearGanMap[yearGan]; 
+            const monthGanIndex = (yinYueGanIndex + zhiIndex - 2 + 10) % 10; 
+            const monthGan = TIAN_GAN[monthGanIndex];
+
+            return { gan: monthGan, zhi: monthZhi };
+        }
+
+
+        // 5. 整合顯示函數 (被按鈕呼叫)
+        function generateBazi() {
+            const dateStr = document.getElementById('birthDate').value;
+            const timeStr = document.getElementById('birthTime').value;
+            const resultDiv = document.getElementById('baziResult');
+            
+            try {
+                if (!dateStr || !timeStr) {
+                    resultDiv.innerHTML = '<p style="color: var(--red-accent); font-weight: bold;">請輸入完整的出生日期和時間！</p>';
+                    return;
+                }
+
+                const date = new Date(dateStr);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1;
+
+                const dayGanZhi = calculateDayGanZhi(dateStr);
+                const yearGanZhi = calculateYearGanZhi(year);
+                const hourGanZhi = calculateHourGanZhi(dayGanZhi.gan, timeStr);
+                const monthGanZhi = calculateMonthGanZhi(year, month); 
+
+                const mockResult = `
+                    <h4 style="color: var(--red-accent); font-size: 1.4em; text-align: center;">✅ 八字排盤結果 (系統計算版)</h4>
+                    <p style="text-align: center;">
+                        <strong>日主（命主）為：</strong><strong style="color: var(--primary-color); font-size: 1.5em;">${dayGanZhi.gan}</strong>
+                        <span style="display: block; font-size: 0.9em; color: #777;">（您的核心個性與本質）</span>
+                    </p>
+                    <table class="bazi-table">
+                        <tr><th>柱</th><th>年柱</th><th>月柱</th><th>日柱</th><th>時柱</th></tr>
+                        <tr><td>天干</td><td>${yearGanZhi.gan}</td><td>${monthGanZhi.gan}</td><td>${dayGanZhi.gan}</td><td>${hourGanZhi.gan}</td></tr>
+                        <tr><td>地支</td><td>${yearGanZhi.zhi}</td><td>${monthGanZhi.zhi}</td><td>${dayGanZhi.zhi}</td><td>${hourGanZhi.zhi}</td></tr>
+                    </table>
+                    <p style="margin-top: 20px; font-style: italic; color: #00796b;">
+                        *注意：時柱邏輯 (五鼠遁日歌) 已修正為精確版。
+                    </p>
+                `;
+                
+                resultDiv.innerHTML = mockResult;
+
+                // 排盤完成後，自動捲動到結果區塊 (使用最穩定的行為)
+                document.getElementById('baziResult').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+
+            } catch(e) {
+                // 如果計算出錯，顯示錯誤信息
+                resultDiv.innerHTML = `<p style="color: var(--red-accent); font-weight: bold;">八字排盤計算失敗！請檢查日期是否正確。</p><p style="font-size: 0.8em; color: #777;">錯誤詳情: ${e.message}</p>`;
+            }
+        }
+
+        // 頁面載入時處理預約成功顯示
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#booking-success') {
+                const successDiv = document.getElementById('booking-success');
+                if (successDiv) {
+                    successDiv.style.display = 'block';
+                    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>🔮 隨緣堂 | 知命隨緣，創造無限</h1>
+        <p>融合東方智慧與現代科技的命理探索平台</p>
+    </header>
+
+    <nav>
+        <a href="#home">首頁</a>
+        <a href="#bazi-tool">八字排盤 (核心)</a>
+        <a href="#articles">命理文章</a>
+        <a href="#booking">預約諮詢</a>
+        <a href="#about">關於我們</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h2 id="section-home">🔥 歡迎來到隨緣堂</h2>
+        
+        <div style="text-align: center;">
+            <p style="font-size: 1.3em; color: #6a1b9a; font-weight: 500;">
+                人生如棋，知己知彼，方能落子無悔。
+            </p>
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px;">
+                <a href="#bazi-tool"><button>🔮 免費八字精排</button></a>
+                <a href="#booking"><button style="background-color: #4CAF50; color: white;">📞 立即預約諮詢</button></a>
+            </div>
+        </div>
+        
+        <div class="importance-card">
+            <div style="flex: 1;">
+                <h3>💡 命理學對現代人：知命而造命！</h3>
+                <p>我們堅信，命理學是讓您掌握人生的**科學工具**，而非迷信。它提供了一個觀察自我的客觀視角。</p>
+            </div>
+            <div style="flex: 1;">
+                <ul>
+                    <li>**趨吉避凶：** 提前掌握運勢高低點，避開人生陷阱。</li>
+                    <li>**知人善用：** 深入了解自身性格與潛能，選擇最能發揮天賦的事業。</li>
+                    <li>**關係和諧：** 洞悉伴侶、家人特質，從根本改善溝通和相處方式。</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: var(--primary-color); margin-top: 50px;">緣分俱足，我們為您點亮方向</h3>
+        <p style="text-align: center; color: #555;">隨緣堂致力於以現代科技結合傳統命理，提供最客觀、最具建設性的生命指引。讓您能順著天賦的潮流，避開暗礁，掌握主動權。</p>
+    </div>
+
+    <div class="container" id="bazi-tool">
+        <h2 id="section-bazi">🛠️ 八字命盤分析工具</h2>
+        <p style="text-align: center; color: var(--red-accent); font-weight: bold;">請務必輸入**陽曆**日期與**精確**時間，以確保排盤的準確性。</p>
+        <div class="tool-box">
+            <form id="baziForm">
+                <label for="birthDate">出生日期 (陽曆)：</label>
+                <input type="date" id="birthDate" required>
+
+                <label for="birthTime">出生時間 (24小時制)：</label>
+                <input type="time" id="birthTime" required>
+                
+                <button type="button" onclick="generateBazi()">顯示八字排盤</button>
+            </form>
+        </div>
+
+        <div
