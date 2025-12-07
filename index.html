@@ -3,321 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隨緣堂 | 東方命理文化知識網</title>
+    <title>隨緣堂 | 東方命理文化權威平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* CSS: 閱讀導向、沉穩風格 */
+        /* --- V13.0 專業視覺系統 --- */
         :root {
-            --primary-purple: #4a148c;
-            --deep-gold: #b7892b;
-            --dark-text: #333;
-            --light-bg: #f9f9f9;
-            --paper-bg: #fff;
+            --primary-dark: #2c1e31; /* 深邃紫檀色 */
+            --primary-light: #5d4067;
+            --accent-gold: #cfab66; /* 鎏金色 */
+            --accent-red: #8f2a24; /* 故宮紅 */
+            --text-main: #333333;
+            --text-gray: #666666;
+            --bg-paper: #f9f7f2; /* 宣紙白 */
+            --bg-white: #ffffff;
         }
 
-        body { 
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--light-bg); 
-            color: var(--dark-text); 
-            line-height: 1.8; 
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-paper);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
         }
 
-        /* 標頭 */
-        header { 
-            background-color: var(--primary-purple); 
-            color: white; 
-            padding: 100px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--deep-gold);
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif TC', serif; /* 標題使用襯線體，更具文化感 */
+            font-weight: 700;
         }
-        header h1 { margin: 0; font-size: 3em; letter-spacing: 2px; }
-        header p { margin-top: 10px; font-size: 1.2em; opacity: 0.9; }
 
-        /* 導航 */
-        nav { 
-            background-color: #222; 
-            text-align: center; 
-            padding: 15px 0; 
-            position: sticky; /* 黏性導航，方便閱讀 */
+        /* 導航欄 */
+        nav {
+            background-color: var(--primary-dark);
+            padding: 15px 0;
+            position: sticky;
             top: 0;
             z-index: 1000;
-        }
-        nav a { 
-            color: #ddd; 
-            text-decoration: none; 
-            padding: 10px 20px; 
-            display: inline-block; 
-            font-size: 1.1em;
-        }
-        nav a:hover { color: var(--deep-gold); }
-
-        /* 內容容器 */
-        .container { 
-            width: 90%; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 60px 0; 
-        }
-
-        /* 區塊樣式 */
-        section {
-            background-color: var(--paper-bg);
-            padding: 50px;
-            margin-bottom: 50px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        /* 標題 */
-        h2 { 
-            color: var(--primary-purple); 
-            border-bottom: 2px solid #eee; 
-            padding-bottom: 15px; 
-            margin-top: 0;
-            font-size: 2em;
-        }
-        h3 { 
-            color: #8b0000; 
-            margin-top: 40px; 
-            font-size: 1.5em; 
-            border-left: 5px solid var(--deep-gold);
-            padding-left: 15px;
-        }
-        h4 {
-            color: #444;
-            font-size: 1.2em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* 列表與重點 */
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .highlight { font-weight: bold; color: var(--primary-purple); }
-
-        /* 預約按鈕 */
-        .btn-booking {
-            display: block;
-            width: 200px;
-            margin: 30px auto;
-            padding: 15px;
-            background-color: var(--deep-gold);
-            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1em;
         }
-        .btn-booking:hover { background-color: #9a7222; }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+        nav a:hover { color: var(--accent-gold); }
 
-        footer { 
-            background-color: #222; 
-            color: #777; 
-            text-align: center; 
-            padding: 30px 0; 
+        /* 英雄首圖 (Hero Section) */
+        header {
+            /* 背景圖：東方星空與羅盤意象 */
+            background: linear-gradient(rgba(44, 30, 49, 0.7), rgba(44, 30, 49, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519681393784-d8e5b5a4570b?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 140px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            letter-spacing: 8px;
+        }
+        header p {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--accent-gold);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        header .btn-cta {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 50px;
+            background-color: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 2px;
+            transition: background 0.3s;
+            border: 1px solid var(--accent-red);
+        }
+        header .btn-cta:hover {
+            background-color: transparent;
+            border-color: white;
+        }
+
+        /* 通用容器 */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* 區塊標題 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        .section-title span {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        /* 五術源流：圖文交錯排版 */
+        .origin-card {
+            display: flex;
+            background: var(--bg-white);
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .origin-card:hover { transform: translateY(-5px); }
+        
+        .origin-img {
+            flex: 1;
+            min-height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        .origin-content {
+            flex: 2;
+            padding: 40px;
+        }
+        .origin-content h3 {
+            color: var(--primary-light);
+            font-size: 1.8rem;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        .origin-content h4 {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+        }
+        .origin-content p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        /* 五術配圖設定 */
+        .img-bazi { background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600'); }
+        .img-ziwei { background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=600'); }
+        .img-fengshui { background-image: url('https://images.unsplash.com/photo-1599632822005-4c07da6b3726?q=80&w=600'); }
+        .img-liuyao { background-image: url('https://images.unsplash.com/photo-1627844642677-9b6c00d43e26?q=80&w=600'); }
+        .img-face { background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600'); }
+
+        /* 文章列表：雜誌風格 */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .article-item {
+            background: var(--bg-white);
+            padding: 30px;
+            border-top: 4px solid var(--primary-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .article-tag {
+            display: inline-block;
+            background-color: #eee;
+            color: #555;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .article-item h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+        .article-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .read-more {
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* 預約區塊 */
+        #contact {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        #contact h2 { color: white; margin-bottom: 20px; }
+        #contact p { color: #ccc; max-width: 600px; margin: 0 auto 40px; }
+        
+        .mail-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(207, 171, 102, 0.4);
+            transition: transform 0.2s;
+        }
+        .mail-btn:hover { transform: scale(1.05); }
+
+        footer {
+            background-color: #1a111d;
+            color: #555;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .origin-card { flex-direction: column; }
+            .origin-img { min-height: 200px; }
+            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>隨緣堂</h1>
-        <p>知命隨緣 ‧ 探索東方智慧 ‧ 創造無限未來</p>
-    </header>
-
     <nav>
-        <a href="#intro">關於我們</a>
-        <a href="#history">五術源流</a>
+        <a href="#about">關於隨緣堂</a>
+        <a href="#origins">五術源流</a>
         <a href="#articles">命理文章</a>
         <a href="#contact">預約諮詢</a>
     </nav>
 
-    <div class="container">
+    <header>
+        <h1>隨緣堂</h1>
+        <p>融匯古今智慧 ‧ 洞悉生命軌跡</p>
+        <a href="#contact" class="btn-cta">開啟您的人生導航</a>
+    </header>
 
-        <section id="intro">
-            <h2>ℹ️ 關於隨緣堂</h2>
-            <p>「隨緣堂」致力於將傳統艱澀的東方命理智慧，轉化為現代人能理解、應用的生活指南。我們不搞迷信，不賣恐懼，只提供客觀的分析與溫暖的建議。</p>
-            <p>無論您是處於人生的十字路口，還是單純對神秘學感興趣，這裡都是您探索命運的起點。<strong>知命，是為了更寬容地看待自己；造命，是為了更積極地創造未來。</strong></p>
-        </section>
+    <div class="container" id="about">
+        <div class="section-title">
+            <h2>關於隨緣堂</h2>
+            <span></span>
+        </div>
+        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: var(--text-gray);">
+            命理並非宿命論，而是一份詳盡的「人生使用說明書」。<br>
+            隨緣堂致力於將艱澀的古籍理論，轉化為現代人能理解的決策智慧。<br>
+            我們不談怪力亂神，只論陰陽五行與邏輯推演，助您在知命的基礎上，順勢而為，造命開運。
+        </p>
+    </div>
 
-        <section id="history">
-            <h2>📜 五術源流：命理學的千年演變</h2>
-            <p>中國傳統命理學博大精深，以下為您詳細梳理其中最核心的五大流派起源與發展。</p>
+    <div class="container" id="origins">
+        <div class="section-title">
+            <h2>五術源流與學術傳承</h2>
+            <span></span>
+        </div>
 
-            <h3>一、八字命理 (子平術)</h3>
-            <p><strong>起源：</strong> 八字命理學的雛形可追溯至漢代，當時多以「年」為主來論命。真正的轉折點發生在唐代。</p>
-            <p><strong>發展與核心：</strong></p>
-            <ul>
-                <li><strong>唐代 - 李虛中：</strong> 被尊為八字鼻祖。他改用年、月、日三柱（六字）來推算命運，準確率大增。</li>
-                <li><strong>宋代 - 徐子平：</strong> 八字歷史上最重要的人物。他進一步將「時辰」納入，形成了完整的「四柱八字」，並將論命中心由「年」改為<span class="highlight">「日主」</span>，確立了現代八字學的基礎。</li>
-            </ul>
+        <div class="origin-card">
+            <div class="origin-img img-bazi"></div>
+            <div class="origin-content">
+                <h3>八字命理 (子平術)</h3>
+                <h4>起源與發展</h4>
+                <p>八字學說萌芽於漢代，當時多以「年」為主論命（如生肖）。至唐代，宗師<strong>李虛中</strong>改以年、月、日三柱推算，準確率大增。宋代<strong>徐子平</strong>進一步完善，納入時辰，形成「四柱八字」，並確立以「日主」為核心的論命體系，後世尊稱為「子平八字」。</p>
+                <h4>核心理論</h4>
+                <p>以人出生的時間轉換為天干地支，分析五行（金木水火土）的強弱、生剋與流通。它是人生的「氣象預報」，能精準推算性格特質、事業財運與大運流年的起伏。</p>
+            </div>
+        </div>
 
-            <h3>二、紫微斗數 (帝王之學)</h3>
-            <p><strong>起源：</strong> 紫微斗數在古代長期被視為「欽天監」的秘學，專供皇家御用，因此被稱為「帝王之學」。</p>
-            <p><strong>發展與核心：</strong></p>
-            <ul>
-                <li><strong>創始 - 陳希夷 (陳摶老祖)：</strong> 宋代著名的道家人物，相傳他綜合了星象學與易理，創立了紫微斗數。</li>
-                <li><strong>核心：</strong> 將人出生的時空轉化為十二宮位，猶如一張詳細的人生統計表，對性格、六親關係的描述極為細膩。</li>
-            </ul>
+        <div class="origin-card">
+            <div class="origin-img img-ziwei"></div>
+            <div class="origin-content">
+                <h3>紫微斗數 (帝王學)</h3>
+                <h4>起源與發展</h4>
+                <p>相傳由宋代道家宗師<strong>陳希夷（陳摶老祖）</strong>所創。紫微斗數在古代長期被視為「欽天監」的秘學，專供皇室御用，因此被稱為「帝王之學」。直至明清時期，《紫微斗數全書》流出，才逐漸在民間廣為流傳。</p>
+                <h4>核心理論</h4>
+                <p>將人出生的時空資訊，轉化為十二個宮位（命宮、夫妻、財帛等），並排入一百多顆星曜。它猶如一張極為精細的「人生統計表」，對於人際關係、心理狀態與事件細節的描述，細膩度冠絕五術。</p>
+            </div>
+        </div>
 
-            <h3>三、風水 (堪輿學)</h3>
-            <p><strong>起源：</strong> 「風水」二字最早見於晉代郭璞的《葬書》：「氣乘風則散，界水則止...故謂之風水。」</p>
-            <p><strong>發展與核心：</strong></p>
-            <ul>
-                <li><strong>兩大主流：</strong> 一為「形勢派」，重山川形勢、龍脈走向；二為「理氣派」，重羅盤方位與氣場計算。</li>
-                <li><strong>核心：</strong> 探討「人」與「環境」的能量交互。好的風水能藏風聚氣，促進居住者的健康與運勢。</li>
-            </ul>
+        <div class="origin-card">
+            <div class="origin-img img-fengshui"></div>
+            <div class="origin-content">
+                <h3>風水堪輿 (環境學)</h3>
+                <h4>起源與發展</h4>
+                <p>「風水」一詞最早見於晉代郭璞的《葬書》：「氣乘風則散，界水則止...故謂之風水。」風水學發展出兩大主流：一為重山川形勢、龍脈走向的<strong>「巒頭派」</strong>；二為重羅盤方位、氣場計算的<strong>「理氣派」</strong>（如玄空飛星）。</p>
+                <h4>核心理論</h4>
+                <p>探討「人」與「環境」之間的能量交互。好的風水能「藏風聚氣」，透過調整陽宅（居住環境）的三要（門、主、灶），來提升居住者的健康、情緒與運勢。</p>
+            </div>
+        </div>
 
-            <h3>四、六爻 (文王課)</h3>
-            <p><strong>起源：</strong> 源於最古老的《易經》。傳說周文王被囚羑里時演繹後天八卦，形成六十四卦。</p>
-            <p><strong>發展與核心：</strong></p>
-            <ul>
-                <li><strong>漢代 - 京房：</strong> 六爻預測學的奠基人。他將天干地支納入八卦之中（納甲），使占卜從抽象的卦辭轉變為邏輯嚴密的五行推理。</li>
-                <li><strong>核心：</strong> 針對「單一事件」進行具體預測（如：這筆生意會不會成？），判斷精準且細節豐富。</li>
-            </ul>
+        <div class="origin-card">
+            <div class="origin-img img-liuyao"></div>
+            <div class="origin-content">
+                <h3>六爻占卜 (易經文王課)</h3>
+                <h4>起源與發展</h4>
+                <p>源於最古老的《易經》。漢代<strong>京房</strong>將天干地支納入八卦之中（稱為納甲），並引入五行生剋、六親（父母、兄弟、官鬼等）概念，將抽象的卦辭轉化為邏輯嚴密的五行推理，稱為「納甲筮法」。</p>
+                <h4>核心理論</h4>
+                <p>針對「單一具體事件」進行預測（例如：這筆生意能不能成？官司結果如何？）。透過擲銅錢起卦，捕捉當下的時空信息，能精確判斷事情的成敗、應期與變化。</p>
+            </div>
+        </div>
 
-            <h3>五、面相 (相術)</h3>
-            <p><strong>起源：</strong> 可追溯至春秋戰國時期。當時已有「姑布子卿」為孔子相面的記載。</p>
-            <p><strong>發展與核心：</strong></p>
-            <ul>
-                <li><strong>集大成者 - 麻衣道者：</strong> 宋代相術大師，其著作《麻衣相法》提出了十二宮、五官、三停等系統性理論。</li>
-                <li><strong>核心：</strong> 透過觀察外在特徵（骨骼、五官、氣色）來推斷內在的性格、健康與命運軌跡，「相由心生」是其最高指導原則。</li>
-            </ul>
-        </section>
+        <div class="origin-card">
+            <div class="origin-img img-face"></div>
+            <div class="origin-content">
+                <h3>面相學 (識人術)</h3>
+                <h4>起源與發展</h4>
+                <p>相術在春秋戰國時期已極為盛行。宋代奇人<strong>麻衣道者</strong>傳授《麻衣相法》給陳希夷，成為後世相術的經典。清代名臣<strong>曾國藩</strong>更著有《冰鑑》，將相人術應用於識人用人與管理。</p>
+                <h4>核心理論</h4>
+                <p>「相由心生」。透過觀察人的面部特徵（三停、五官）、骨骼、氣色與聲音，來推斷其內在的性格、健康狀況與命運軌跡。是快速識人、了解自我格局的實用之學。</p>
+            </div>
+        </div>
+    </div>
 
-        <section id="articles">
+    <div class="container" id="articles">
+        <div class="section-title">
             <h2>📚 命理知識專欄</h2>
-            <p>以下精選文章，帶您深入淺出了解命理智慧：</p>
+            <span></span>
+        </div>
 
-            <article>
-                <h3>1.【八字入門】什麼是「日主」？認識真正的自己</h3>
-                <p>在八字命理學中，我們常說「算八字」，但這八個字裡面，哪一個字才是代表你「本人」呢？答案是：<strong>日干</strong>，我們稱為「日主」或「命主」。</p>
-                <p>八字由年、月、日、時四柱組成。其中「日柱」的天干，就是你的靈魂代號。例如你出生若是「甲子日」，那麼「甲」木就是你的日主。</p>
-                <h4>日主決定了什麼？</h4>
-                <p>日主決定了你的基礎性格和五行屬性。比如：</p>
-                <ul>
-                    <li><strong>甲木人：</strong> 像大樹一樣，正直、有上進心，但也容易固執。</li>
-                    <li><strong>丙火人：</strong> 像太陽一樣，熱情、急躁、喜歡照顧別人。</li>
-                    <li><strong>癸水人：</strong> 像雨露一樣，溫柔、內斂、心思細膩多變。</li>
-                </ul>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>2.【財富解碼】食傷生財 vs 財庫：你的賺錢模式</h3>
-                <p>很多人看八字只問「我有沒有財？」。其實，八字中的財富來源主要分為兩種模式。</p>
-                <h4>食傷生財：靠才華賺錢</h4>
-                <p>「食神」和「傷官」代表你的才華、口才、技術和創意。如果你的命盤是「食傷生財」的格局，代表你是靠專業技能、動腦筋、創意或行銷來賺錢。這種財富通常源源不絕，只要你肯動腦。</p>
-                <h4>財庫：靠積累致富</h4>
-                <p>有些人八字中財星不旺，但有「財庫」（辰、戌、丑、未）。這代表他們善於儲蓄、理財、投資不動產。他們的錢是存出來的，不是爆發出來的。了解你的模式，才能選對職業跑道。</p>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>3.【紫微斗數】十四主星速查：你是開創型還是合作型？</h3>
-                <p>紫微斗數將人分為四大類，十四種主星。你的命宮主星決定了你的領導風格。</p>
-                <ul>
-                    <li><strong>開創型 (七殺、破軍、廉貞、貪狼)：</strong> 這些人是天生的將軍。行動力強，敢於冒險，不喜歡受約束。適合創業、業務開發。</li>
-                    <li><strong>領導型 (紫微、天府、武曲、天相)：</strong> 這些人是天生的管理者。穩重、理性、善於規劃。適合擔任主管、公務員。</li>
-                    <li><strong>支援型 (太陽、巨門、天機)：</strong> 這些人是優秀的幕僚。口才好、反應快、善於溝通。適合行銷、策劃、講師。</li>
-                    <li><strong>合作型 (太陰、天梁、天同)：</strong> 這些人是最佳的配合者。溫和、重感情、重視和諧。適合行政、人資、服務業。</li>
-                </ul>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>4.【感情婚姻】從夫妻宮看未來伴侶的個性</h3>
-                <p>紫微斗數中的「夫妻宮」，不僅顯示早婚或晚婚，更像是一個「理想伴侶的畫像」。</p>
-                <p>如果夫妻宮有<strong>「天府星」</strong>，你的伴侶通常氣質優雅，重視品味，個性穩重，但也比較愛面子。</p>
-                <p>如果夫妻宮有<strong>「七殺星」</strong>，你的伴侶個性可能比較強勢、獨立，甚至帶點霸氣。你們的相處模式可能比較像戰友，容易有爭執但也充滿激情。</p>
-                <p>如果夫妻宮是<strong>「空宮」</strong>（沒有主星），代表你對伴侶沒有既定的框架，容易受對宮（官祿宮）的影響，或者緣分比較隨緣、難以捉摸。</p>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>5.【居家風水】陽宅三要：門、主、灶的佈局關鍵</h3>
-                <p>風水學派眾多，但最基礎、最重要的核心永遠是「陽宅三要」。</p>
-                <ul>
-                    <li><strong>門 (大門)：</strong> 是房子的氣口，如同人的嘴巴。大門要乾淨、明亮，不能受沖（如路沖、電線桿）。氣口順，運勢才順。</li>
-                    <li><strong>主 (主臥室)：</strong> 是主人休息充電的地方。床頭要有靠（代表有貴人），不能壓樑（代表壓力），不能對廁所門（代表晦氣）。</li>
-                    <li><strong>灶 (廚房)：</strong> 代表財庫和健康。爐灶不能對水槽（水火相沖），不能對大門（財露白）。</li>
-                </ul>
-                <p>只要顧好這三點，房子的基本分數就有60分以上，住起來就會平安順遂。</p>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>6.【流年運勢】太歲當頭坐，無喜必有禍？正確看待犯太歲</h3>
-                <p>每年過年，大家最關心的就是「犯太歲」。其實太歲星君是當年的值年神，掌管一年的吉凶。</p>
-                <p>所謂「犯太歲」，是指你的生肖能量與當年的太歲能量發生了強烈的交互作用。</p>
-                <ul>
-                    <li><strong>值太歲 (本命年)：</strong> 能量重疊，容易心浮氣躁，感到壓力。適合低調、進修。</li>
-                    <li><strong>沖太歲 (對沖)：</strong> 能量衝突，代表變動。可能是搬家、換工作、分手，也可能是大破大立的轉機。</li>
-                </ul>
-                <p>犯太歲不代表一定會發生壞事，它是一個「變動訊號」。只要安奉太歲、心存善念、行事保守，往往能將危機化為轉機。</p>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>7.【擇日哲學】結婚、搬家為什麼要看日子？</h3>
-                <p>擇日學並非迷信，而是「選擇在最好的時空能量下做對的事」。</p>
-                <p>比如種樹，要在春天種（天時），在肥沃的土裡種（地利），樹才能長得好。結婚、開業也是一樣。</p>
-                <p>擇日的邏輯是：</p>
-                <ol>
-                    <li><strong>避凶：</strong> 先避開「歲破」、「月破」、「三煞」等兇日，確保當天氣場平穩。</li>
-                    <li><strong>趨吉：</strong> 選擇有「天德」、「月德」、「天喜」等吉神守護的日子。</li>
-                    <li><strong>配合人：</strong> 最重要的是，日子不能沖到當事人的生肖。好日子對別人好，對你未必好，這就是為什麼需要專業擇日。</li>
-                </ol>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>8.【面相識人】三停平等與五官氣色：一眼看穿貴人小人</h3>
-                <p>曾國藩說：「邪正看眼鼻，真假看嘴唇，功名看氣概，富貴看精神。」面相是最高效的識人術。</p>
-                <p>看面相首重「三停」：</p>
-                <ul>
-                    <li><strong>上停 (額頭)：</strong> 代表早年運和智慧。額頭飽滿開闊，代表聰明、長輩緣好。</li>
-                    <li><strong>中停 (眉眼鼻)：</strong> 代表中年運和執行力。鼻子挺拔有肉，代表財運好、意志力強。</li>
-                    <li><strong>下停 (嘴巴下巴)：</strong> 代表晚年運和部屬緣。下巴圓潤有力，代表晚景優渥，能守住財富。</li>
-                </ul>
-                <p>三停比例均勻，就是一生的好命格。如果某一部分特別短或有缺陷，就代表那個年齡段容易有波折。</p>
-            </article>
-
-            <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <article>
-                <h3>9.【命理觀念】知命、順命、造命：我們為什麼要算命？</h3>
-                <p>很多人問：「如果命都註定了，算命還有什麼用？」</p>
-                <p>隨緣堂認為，命理的價值在於三個層次：</p>
-                <ol>
-                    <li><strong>知命 (診斷)：</strong> 像做健康檢查一樣，了解自己性格的盲點、天賦的優勢，以及運勢的高低週期。</li>
-                    <li><strong>順命 (導航)：</strong> 在運勢好的時候全力衝刺，在運勢差的時候保守沉潛。順著流走，才不會事倍功半。</li>
-                    <li><strong>造命 (改善)：</strong> 命是先天給的牌，運是後天的打法。透過修身養性、積德行善、風水佈局，我們可以把一手爛牌打好，這才是算命的終極意義。</li>
-                </ol>
-            </article>
-        </section>
-
-        <section id="contact">
-            <h2>📞 預約專屬諮詢</h2>
-            <p style="text-align: center;">人生難免迷惘，隨緣堂提供八字論命、紫微解析、擇日合婚等專業服務。</p>
-            <p style="text-align: center;">若您有任何疑問或需要深入分析，歡迎來信預約。</p>
+        <div class="article-grid">
+            <div class="article-item">
+                <span class="article-tag">八字入門</span>
+                <h3>一分鐘看懂你的「日主」是什麼？</h3>
+                <p>八字中哪一個字代表你本人？答案是日柱的天干。甲木人正直，丙火人熱情，癸水人靈活。了解日主是認識天賦的第一步。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
             
-            <a href="mailto:jackkok1388@gmail.com?subject=預約隨緣堂命理諮詢" class="btn-booking">
-                📧 點此發信預約
-            </a>
-            <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 10px;">(點擊將開啟您的 Email 軟體)</p>
-        </section>
+            <div class="article-item">
+                <span class="article-tag">財富格局</span>
+                <h3>食傷生財 vs 財庫：你的賺錢模式</h3>
+                <p>不是每個人都適合做生意。食傷生財者靠才華技術賺錢，越動腦越有錢；命帶財庫者適合儲蓄與資產配置。選對跑道，事半功倍。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
 
+            <div class="article-item">
+                <span class="article-tag">紫微斗數</span>
+                <h3>夫妻宮：看透你未來伴侶的個性</h3>
+                <p>紫微斗數的夫妻宮是你理想伴侶的畫像。七殺星伴侶強勢獨立，天同星伴侶溫柔顧家。了解夫妻宮是為了學會相處，而非宿命。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">居家風水</span>
+                <h3>陽宅三要：門、主、灶的佈局關鍵</h3>
+                <p>風水不用太複雜，顧好三個點就有60分。大門納氣要明亮，臥室床頭要靠牆，廚房爐灶避水火相沖。這是居家平安的基礎。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">流年運勢</span>
+                <h3>犯太歲真的很可怕嗎？</h3>
+                <p>犯太歲代表能量的衝擊與變動，不一定是大凶。轉職、搬家、結婚都是「動」。只要心存正念，保守行事，變動往往也是轉機。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">易經卜卦</span>
+                <h3>遇到抉擇？六爻占卜的決策智慧</h3>
+                <p>八字看大運，六爻斷單事。當你站在人生的十字路口，六爻能提供具體的「可否」與「吉凶」建議，是最佳的決策輔助工具。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">面相識人</span>
+                <h3>三停平等：從臉型看人生格局</h3>
+                <p>上停看早年與智慧，中停看中年與事業，下停看晚年與財庫。三停均勻飽滿，代表一生運勢平穩，少有大起大落。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">擇日學</span>
+                <h3>為什麼結婚入宅要看日子？</h3>
+                <p>擇日是尋找天地能量最和諧的時間點。避開歲破、月破，選擇天德、月德吉日，能讓事情的開端順利，減少阻礙。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">十神論命</span>
+                <h3>正官與七殺：你的事業領導風格</h3>
+                <p>正官代表循規蹈矩、重視名譽的管理者；七殺代表大刀闊斧、開疆闢土的將軍。了解你的事業星，才能放對位置。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">五行健康</span>
+                <h3>五行與身體器官的對應關係</h3>
+                <p>木主肝膽，火主心血管，土主脾胃，金主呼吸系統，水主腎臟。八字五行過旺或過缺，都需注意相應器官的保養。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">紫微進階</span>
+                <h3>四化星：運勢起伏的推手</h3>
+                <p>祿（財祿）、權（權力）、科（名聲）、忌（波折）。四化星是紫微斗數的靈魂，它揭示了運勢在什麼時間點會發生什麼變化。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+
+            <div class="article-item">
+                <span class="article-tag">命理觀念</span>
+                <h3>知命、順命、造命的層次</h3>
+                <p>知命是診斷，順命是導航，造命是改善。算命不是為了宿命論，而是為了在既定的劇本中，演繹出最精彩的版本。</p>
+                <div class="read-more">閱讀全文 (往下捲動)</div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 40px; color: #888;">(以上為精選摘要，詳細解析請預約諮詢)</p>
+    </div>
+
+    <div id="contact">
+        <h2>📞 預約您的專屬諮詢</h2>
+        <p>無論是事業迷惘、感情困惑，還是流年運勢規劃，隨緣堂都能為您提供專業指引。<br>請點擊下方按鈕，直接發信給我們。</p>
+        
+        <a href="mailto:jackkok1388@gmail.com?subject=預約隨緣堂命理諮詢&body=您好，我想預約諮詢。%0D%0A我的姓名：%0D%0A我想諮詢的項目（八字/紫微/擇日/風水）：" class="mail-btn">
+            📧 發信預約 (jackkok1388@gmail.com)
+        </a>
     </div>
 
     <footer>
@@ -326,4 +446,3 @@
 
 </body>
 </html>
-
