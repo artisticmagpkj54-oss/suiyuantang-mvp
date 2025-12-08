@@ -5,51 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>隨緣堂｜東方命理文化顧問平台</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
-    /* --------- 全站變數與基礎設定 --------- */
+    /* ============================
+       全站顏色、排版設定
+    ============================ */
     :root {
-      --primary-dark: #2c1e31;   /* 深紫棕檀色 */
-      --primary-light: #5d4067;  /* 明亮紫色 */
-      --accent-gold: #cfab66;    /* 金色 */
-      --accent-red: #8f2a24;     /* 紅銅 */
-      --text-main: #333333;
-      --text-gray: #666666;
-      --bg-paper: #f9f7e2;       /* 米紙色 */
-      --bg-white: #ffffff;
+      --primary-dark: #2c1e31;
+      --primary-light: #5d4067;
+      --accent-gold: #cfab66;
+      --accent-red: #8f2a24;
+      --text-main: #333;
+      --text-gray: #666;
+      --bg-paper: #f9f7e2;
+      --bg-white: #fff;
       --border-soft: #e1d8c4;
-      --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.12);
       --radius-lg: 18px;
       --radius-md: 12px;
-      --radius-sm: 8px;
+      --shadow-soft: 0 10px 28px rgba(0,0,0,0.16);
       --max-width: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: radial-gradient(circle at top, #f7f2e8 0, #f0ebe2 40%, #e9dfcf 100%);
       color: var(--text-main);
-      background: radial-gradient(circle at top, #f7f2e8 0, #f3efe6 35%, #ece3d3 100%);
       line-height: 1.7;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul {
-      list-style: none;
-    }
+    img { max-width: 100%; display: block; }
 
     .container {
       max-width: var(--max-width);
@@ -57,193 +44,39 @@
       padding: 0 20px;
     }
 
-    section {
-      padding: 72px 0;
-    }
+    section { padding: 70px 0; }
 
     .section-title {
-      font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+      font-family: 'Noto Serif TC';
       font-size: 2rem;
-      letter-spacing: 0.08em;
       text-align: center;
-      margin-bottom: 12px;
       color: var(--primary-dark);
+      margin-bottom: 10px;
     }
 
     .section-subtitle {
       text-align: center;
       color: var(--text-gray);
-      font-size: 0.98rem;
-      margin-bottom: 36px;
+      margin-bottom: 30px;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(207, 171, 102, 0.4);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-      margin-right: 6px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 22px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-      color: #fff;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(44, 30, 49, 0.3);
-      color: var(--primary-dark);
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .btn-outline:hover {
-      background: #fff;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-      transform: translateY(-1px);
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--text-gray);
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(221, 210, 189, 0.8);
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-
-    .tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-      margin-right: 6px;
-    }
-
-    .pill-label {
-      font-size: 0.8rem;
-      color: var(--text-gray);
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 999px;
-      border: 1px solid rgba(221, 210, 189, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-label i {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    .shadow-card {
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      padding: 28px 26px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shadow-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .shadow-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .muted {
-      color: var(--text-gray);
-      font-size: 0.92rem;
-    }
-
-    .divider {
-      width: 56px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-gold), transparent);
-      margin: 20px 0;
-    }
-
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    @media (min-width: 768px) {
-      .grid-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .grid-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-    }
-
-    /* --------- Header 與導覽列 --------- */
+    /* ============================
+       Header 導覽列
+    ============================ */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(243, 236, 225, 0.9), rgba(243, 236, 225, 0.7), transparent);
-      border-bottom: 1px solid rgba(214, 201, 176, 0.6);
+      backdrop-filter: blur(18px);
+      background: rgba(243,236,226,0.9);
+      border-bottom: 1px solid rgba(214,201,176,0.6);
     }
 
     .nav {
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
     }
 
     .nav-left {
@@ -253,1375 +86,824 @@
     }
 
     .logo-mark {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 12px;
       background: radial-gradient(circle at 25% 20%, #fdfaf3, var(--primary-dark));
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .logo-mark::before {
-      content: '緣';
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.15rem;
-      color: #fdf6dd;
-      letter-spacing: 0.12em;
+      font-family: 'Noto Serif TC';
+      color: #fff8e8;
+      font-size: 1.2rem;
     }
 
     .logo-text-main {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.2rem;
+      font-family: 'Noto Serif TC';
       letter-spacing: 0.2em;
-      color: var(--primary-dark);
-    }
-
-    .logo-text-sub {
-      font-size: 0.7rem;
-      color: var(--text-gray);
-      letter-spacing: 0.12em;
-    }
-
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.9rem;
-      color: var(--text-gray);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 3px;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-gold), var(--accent-red));
-      transition: width 0.22s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      display: none;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-toggle {
-      border: none;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-      padding: 4px;
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--primary-dark);
-      border-radius: 999px;
-      transition: all 0.25s ease;
-    }
-
-    @media (min-width: 960px) {
-      .nav {
-        height: 72px;
-      }
-
-      .nav-links {
-        display: flex;
-      }
-
-      .nav-cta {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: none;
-      }
-    }
-
-    /* 手機版選單 */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 64px 0 0 0;
-      background: rgba(244, 237, 227, 0.98);
-      backdrop-filter: blur(12px);
-      z-index: 40;
-      padding: 18px 20px 32px;
-    }
-
-    .mobile-menu.open {
-      display: block;
-    }
-
-    .mobile-menu ul {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      font-size: 0.96rem;
-      color: var(--primary-dark);
-    }
-
-    .mobile-menu .mobile-actions {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* --------- Hero 首屏 --------- */
-    #hero {
-      padding-top: 26px;
-      padding-bottom: 56px;
-    }
-
-    .hero-inner {
-      display: grid;
-      gap: 26px;
-    }
-
-    @media (min-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-        align-items: center;
-        padding: 12px 0 12px;
-      }
-    }
-
-    .hero-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 2.4rem;
-      line-height: 1.4;
-      letter-spacing: 0.1em;
-      color: var(--primary-dark);
-      margin: 14px 0 14px;
-    }
-
-    .hero-title span {
-      color: var(--accent-gold);
-    }
-
-    .hero-subtitle {
-      color: var(--text-gray);
-      font-size: 0.98rem;
-      margin-bottom: 18px;
-      max-width: 520px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
-      margin-bottom: 14px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.8rem;
-      color: var(--text-gray);
-      margin-top: 6px;
-    }
-
-    .hero-meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 22px 22px 20px;
-      border-radius: 24px;
-      background: radial-gradient(circle at top, rgba(255, 251, 243, 0.98), rgba(250, 243, 229, 0.96));
-      border: 1px solid rgba(223, 207, 182, 0.9);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.96), rgba(207, 171, 102, 0.15));
-      top: -40px;
-      right: -40px;
-      filter: blur(0.2px);
-    }
-
-    .hero-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 60%),
-        linear-gradient(130deg, rgba(207, 171, 102, 0.3), transparent 55%);
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
-
-    .hero-card-inner {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .hero-card-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
-      color: var(--primary-dark);
-      text-transform: uppercase;
-    }
-
-    .hero-card-chip {
-      font-size: 0.74rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(141, 111, 70, 0.5);
-      color: var(--accent-gold);
-      background: rgba(255, 255, 255, 0.75);
-    }
-
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .hero-slab {
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(226, 210, 185, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      font-size: 0.8rem;
-    }
-
-    .hero-slab-label {
-      font-size: 0.72rem;
-      color: var(--text-gray);
-      margin-bottom: 3px;
-    }
-
-    .hero-slab-value {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.9rem;
-      color: var(--primary-dark);
-    }
-
-    .hero-slab-desc {
-      font-size: 0.78rem;
-      color: var(--text-gray);
-      margin-top: 2px;
-    }
-
-    .hero-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-      font-size: 0.8rem;
-      color: var(--text-gray);
-    }
-
-    .hero-card-footer strong {
-      color: var(--accent-red);
-      font-weight: 600;
-    }
-
-    .hero-footer-label {
-      font-size: 0.74rem;
-      color: var(--text-gray);
-    }
-
-    /* --------- 三大特色 --------- */
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
-    .feature-grid {
-      gap: 20px;
-    }
-
-    .feature-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      padding: 20px 20px 18px;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 70%);
-      pointer-events: none;
-    }
-
-    .feature-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .feature-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: rgba(44, 30, 49, 0.9);
-      color: #f9f4e3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .feature-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.08rem;
-      margin-bottom: 6px;
-      color: var(--primary-dark);
-    }
-
-    .feature-text {
-      font-size: 0.9rem;
-      color: var(--text-gray);
-    }
-
-    /* --------- 服務項目 --------- */
-    #services {
-      background: rgba(255, 255, 255, 0.88);
-      border-top: 1px solid rgba(214, 201, 176, 0.6);
-      border-bottom: 1px solid rgba(214, 201, 176, 0.6);
-    }
-
-    .service-grid {
-      gap: 18px;
-    }
-
-    .service-card {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(214, 201, 176, 0.9);
-      background: rgba(250, 245, 235, 0.96);
-      padding: 16px 16px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .service-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .service-name {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.02rem;
-      color: var(--primary-dark);
-      margin-bottom: 6px;
-    }
-
-    .service-desc {
-      font-size: 0.86rem;
-      color: var(--text-gray);
-      margin-bottom: 10px;
-    }
-
-    .service-meta {
-      font-size: 0.8rem;
-      color: var(--text-gray);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .service-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .service-meta strong {
-      color: var(--accent-red);
-    }
-
-    .service-cta {
-      margin-top: 8px;
-      font-size: 0.8rem;
-      text-align: right;
-      color: var(--primary-light);
-    }
-
-    .service-cta a {
-      border-bottom: 1px dashed rgba(93, 64, 103, 0.5);
-    }
-
-    .service-cta a:hover {
-      color: var(--accent-red);
-      border-bottom-style: solid;
-    }
-
-    /* --------- 新手導覽 --------- */
-    #guide {
-      background: linear-gradient(180deg, rgba(248, 242, 232, 0.9), rgba(245, 235, 221, 0.9));
-    }
-
-    .steps-grid {
-      gap: 18px;
-    }
-
-    .step-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      padding: 18px 18px 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .step-number {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 2.4rem;
-      font-family: 'Noto Serif TC', serif;
-      color: rgba(215, 196, 166, 0.6);
-    }
-
-    .step-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.02rem;
-      margin-bottom: 6px;
-      color: var(--primary-dark);
-    }
-
-    .step-text {
-      font-size: 0.86rem;
-      color: var(--text-gray);
-    }
-
-    .step-list {
-      margin-top: 6px;
-      font-size: 0.86rem;
-      color: var(--text-gray);
-      padding-left: 1.1em;
-    }
-
-    .step-list li {
-      margin-bottom: 3px;
-      list-style: '• ';
-    }
-
-    .guide-footer {
-      margin-top: 18px;
-      text-align: center;
-      font-size: 0.86rem;
-      color: var(--text-gray);
-    }
-
-    /* --------- 學院 / 專欄 --------- */
-    .academy-layout {
-      display: grid;
-      gap: 20px;
-    }
-
-    @media (min-width: 900px) {
-      .academy-layout {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      }
-    }
-
-    .academy-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      padding: 20px 20px 18px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .academy-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 65%);
-      pointer-events: none;
-    }
-
-    .academy-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .academy-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .academy-title {
-      font-family: 'Noto Serif TC', serif;
       font-size: 1.1rem;
       color: var(--primary-dark);
     }
 
-    .academy-pill {
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(207, 171, 102, 0.6);
-      color: var(--accent-gold);
-      background: rgba(255, 255, 255, 0.85);
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-gray);
     }
 
-    .academy-intro {
+    .nav-links {
+      display: none;
+      gap: 20px;
       font-size: 0.9rem;
       color: var(--text-gray);
-      margin-bottom: 12px;
     }
 
-    .academy-list {
-      font-size: 0.86rem;
-      color: var(--text-gray);
-      padding-left: 1.1em;
-      margin-bottom: 8px;
+    @media(min-width: 900px) {
+      .nav-links { display: flex; }
     }
 
-    .academy-list li {
-      margin-bottom: 4px;
-      list-style: '▹ ';
-    }
-
-    .post-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 0.86rem;
-    }
-
-    .post-item {
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(219, 206, 185, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+    .btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: none;
       cursor: pointer;
-      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
     }
 
-    .post-item:hover {
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-1px);
-      border-color: rgba(207, 171, 102, 0.9);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      color: #fff;
+      box-shadow: var(--shadow-soft);
     }
 
-    .post-meta {
-      display: flex;
-      gap: 8px;
-      font-size: 0.74rem;
-      color: var(--text-gray);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
 
-    .post-title {
-      font-weight: 500;
-      color: var(--primary-dark);
+    .nav-cta { display: none; }
+
+    @media(min-width: 900px) {
+      .nav-cta { display: flex; align-items: center; gap: 10px; }
     }
 
-    .post-excerpt {
-      font-size: 0.8rem;
-      color: var(--text-gray);
-    }
-
-    .post-tag {
-      font-size: 0.72rem;
-      color: var(--accent-gold);
-    }
-
-    /* --------- 案例與見證 --------- */
-    #cases {
-      background: rgba(255, 255, 255, 0.92);
-      border-top: 1px solid rgba(214, 201, 176, 0.6);
-      border-bottom: 1px solid rgba(214, 201, 176, 0.6);
-    }
-
-    .case-grid {
-      gap: 18px;
-    }
-
-    .case-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(250, 244, 233, 0.98);
-      padding: 18px 18px 16px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .case-label {
-      font-size: 0.78rem;
-      color: var(--text-gray);
-      margin-bottom: 4px;
-    }
-
-    .case-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1rem;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
-
-    .case-summary {
-      font-size: 0.84rem;
-      color: var(--text-gray);
-      margin-bottom: 8px;
-    }
-
-    .case-highlight {
-      font-size: 0.84rem;
-      color: var(--accent-red);
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .case-meta {
-      font-size: 0.76rem;
-      color: var(--text-gray);
-    }
-
-    .case-meta span {
-      margin-right: 8px;
-    }
-
-    /* --------- FAQ --------- */
-    #faq {
-      background: linear-gradient(180deg, rgba(246, 239, 229, 0.96), rgba(243, 234, 220, 0.96));
-    }
-
-    .faq-grid {
-      gap: 16px;
-    }
-
-    .faq-item {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      padding: 14px 16px 12px;
-    }
-
-    .faq-q {
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--primary-dark);
-      margin-bottom: 6px;
-    }
-
-    .faq-a {
-      font-size: 0.86rem;
-      color: var(--text-gray);
-    }
-
-    /* --------- 預約與聯絡 --------- */
-    #booking {
-      padding-top: 60px;
-      padding-bottom: 70px;
-    }
-
-    .booking-layout {
-      display: grid;
-      gap: 22px;
-    }
-
-    @media (min-width: 900px) {
-      .booking-layout {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      }
-    }
-
-    .booking-card {
-      border-radius: 22px;
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.96), rgba(248, 239, 226, 0.96));
-      padding: 22px 22px 18px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
-    }
-
-    .booking-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.3rem;
-      color: var(--primary-dark);
-      margin-bottom: 6px;
-    }
-
-    .booking-text {
-      font-size: 0.9rem;
-      color: var(--text-gray);
-      margin-bottom: 12px;
-    }
-
-    .booking-form {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    @media (min-width: 640px) {
-      .form-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .form-field {
+    /* 手機版選單 */
+    .nav-toggle {
       display: flex;
       flex-direction: column;
       gap: 4px;
-      font-size: 0.84rem;
-      color: var(--text-gray);
+      background: none;
+      border: none;
+      cursor: pointer;
     }
 
-    .form-label {
-      font-weight: 500;
-    }
-
-    .form-input,
-    .form-textarea,
-    .form-select {
-      border-radius: 10px;
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      padding: 8px 10px;
-      font-family: inherit;
-      font-size: 0.86rem;
-      background: rgba(255, 255, 255, 0.96);
-      outline: none;
-      transition: border-color 0.17s ease, box-shadow 0.17s ease;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus,
-    .form-select:focus {
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 0 2px rgba(207, 171, 102, 0.25);
-    }
-
-    .form-textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .form-note {
-      font-size: 0.78rem;
-      color: var(--text-gray);
-      margin-top: 6px;
-    }
-
-    .booking-side {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 0.86rem;
-      color: var(--text-gray);
-    }
-
-    .booking-side-section {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(209, 195, 173, 0.9);
-      background: rgba(255, 255, 255, 0.96);
-      padding: 14px 14px 12px;
-    }
-
-    .side-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.98rem;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
-
-    .side-list {
-      padding-left: 1.1em;
-      margin-top: 4px;
-    }
-
-    .side-list li {
-      list-style: '• ';
-      margin-bottom: 3px;
-    }
-
-    /* --------- Footer --------- */
-    footer {
-      border-top: 1px solid rgba(214, 201, 176, 0.9);
-      background: rgba(243, 236, 226, 0.98);
-      padding: 18px 0 20px;
-      font-size: 0.8rem;
-      color: var(--text-gray);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    @media (min-width: 768px) {
-      .footer-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      border-bottom: 1px dotted rgba(153, 136, 112, 0.9);
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.86rem;
-    }
-
-    .footer-logo-mark {
+    .nav-toggle span {
       width: 22px;
-      height: 22px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      background: radial-gradient(circle at 20% 20%, #fdfaf3, var(--primary-dark));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: #fdf2da;
-      font-family: 'Noto Serif TC', serif;
-      letter-spacing: 0.16em;
+      height: 2px;
+      background: var(--primary-dark);
+      border-radius: 2px;
     }
 
-    .footer-copy {
-      opacity: 0.9;
+    @media(min-width: 900px) {
+      .nav-toggle { display: none; }
     }
 
-    /* --------- 捲動平滑 --------- */
-    html {
-      scroll-behavior: smooth;
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 70px 0 0 0;
+      background: rgba(245,235,225,0.98);
+      padding: 20px;
+      z-index: 40;
     }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul { display: flex; flex-direction: column; gap: 16px; }
+
   </style>
 </head>
+
 <body>
-  <!-- ========= Header 導覽列 ========= -->
-  <header>
-    <div class="container">
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="logo-mark" aria-hidden="true"></div>
-          <div>
-            <div class="logo-text-main">隨緣堂</div>
-            <div class="logo-text-sub">ORIENTAL WISDOM STUDIO</div>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#hero">首頁</a>
-          <a href="#origins">關於隨緣堂</a>
-          <a href="#services">服務項目</a>
-          <a href="#academy">隨緣學院</a>
-          <a href="#cases">案例分享</a>
-          <a href="#faq">常見問題</a>
-          <a href="#booking">預約與聯絡</a>
-        </div>
-        <div class="nav-cta">
-          <span class="pill-label">
-            <i>☯</i> 知命 ‧ 順命 ‧ 造命
-          </span>
-          <a href="#booking" class="btn btn-primary" style="padding-inline:16px;font-size:0.86rem;">立即預約諮詢</a>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#hero">首頁</a></li>
-        <li><a href="#origins">關於隨緣堂</a></li>
-        <li><a href="#services">服務項目</a></li>
-        <li><a href="#academy">隨緣學院</a></li>
-        <li><a href="#cases">案例分享</a></li>
-        <li><a href="#faq">常見問題</a></li>
-        <li><a href="#booking">預約與聯絡</a></li>
-      </ul>
-      <div class="mobile-actions">
-        <a href="#booking" class="btn btn-primary" style="flex:1;">立即預約諮詢</a>
-        <a href="#services" class="btn btn-outline" style="flex:1;">先看看適合的服務</a>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <!-- ========= Hero 首屏 ========= -->
-    <section id="hero">
-      <div class="container hero-inner">
+<!-- ============================
+     Header 導覽列（含可寄信）
+============================ -->
+<header>
+  <div class="container">
+    <nav class="nav">
+
+      <div class="nav-left">
+        <div class="logo-mark">緣</div>
         <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            隨緣堂 · 東方命理文化顧問
+          <div class="logo-text-main">隨緣堂</div>
+          <div class="logo-text-sub">ORIENTAL WISDOM STUDIO</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#hero">首頁</a>
+        <a href="#origins">關於隨緣堂</a>
+        <a href="#services">服務項目</a>
+        <a href="#academy">隨緣學院</a>
+        <a href="#cases">案例分享</a>
+        <a href="#faq">常見問題</a>
+        <a href="#booking">預約與聯絡</a>
+      </div>
+
+      <div class="nav-cta">
+        <a  
+          href="mailto:jackkok1388@gmail.com?subject=隨緣堂預約諮詢&body=您好，我想預約隨緣堂命理諮詢，以下是我的資料：%0A%0A姓名：%0A出生年月日時間：%0A想詢問的主題：%0A可配合時段："
+          class="btn btn-primary"
+        >立即預約諮詢</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero">首頁</a></li>
+      <li><a href="#origins">關於隨緣堂</a></li>
+      <li><a href="#services">服務項目</a></li>
+      <li><a href="#academy">隨緣學院</a></li>
+      <li><a href="#cases">案例分享</a></li>
+      <li><a href="#faq">常見問題</a></li>
+      <li><a href="#booking">預約與聯絡</a></li>
+    </ul>
+
+    <a
+      href="mailto:jackkok1388@gmail.com?subject=隨緣堂預約諮詢&body=您好，我想預約隨緣堂命理諮詢："
+      class="btn btn-primary"
+      style="margin-top:10px;width:100%;"
+    >立即預約諮詢</a>
+  </div>
+</header>
+
+<!-- ============================
+     Hero 首屏
+============================ -->
+<section id="hero" style="padding:110px 0 80px;">
+  <div class="container" style="text-align:center;">
+
+    <h1 style="
+      font-family:'Noto Serif TC';
+      font-size:2.5rem;
+      color:var(--primary-dark);
+      margin-bottom:14px;
+    ">
+      以東方智慧，為你校準人生航道
+    </h1>
+
+    <p style="
+      font-size:1.05rem;
+      color:var(--text-gray);
+      max-width:680px;
+      margin:0 auto 32px;
+      line-height:1.9;
+    ">
+      命理不是宿命，而是幫助你看清選擇、釐清狀態，找到更適合自己的人生策略。
+      在隨緣堂，我們陪你理解「知命、順命、造命」的節奏，走向更自在的生活。
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+      <a
+        href="mailto:jackkok1388@gmail.com?subject=隨緣堂預約諮詢&body=您好，我想預約諮詢："
+        class="btn btn-primary"
+        style="padding:12px 26px;font-size:1rem;"
+      >
+        立即預約諮詢
+      </a>
+
+      <a href="#services" class="btn" style="
+        border:1px solid var(--primary-dark);
+        color:var(--primary-dark);
+        padding:12px 26px;
+        font-size:1rem;
+        border-radius:30px;
+      ">
+        我想先了解服務
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================
+     關於隨緣堂 · 品牌理念
+============================ -->
+<section id="origins">
+  <div class="container">
+
+    <h2 class="section-title">關於隨緣堂</h2>
+    <p class="section-subtitle">
+      我們相信：每個人都值得被理解，每一段困惑都有其脈絡。
+    </p>
+
+    <div style="
+      max-width:800px;
+      background:var(--bg-white);
+      margin:0 auto;
+      padding:32px 28px;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+      line-height:2;
+    ">
+      <p>
+        隨緣堂專注於以命理協助現代人理解自己，減少生命中因混亂、焦慮與不確定感帶來的痛苦。
+        我們不談宿命，也不以恐嚇式話術操作，而是以
+        <strong style="color:var(--primary-dark);">理性命理 × 人生策略</strong>
+        為核心，幫助你在現實生活中做出更清晰的決策。
+      </p>
+
+      <p>
+        我們整合八字、紫微斗數、六爻、風水等五術工具，提供全方位的個人諮詢與方向規劃。
+        讓命理不再只是「算一算」，而是一種能支持你做決定的智慧系統。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================
+     隨緣堂 · 三大核心特色
+============================ -->
+<section id="features">
+  <div class="container">
+
+    <h2 class="section-title">隨緣堂的三大特色</h2>
+    <p class="section-subtitle">陪你從理解自己開始，真正擁有選擇的自由。</p>
+
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:26px;
+      margin-top:36px;
+    ">
+
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark);">
+          ① 理性命理，不灌心靈雞湯
+        </h3>
+        <p style="color:var(--text-gray);">
+          不以恐嚇、宿命論進行解讀，而是透過陰陽五行邏輯，看見你的節奏、狀態與行動方向。
+        </p>
+      </div>
+
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark);">
+          ② 五術整合式分析
+        </h3>
+        <p style="color:var(--text-gray);">
+          不以單一命盤下結論，而是交叉使用八字、紫微、六爻、風水，讓判斷更全面。
+        </p>
+      </div>
+
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark);">
+          ③ 尊重隱私與倫理
+        </h3>
+        <p style="color:var(--text-gray);">
+          不提供侵害他人意志的服務（如強行挽回、拆散感情、詛咒等），
+          並嚴格保護你的個資與諮詢內容。
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================
+     服務項目（完整卡片）
+============================ -->
+<section id="services">
+  <div class="container">
+
+    <h2 class="section-title">服務項目</h2>
+    <p class="section-subtitle">從人生方向到具體決策，都能找到適合你的工具。</p>
+
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:26px;
+      margin-top:36px;
+    ">
+
+      <!-- 八字 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">八字精準諮詢</h3>
+        <p>了解你的性格、天賦、盲點、財運模式與適合的職涯節奏。</p>
+      </div>
+
+      <!-- 紫微 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">紫微斗數人生藍圖</h3>
+        <p>適合需要更細緻地看未來軌跡、重要人生轉折與關係議題的人。</p>
+      </div>
+
+      <!-- 六爻 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">六爻占卜（單一決策）</h3>
+        <p>適用於短期抉擇：轉職、搬家、合夥、告白、投資方向等。</p>
+      </div>
+
+      <!-- 風水 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">居家 / 商業風水</h3>
+        <p>透過環境改善運勢流動，讓生活更穩定、工作更順利。</p>
+      </div>
+
+      <!-- 擇日 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">擇日規劃</h3>
+        <p>結婚、開張、入宅、啟程……替你挑選對你最有利的時間點。</p>
+      </div>
+
+      <!-- 合盤 / 面相 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC';">人際 / 感情合盤 & 面相</h3>
+        <p>理解彼此的互動方式、關係盲點與最適相處模式。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================
+     隨緣學院（學習文章）
+============================ -->
+<section id="academy">
+  <div class="container">
+
+    <h2 class="section-title">隨緣學院 · 命理學習園地</h2>
+    <p class="section-subtitle">適合初學者，也適合想理解命理背後邏輯的人。</p>
+
+    <div style="
+      max-width:820px;
+      margin:0 auto;
+      background:var(--bg-white);
+      padding:30px;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+      line-height:2;
+    ">
+
+      <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+        命理新手入門建議
+      </h3>
+
+      <p>不需要一次把五術全部學會，只要理解每種工具在做什麼，你就能在遇到問題時選對方法。</p>
+
+      <ul style="padding-left:18px; color:var(--text-gray);">
+        <li>什麼是五術？—— 山、醫、命、相、卜，各自用途不同。</li>
+        <li>八字：像是一張你的「先天設定」。</li>
+        <li>紫微斗數：強調「角色分工」與人生發展的細節。</li>
+        <li>六爻：更適合短期事件與具體選擇。</li>
+        <li>風水：環境會影響人的狀態與運勢循環。</li>
+      </ul>
+
+      <a href="#services" class="btn btn-primary" style="margin-top:16px; display:inline-block;">
+        查看所有服務
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ============================
+     案例分享（完整故事）
+============================ -->
+<section id="cases">
+  <div class="container">
+
+    <h2 class="section-title">案例分享</h2>
+    <p class="section-subtitle">每段故事，都始於「願意理解自己」的那一刻。</p>
+
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:28px;
+      margin-top:36px;
+    ">
+
+      <!-- Case 1 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+        line-height:1.9;
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:8px;">
+          職涯迷惘 → 找到自己的發展曲線
+        </h3>
+        <p style="color:var(--text-gray);">
+          A小姐（28歲，科技業），在原本的工作中努力多年卻始終沒有突破，
+          她說自己「明明很努力，但總覺得施力方向不對」。
+        </p>
+        <p style="color:var(--text-gray);">
+          在八字中，她的格局顯示「適合跨界整合」而不是深耕單一技術；
+          紫微盤則呈現「大運轉折期已到」。兩盤交叉比對後，我們為她找到
+          最適合的職涯節奏與方向。
+        </p>
+        <p style="color:var(--primary-dark); font-weight:bold;">
+          諮詢後她轉換到需要跨領域協作的職位，三個月內明顯感覺「累歸累，但這次是對的方向」。
+        </p>
+      </div>
+
+      <!-- Case 2 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+        line-height:1.9;
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:8px;">
+          感情與相處模式 → 看見彼此真正的差異
+        </h3>
+        <p style="color:var(--text-gray);">
+          B先生（35歲，公司主管）覺得自己與伴侶溝通常常卡住，
+          明明相愛，但總是在生活細節中摩擦不斷。
+        </p>
+        <p style="color:var(--text-gray);">
+          在合盤中，他們的個性特質與情感節奏完全不同：一方需要確認感，
+          另一方則更需要空間。當把這些差異講清後，他終於理解不是「誰不夠好」，
+          而是兩人的互動機制本來就不同。
+        </p>
+        <p style="color:var(--primary-dark); font-weight:bold;">
+          他說：「理解之後，心裡的鬱悶一下子消了。」現在兩人相處輕鬆許多。
+        </p>
+      </div>
+
+      <!-- Case 3 -->
+      <div style="
+        background:var(--bg-white);
+        padding:26px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+        line-height:1.9;
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:8px;">
+          六爻決策 → 避開錯誤投資，守住重要資金
+        </h3>
+        <p style="color:var(--text-gray);">
+          C先生（41歲，自營業者）想投入一筆金額不小的投資案，
+          但同時也感覺「好像哪裡怪怪的」。
+        </p>
+        <p style="color:var(--text-gray);">
+          六爻起卦後，呈現「表面利多、實際凶象」的組合，
+          並且顯示合作對象的資訊不透明。經過討論後，他決定先暫緩，
+          而後證實該項目在兩個月後暴雷。
+        </p>
+        <p style="color:var(--primary-dark); font-weight:bold;">
+          他說：「當時如果沒問，你可能會在現在看到我在煩惱負債。」
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ============================
+     常見問題 FAQ
+============================ -->
+<section id="faq">
+  <div class="container">
+
+    <h2 class="section-title">常見問題</h2>
+    <p class="section-subtitle">如果你是第一次接觸命理，這裡可以先看看。</p>
+
+    <div style="
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+      margin-top:36px;
+    ">
+
+      <!-- Q1 -->
+      <div style="
+        background:var(--bg-white);
+        padding:24px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+          Q1. 我之前沒有接觸過命理，可以預約嗎？
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.9;">
+          完全可以。隨緣堂的服務不需要你有任何基礎，
+          我們的重點是了解你的困惑，並提供能真正幫助你做決策的方向。
+        </p>
+      </div>
+
+      <!-- Q2 -->
+      <div style="
+        background:var(--bg-white);
+        padding:24px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+          Q2. 諮詢需要準備什麼？
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.9;">
+          最重要的是：出生年月日時間（越準越好）、你的問題方向、
+          以及願意一起討論的心情。如果出生時間不確定，也仍然能諮詢。
+        </p>
+      </div>
+
+      <!-- Q3 -->
+      <div style="
+        background:var(--bg-white);
+        padding:24px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+          Q3. 諮詢過程會不會聽不懂？
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.9;">
+          我們會用非常一般的語言解釋，不會用太多專業術語。
+          你的理解與感受比命盤結構更重要，因此你在過程中提問越多越好。
+        </p>
+      </div>
+
+      <!-- Q4 -->
+      <div style="
+        background:var(--bg-white);
+        padding:24px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+          Q4. 是否會提供「宿命」或「恐嚇式」內容？
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.9;">
+          不會。隨緣堂非常重視命理倫理，不做恐嚇、不做宿命論、
+          不會給你「你這輩子就這樣」的說法。
+        </p>
+      </div>
+
+      <!-- Q5 -->
+      <div style="
+        background:var(--bg-white);
+        padding:24px;
+        border-radius:var(--radius-md);
+        border:1px solid var(--border-soft);
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:12px;">
+          Q5. 諮詢內容會保密嗎？
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.9;">
+          完全保密。你的資料與談話內容不會被分享給任何第三方。
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ============================
+     Footer
+============================ -->
+<footer style="
+  background:var(--primary-dark);
+  color:#eee;
+  padding:38px 0;
+  margin-top:60px;
+">
+  <div class="container" style="
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    text-align:center;
+  ">
+    <div style="font-family:'Noto Serif TC'; font-size:1.1rem; letter-spacing:0.15em;">
+      隨緣堂 · ORIENTAL WISDOM STUDIO
+    </div>
+
+    <div>Email：<a href="mailto:jackkok1388@gmail.com" style="color:#f7eacb;">jackkok1388@gmail.com</a></div>
+
+    <div style="font-size:0.85rem; color:#d8d0c9;">
+      本網站提供之內容屬命理建議，不取代專業法律、投資、醫療意見。
+    </div>
+
+    <div style="font-size:0.75rem; color:#b8b0aa; margin-top:8px;">
+      © 2025 隨緣堂 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+<!-- ============================
+     預約與聯絡（可寄信表單）
+============================ -->
+<section id="booking">
+  <div class="container">
+
+    <h2 class="section-title">預約諮詢與聯絡方式</h2>
+    <p class="section-subtitle">
+      你的故事值得被好好傾聽。請填寫以下資訊，我們會盡快回覆並協助安排諮詢。
+    </p>
+
+    <div style="
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      margin-top:30px;
+    ">
+
+      <!-- ===== 預約表單（mailto） ===== -->
+      <div style="
+        background:var(--bg-white);
+        border:1px solid var(--border-soft);
+        border-radius:var(--radius-lg);
+        padding:30px;
+        box-shadow:var(--shadow-soft);
+      ">
+        <h3 style="font-family:'Noto Serif TC'; color:var(--primary-dark); margin-bottom:10px;">
+          預約表單
+        </h3>
+        <p style="color:var(--text-gray); line-height:1.8;">
+          填寫後按下「送出預約信件」，系統會自動開啟你的 Email，
+          並寄至：<strong>jackkok1388@gmail.com</strong>
+        </p>
+
+        <form
+          action="mailto:jackkok1388@gmail.com"
+          method="POST"
+          enctype="text/plain"
+          style="display:flex; flex-direction:column; gap:20px; margin-top:20px;"
+        >
+
+          <!-- 姓名 -->
+          <div>
+            <label>姓名 / 暱稱：</label>
+            <input name="姓名/暱稱"
+              type="text"
+              required
+              placeholder="例如：小安（可匿名）"
+              style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-soft);"
+            />
           </div>
-          <h1 class="hero-title">
-            以<span>東方智慧</span>校準<br />
-            你的人生航道
-          </h1>
-          <p class="hero-subtitle">
-            命理不是宿命，而是幫助我們看清局勢、掌握節奏，
-            在關鍵時刻做出更有意識的選擇。隨緣堂以理性、溫暖的方式，
-            陪伴你面對職涯、感情、家庭與人生轉折。
+
+          <!-- Email -->
+          <div>
+            <label>聯絡 Email：</label>
+            <input name="Email"
+              type="email"
+              required
+              placeholder="example@mail.com"
+              style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-soft);"
+            />
+          </div>
+
+          <!-- 出生 -->
+          <div>
+            <label>出生年月日、時間與地點：</label>
+            <textarea name="出生資料"
+              required
+              placeholder="例如：1993/08/15 上午09:32 台北市出生（如時間不確定請註明）"
+              style="width:100%; height:100px; padding:12px; border-radius:8px; border:1px solid var(--border-soft);"
+            ></textarea>
+          </div>
+
+          <!-- 預約方向 -->
+          <div>
+            <label>最想討論的問題（可條列）：</label>
+            <textarea name="想討論的主題"
+              required
+              placeholder="例：是否適合換工作、感情未來走向、壓力來源與調整方向…"
+              style="width:100%; height:100px; padding:12px; border-radius:8px; border:1px solid var(--border-soft);"
+            ></textarea>
+          </div>
+
+          <!-- 時段 -->
+          <div>
+            <label>可配合的時段：</label>
+            <textarea name="可配合時段"
+              placeholder="例：平日晚上 7:30 後、偏好線上/面談"
+              style="width:100%; height:80px; padding:12px; border-radius:8px; border:1px solid var(--border-soft);"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1rem;">
+            送出預約信件
+          </button>
+
+          <p style="font-size:0.85rem; color:var(--text-gray); margin-top:-8px;">
+            ※ 按下後會開啟 Email 編輯器，請確認內容後按「寄出」即可。
           </p>
-          <div class="hero-actions">
-            <a href="#booking" class="btn btn-primary">預約一對一諮詢</a>
-            <a href="#guide" class="btn btn-outline">我是新手，先了解流程</a>
-          </div>
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="hero-meta-dot"></span>
-              <span>累積諮詢：職涯 / 感情 / 家庭 / 企業顧問</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-dot" style="background:var(--accent-red);"></span>
-              <span>不談恐嚇式算命，不販售迷信商品</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="典型諮詢示意">
-          <div class="hero-card-inner">
-            <div class="hero-card-header">
-              <div class="hero-card-title">命盤洞見 · 精準示意</div>
-              <div class="hero-card-chip">DEMO CASE</div>
-            </div>
-            <div class="hero-card-grid">
-              <div class="hero-slab">
-                <div class="hero-slab-label">格局主題</div>
-                <div class="hero-slab-value">食傷生財 ‧ 以專長創造價值</div>
-                <div class="hero-slab-desc">適合透過專業、內容、教學累積影響力，而非短線投機。</div>
-              </div>
-              <div class="hero-slab">
-                <div class="hero-slab-label">流年節奏</div>
-                <div class="hero-slab-value">2025–2027：轉軌與佈局期</div>
-                <div class="hero-slab-desc">適合「邊穩定收入、邊試新方向」，不建議孤注一擲式創業。</div>
-              </div>
-              <div class="hero-slab">
-                <div class="hero-slab-label">關係與家庭</div>
-                <div class="hero-slab-value">重視陪伴與共同成長</div>
-                <div class="hero-slab-desc">感情不是命中註定，而是雙方願不願意一起調整節奏。</div>
-              </div>
-              <div class="hero-slab">
-                <div class="hero-slab-label">風水提醒</div>
-                <div class="hero-slab-value">穩定的「家」，是最好的財庫</div>
-                <div class="hero-slab-desc">環境佈局配合作息與工作型態，而非只看方位吉凶。</div>
-              </div>
-            </div>
-            <div class="hero-card-footer">
-              <div>
-                <span class="hero-footer-label">諮詢聚焦：</span>
-                <strong>職涯轉換 × 副業發展 × 家庭溝通</strong>
-              </div>
-              <div class="hero-footer-label">※ 內容為示意，實際依個人命盤調整。</div>
-            </div>
-          </div>
-        </aside>
+        </form>
       </div>
-    </section>
 
-    <!-- ========= 關於隨緣堂 / origins ========= -->
-    <section id="origins">
-      <div class="container">
-        <h2 class="section-title">關於隨緣堂</h2>
-        <p class="section-subtitle">
-          「隨緣」不是聽天由命，而是認清自己能掌握的部分，
-          在對的時間做對的選擇，讓生命在有限條件裡，展現最大的可能性。
-        </p>
+    </div>
 
-        <div class="grid grid-2">
-          <div class="shadow-card">
-            <div class="shadow-card-inner">
-              <h3 class="feature-title">我們相信的命理觀</h3>
-              <div class="divider"></div>
-              <p class="muted">
-                在隨緣堂，命理不被用來恐嚇、控制或推卸責任，而是用來
-                <strong>照亮盲點、理解節奏、看清選項</strong>。
-                <br /><br />
-                我們以「知命、順命、造命」作為核心：
-              </p>
-              <ul class="academy-list" style="margin-top:6px;">
-                <li><strong>知命：</strong>看清自己的天賦、性格模式與人生大方向。</li>
-                <li><strong>順命：</strong>順著時機調整策略，在合適的流年做合適的事。</li>
-                <li><strong>造命：</strong>在可選擇的地方負起責任，重新設計自己的生活結構。</li>
-              </ul>
-              <p class="muted" style="margin-top:8px;">
-                我們拒絕危言聳聽的恐嚇話術，也不販售任何「必買才會順」的商品。
-                真正的改變，來自你願不願意行動，而不是買了多少開運物。
-              </p>
-            </div>
-          </div>
+  </div>
+</section>
 
-          <div class="shadow-card">
-            <div class="shadow-card-inner">
-              <h3 class="feature-title">老師與團隊簡介</h3>
-              <div class="divider"></div>
-              <p class="muted">
-                隨緣堂由長期深耕東方命理與人文思考的主理人發起，
-                結合八字、紫微斗數、風水與現代心理語言，
-                以「可理解、可落地、可實踐」為目標進行諮詢。
-              </p>
-              <ul class="academy-list" style="margin-top:8px;">
-                <li>多年一對一命理諮詢與企業、校園講座經驗。</li>
-                <li>重視倫理與隱私，不承接任何違反人倫、傷害他人的需求。</li>
-                <li>持續進修心理學、敘事工作等相關課程，避免用命理給出絕對化標籤。</li>
-              </ul>
-              <p class="muted" style="margin-top:8px;">
-                如果你希望的是「有人幫你決定一切」，隨緣堂可能不適合你；
-                但如果你願意一起討論、一起看清狀況，這裡會是你的夥伴。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ========= 三大特色 ========= -->
-    <section id="features">
-      <div class="container">
-        <h2 class="section-title">隨緣堂的三個堅持</h2>
-        <p class="section-subtitle">
-          在資訊爆炸與焦慮加劇的時代，我們相信命理更應該溫柔、清晰，而不是讓人恐懼。
-        </p>
+<!-- ============================
+     Mobile Menu Toggle Script
+============================ -->
+<script>
+  const navToggle = document.getElementById("navToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-        <div class="pill-row">
-          <span class="pill-label"><i>①</i> 理性命理，不搞玄學恐嚇</span>
-          <span class="pill-label"><i>②</i> 五術整合，交叉驗證</span>
-          <span class="pill-label"><i>③</i> 隱私保護與倫理優先</span>
-        </div>
+  navToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+  });
 
-        <div class="grid grid-3 feature-grid">
-          <article class="feature-card">
-            <div class="feature-card-inner">
-              <div class="feature-icon" aria-hidden="true">理</div>
-              <h3 class="feature-title">理性清晰的命理語言</h3>
-              <p class="feature-text">
-                使用陰陽五行、十神與紫微結構來分析，不以「會很慘、會不得好死」等語言恐嚇你。
-                所有建議，都會說明背後的推理邏輯，讓你理解自己正在面對的是什麼。
-              </p>
-            </div>
-          </article>
+  // 點擊連結後自動關閉選單
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+    });
+  });
+</script>
 
-          <article class="feature-card">
-            <div class="feature-card-inner">
-              <div class="feature-icon" aria-hidden="true">合</div>
-              <h3 class="feature-title">多種工具交叉驗證</h3>
-              <p class="feature-text">
-                八字、紫微斗數、風水、六爻占卜、面相觀察，
-                針對不同問題搭配不同工具，不靠單一流派強行套用，
-                讓你在人生各種議題中，都能有更全面的視角。
-              </p>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-card-inner">
-              <div class="feature-icon" aria-hidden="true">守</div>
-              <h3 class="feature-title">隱私與倫理是底線</h3>
-              <p class="feature-text">
-                你的命盤與生命故事會被完整保密，不會用於任何行銷或分享。
-                我們拒絕承接報復、詛咒、操控他人意志等需求，
-                也不鼓勵「把人生完全交給算命師」的依賴。
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========= 服務項目 ========= -->
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">服務項目一覽</h2>
-        <p class="section-subtitle">
-          不同工具，適合回答不同類型的問題。如果你還不確定適合哪一種，可以在預約表單中簡單描述現況，我們會協助一起選擇。
-        </p>
-
-        <div class="grid grid-3 service-grid">
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>八字命理</span>
-                <span class="tag">職涯 / 性格 / 人生藍圖</span>
-              </div>
-              <h3 class="service-name">八字精準諮詢</h3>
-              <p class="service-desc">
-                以你的出生年月日時為基礎，分析個人性格、才能、工作型態、金錢觀與壓力來源，
-                並搭配大運流年，釐清「此刻適合做什麼」與「長期如何布局」。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>60–90 分鐘</strong> · 線上/面談皆可</span>
-              <span>適合正在面臨職涯、人生方向抉擇的人</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想預約此服務 →</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>紫微斗數</span>
-                <span class="tag">關係 / 生命歷程</span>
-              </div>
-              <h3 class="service-name">紫微斗數人生藍圖</h3>
-              <p class="service-desc">
-                透過宮位與星曜的互動，理解自己在感情、家庭、合作、人際中的慣性模式，
-                看見「我總是這樣」背後的原因，協助你調整與他人的相處方式。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>60–90 分鐘</strong> · 聚焦關係與角色</span>
-              <span>適合想釐清感情、婚姻與家庭議題的人</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想預約此服務 →</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>風水 / 擇日</span>
-                <span class="tag">居家 / 商業空間</span>
-              </div>
-              <h3 class="service-name">居家 / 商業風水與擇日</h3>
-              <p class="service-desc">
-                以科學合理的角度檢視你的生活與工作空間：動線、採光、工作區與休息區比例，
-                搭配基本風水原則，協助你打造穩定、可以休息也可以開展的空間與時機。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>依個案估價</strong> · 可含平面圖分析</span>
-              <span>適合搬家、結婚、開業、裝潢前的規劃</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想預約此服務 →</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>六爻占卜</span>
-                <span class="tag">單一決策 / 抉擇</span>
-              </div>
-              <h3 class="service-name">六爻占卜決策諮詢</h3>
-              <p class="service-desc">
-                適合針對單一議題（是否簽約、是否接受新工作、是否進行合作等）做細緻評估，
-                以卦象顯示的趨勢與風險，搭配現實條件，一起評估可行策略。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>30–45 分鐘</strong> · 聚焦單一問題</span>
-              <span>適合「我現在要不要做這件事？」的時刻</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想預約此服務 →</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>面相 / 合盤</span>
-                <span class="tag">互動風格 / 合作模式</span>
-              </div>
-              <h3 class="service-name">面相觀察與關係合盤</h3>
-              <p class="service-desc">
-                綜合面相、八字或紫微合盤，理解你與伴侶 / 合作夥伴在價值觀、溝通方式、
-                對壓力與金錢的態度，協助你們找到更適合彼此的相處節奏。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>60–90 分鐘</strong> · 雙人或單人皆可</span>
-              <span>適合穩定關係、考慮長期合作的人</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想預約此服務 →</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-tag-row">
-                <span class="tag"><span class="tag-dot"></span>講座 / 內訓</span>
-                <span class="tag">企業 / 校園 / 團體</span>
-              </div>
-              <h3 class="service-name">命理與人生設計主題講座</h3>
-              <p class="service-desc">
-                以輕鬆、具體的方式談論命理與自我認識、職涯選擇、情緒與壓力管理，
-                適合企業員工關懷、校園生涯規劃課程、社團或讀書會主題活動。
-              </p>
-            </div>
-            <div class="service-meta">
-              <span><strong>客製化方案</strong> · 線上/實體皆可</span>
-              <span>歡迎來信討論合作內容與預算</span>
-            </div>
-            <div class="service-cta">
-              <a href="#booking">想邀請講座 →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========= 新手導覽 ========= -->
-    <section id="guide">
-      <div class="container">
-        <h2 class="section-title">第一次來隨緣堂，可以這樣開始</h2>
-        <p class="section-subtitle">
-          不需要一次把人生所有事情都弄清楚，只要從「最困擾你的一件事」開始，我們就能一起往前走一步。
-        </p>
-
-        <div class="grid grid-3 steps-grid">
-          <article class="step-card">
-            <div class="step-number">01</div>
-            <h3 class="step-title">先想一想，你現在最在意什麼</h3>
-            <p class="step-text">
-              可以先準備一兩個你最想解決的問題，不需要講得很完美，
-              例如：「我要不要換工作？」「這段關係還要不要繼續？」「看不到未來方向，很迷惘」。
-            </p>
-            <ul class="step-list">
-              <li>職涯／工作方向</li>
-              <li>感情／婚姻／家庭</li>
-              <li>學業／考試／出國規劃</li>
-              <li>創業／投資／財務安排</li>
-            </ul>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">02</div>
-            <h3 class="step-title">準備基本資料，幫助分析更精準</h3>
-            <p class="step-text">
-              建議準備：出生年月日、出生時間（能找到出生證明更好）、出生地點。
-              若要談感情／合作，也可以預先準備對方資料（可暱稱或代號）。
-            </p>
-            <ul class="step-list">
-              <li>出生年月日與時間（24 小時制）</li>
-              <li>目前主要困擾與背景簡述</li>
-              <li>希望諮詢聚焦的面向（例如只談職涯）</li>
-            </ul>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">03</div>
-            <h3 class="step-title">填寫預約表單，靜候回覆</h3>
-            <p class="step-text">
-              在下方預約區填寫你的聯絡方式與問題簡述，我們會在
-              <strong>2–3 個工作天內</strong>回覆可排時間與費用說明。
-            </p>
-            <ul class="step-list">
-              <li>可選線上（視訊／語音）或面談</li>
-              <li>確認時間與付款方式後，即完成預約</li>
-              <li>若有緊急時程（如即將簽約），可在備註中說明</li>
-            </ul>
-          </article>
-        </div>
-
-        <p class="guide-footer">
-          還是不確定適合哪一種服務？沒關係，你可以在預約表單中直接寫下：「不知道要選哪一種服務，但我目前卡在 XXX」，
-          我們會依照你的情況一起討論。
-        </p>
-      </div>
-    </section>
-
-    <!-- ========= 學院 + 專欄 ========= -->
-    <section id="academy">
-      <div class="container">
-        <h2 class="section-title">隨緣學院 · 命理學習園地</h2>
-        <p class="section-subtitle">
-          讓命理不再只是「去給人算」，而是你也懂得一些基本觀念，
-          能夠更清楚地提問，也更有能力為自己做決定。
-        </p>
-
-        <div class="academy-layout">
-          <article class="academy-card">
-            <div class="academy-card-inner">
-              <div class="academy-header">
-                <h3 class="academy-title">命理新手起步建議</h3>
-                <span class="academy-pill">入門指南</span>
-              </div>
-              <p class="academy-intro">
-                不需要一次把五術全部學會，只要先理解「每一種工具在做什麼」，你就能在面對問題時選對工具。
-                未來這裡也會陸續更新教學文章與小小練習。
-              </p>
-              <ul class="academy-list">
-                <li><strong>什麼是五術？</strong>—— 山、醫、命、相、卜，各自關注的面向。</li>
-                <li><strong>八字：</strong>像是一張「先天設定」＋「大方向時間軸」。</li>
-                <li><strong>紫微斗數：</strong>更像一齣戲，讓你看到角色如何互動。</li>
-                <li><strong>六爻：</strong>適合針對單一事件，評估短期趨勢與變化。</li>
-                <li><strong>風水：</strong>把「住的環境」調整成支持你生活的
+</body>
+</html>
