@@ -1,448 +1,380 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隨緣堂 | 東方命理文化權威平台</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        /* --- V13.0 專業視覺系統 --- */
-        :root {
-            --primary-dark: #2c1e31; /* 深邃紫檀色 */
-            --primary-light: #5d4067;
-            --accent-gold: #cfab66; /* 鎏金色 */
-            --accent-red: #8f2a24; /* 故宮紅 */
-            --text-main: #333333;
-            --text-gray: #666666;
-            --bg-paper: #f9f7f2; /* 宣紙白 */
-            --bg-white: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隨緣堂｜東方命理文化顧問平台</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* --------- 全站變數與基礎設定 --------- */
+    :root {
+      --primary-dark: #2c1e31;   /* 深紫棕檀色 */
+      --primary-light: #5d4067;  /* 明亮紫色 */
+      --accent-gold: #cfab66;    /* 金色 */
+      --accent-red: #8f2a24;     /* 紅銅 */
+      --text-main: #333333;
+      --text-gray: #666666;
+      --bg-paper: #f9f7e2;       /* 米紙色 */
+      --bg-white: #ffffff;
+      --border-soft: #e1d8c4;
+      --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.12);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --max-width: 1120px;
+    }
 
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-paper);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1, h2, h3, h4 {
-            font-family: 'Noto Serif TC', serif; /* 標題使用襯線體，更具文化感 */
-            font-weight: 700;
-        }
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top, #f7f2e8 0, #f3efe6 35%, #ece3d3 100%);
+      line-height: 1.7;
+    }
 
-        /* 導航欄 */
-        nav {
-            background-color: var(--primary-dark);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        nav a {
-            color: #e0e0e0;
-            text-decoration: none;
-            padding: 10px 25px;
-            font-size: 1.05rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-        nav a:hover { color: var(--accent-gold); }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        /* 英雄首圖 (Hero Section) */
-        header {
-            /* 背景圖：東方星空與羅盤意象 */
-            background: linear-gradient(rgba(44, 30, 49, 0.7), rgba(44, 30, 49, 0.5)), 
-                        url('https://images.unsplash.com/photo-1519681393784-d8e5b5a4570b?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 140px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-            letter-spacing: 8px;
-        }
-        header p {
-            font-size: 1.4rem;
-            margin-top: 20px;
-            color: var(--accent-gold);
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        header .btn-cta {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 15px 50px;
-            background-color: var(--accent-red);
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 2px;
-            transition: background 0.3s;
-            border: 1px solid var(--accent-red);
-        }
-        header .btn-cta:hover {
-            background-color: transparent;
-            border-color: white;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        /* 通用容器 */
-        .container {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
+    ul {
+      list-style: none;
+    }
 
-        /* 區塊標題 */
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-        .section-title span {
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-gold);
-            margin: 0 auto;
-        }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* 五術源流：圖文交錯排版 */
-        .origin-card {
-            display: flex;
-            background: var(--bg-white);
-            margin-bottom: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        .origin-card:hover { transform: translateY(-5px); }
-        
-        .origin-img {
-            flex: 1;
-            min-height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-        .origin-content {
-            flex: 2;
-            padding: 40px;
-        }
-        .origin-content h3 {
-            color: var(--primary-light);
-            font-size: 1.8rem;
-            margin-top: 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-        }
-        .origin-content h4 {
-            color: var(--accent-red);
-            font-size: 1.1rem;
-            margin: 20px 0 10px;
-        }
-        .origin-content p {
-            color: var(--text-gray);
-            font-size: 1rem;
-            text-align: justify;
-        }
+    section {
+      padding: 72px 0;
+    }
 
-        /* 五術配圖設定 */
-        .img-bazi { background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=600'); }
-        .img-ziwei { background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=600'); }
-        .img-fengshui { background-image: url('https://images.unsplash.com/photo-1599632822005-4c07da6b3726?q=80&w=600'); }
-        .img-liuyao { background-image: url('https://images.unsplash.com/photo-1627844642677-9b6c00d43e26?q=80&w=600'); }
-        .img-face { background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600'); }
+    .section-title {
+      font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
 
-        /* 文章列表：雜誌風格 */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .article-item {
-            background: var(--bg-white);
-            padding: 30px;
-            border-top: 4px solid var(--primary-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .article-tag {
-            display: inline-block;
-            background-color: #eee;
-            color: #555;
-            padding: 4px 10px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
-        .article-item h3 {
-            margin-top: 0;
-            font-size: 1.4rem;
-            color: var(--text-main);
-            line-height: 1.4;
-        }
-        .article-item p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-        .read-more {
-            color: var(--accent-gold);
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-gray);
+      font-size: 0.98rem;
+      margin-bottom: 36px;
+    }
 
-        /* 預約區塊 */
-        #contact {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            margin-top: 80px;
-        }
-        #contact h2 { color: white; margin-bottom: 20px; }
-        #contact p { color: #ccc; max-width: 600px; margin: 0 auto 40px; }
-        
-        .mail-btn {
-            background-color: var(--accent-gold);
-            color: var(--primary-dark);
-            padding: 15px 40px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 0 20px rgba(207, 171, 102, 0.4);
-            transition: transform 0.2s;
-        }
-        .mail-btn:hover { transform: scale(1.05); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(207, 171, 102, 0.4);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+    }
 
-        footer {
-            background-color: #1a111d;
-            color: #555;
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.9rem;
-        }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      margin-right: 6px;
+    }
 
-        /* 響應式調整 */
-        @media (max-width: 768px) {
-            .origin-card { flex-direction: column; }
-            .origin-img { min-height: 200px; }
-            header h1 { font-size: 2.5rem; }
-        }
-    </style>
-</head>
-<body>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
 
-    <nav>
-        <a href="#about">關於隨緣堂</a>
-        <a href="#origins">五術源流</a>
-        <a href="#articles">命理文章</a>
-        <a href="#contact">預約諮詢</a>
-    </nav>
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
 
-    <header>
-        <h1>隨緣堂</h1>
-        <p>融匯古今智慧 ‧ 洞悉生命軌跡</p>
-        <a href="#contact" class="btn-cta">開啟您的人生導航</a>
-    </header>
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
 
-    <div class="container" id="about">
-        <div class="section-title">
-            <h2>關於隨緣堂</h2>
-            <span></span>
-        </div>
-        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: var(--text-gray);">
-            命理並非宿命論，而是一份詳盡的「人生使用說明書」。<br>
-            隨緣堂致力於將艱澀的古籍理論，轉化為現代人能理解的決策智慧。<br>
-            我們不談怪力亂神，只論陰陽五行與邏輯推演，助您在知命的基礎上，順勢而為，造命開運。
-        </p>
-    </div>
+    .btn-outline {
+      border: 1px solid rgba(44, 30, 49, 0.3);
+      color: var(--primary-dark);
+      background: rgba(255, 255, 255, 0.8);
+    }
 
-    <div class="container" id="origins">
-        <div class="section-title">
-            <h2>五術源流與學術傳承</h2>
-            <span></span>
-        </div>
+    .btn-outline:hover {
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
 
-        <div class="origin-card">
-            <div class="origin-img img-bazi"></div>
-            <div class="origin-content">
-                <h3>八字命理 (子平術)</h3>
-                <h4>起源與發展</h4>
-                <p>八字學說萌芽於漢代，當時多以「年」為主論命（如生肖）。至唐代，宗師<strong>李虛中</strong>改以年、月、日三柱推算，準確率大增。宋代<strong>徐子平</strong>進一步完善，納入時辰，形成「四柱八字」，並確立以「日主」為核心的論命體系，後世尊稱為「子平八字」。</p>
-                <h4>核心理論</h4>
-                <p>以人出生的時間轉換為天干地支，分析五行（金木水火土）的強弱、生剋與流通。它是人生的「氣象預報」，能精準推算性格特質、事業財運與大運流年的起伏。</p>
-            </div>
-        </div>
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: var(--text-gray);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(221, 210, 189, 0.8);
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
 
-        <div class="origin-card">
-            <div class="origin-img img-ziwei"></div>
-            <div class="origin-content">
-                <h3>紫微斗數 (帝王學)</h3>
-                <h4>起源與發展</h4>
-                <p>相傳由宋代道家宗師<strong>陳希夷（陳摶老祖）</strong>所創。紫微斗數在古代長期被視為「欽天監」的秘學，專供皇室御用，因此被稱為「帝王之學」。直至明清時期，《紫微斗數全書》流出，才逐漸在民間廣為流傳。</p>
-                <h4>核心理論</h4>
-                <p>將人出生的時空資訊，轉化為十二個宮位（命宮、夫妻、財帛等），並排入一百多顆星曜。它猶如一張極為精細的「人生統計表」，對於人際關係、心理狀態與事件細節的描述，細膩度冠絕五術。</p>
-            </div>
-        </div>
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      margin-right: 6px;
+    }
 
-        <div class="origin-card">
-            <div class="origin-img img-fengshui"></div>
-            <div class="origin-content">
-                <h3>風水堪輿 (環境學)</h3>
-                <h4>起源與發展</h4>
-                <p>「風水」一詞最早見於晉代郭璞的《葬書》：「氣乘風則散，界水則止...故謂之風水。」風水學發展出兩大主流：一為重山川形勢、龍脈走向的<strong>「巒頭派」</strong>；二為重羅盤方位、氣場計算的<strong>「理氣派」</strong>（如玄空飛星）。</p>
-                <h4>核心理論</h4>
-                <p>探討「人」與「環境」之間的能量交互。好的風水能「藏風聚氣」，透過調整陽宅（居住環境）的三要（門、主、灶），來提升居住者的健康、情緒與運勢。</p>
-            </div>
-        </div>
+    .pill-label {
+      font-size: 0.8rem;
+      color: var(--text-gray);
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      border: 1px solid rgba(221, 210, 189, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        <div class="origin-card">
-            <div class="origin-img img-liuyao"></div>
-            <div class="origin-content">
-                <h3>六爻占卜 (易經文王課)</h3>
-                <h4>起源與發展</h4>
-                <p>源於最古老的《易經》。漢代<strong>京房</strong>將天干地支納入八卦之中（稱為納甲），並引入五行生剋、六親（父母、兄弟、官鬼等）概念，將抽象的卦辭轉化為邏輯嚴密的五行推理，稱為「納甲筮法」。</p>
-                <h4>核心理論</h4>
-                <p>針對「單一具體事件」進行預測（例如：這筆生意能不能成？官司結果如何？）。透過擲銅錢起卦，捕捉當下的時空信息，能精確判斷事情的成敗、應期與變化。</p>
-            </div>
-        </div>
+    .pill-label i {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
 
-        <div class="origin-card">
-            <div class="origin-img img-face"></div>
-            <div class="origin-content">
-                <h3>面相學 (識人術)</h3>
-                <h4>起源與發展</h4>
-                <p>相術在春秋戰國時期已極為盛行。宋代奇人<strong>麻衣道者</strong>傳授《麻衣相法》給陳希夷，成為後世相術的經典。清代名臣<strong>曾國藩</strong>更著有《冰鑑》，將相人術應用於識人用人與管理。</p>
-                <h4>核心理論</h4>
-                <p>「相由心生」。透過觀察人的面部特徵（三停、五官）、骨骼、氣色與聲音，來推斷其內在的性格、健康狀況與命運軌跡。是快速識人、了解自我格局的實用之學。</p>
-            </div>
-        </div>
-    </div>
+    .shadow-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 26px;
+      position: relative;
+      overflow: hidden;
+    }
 
-    <div class="container" id="articles">
-        <div class="section-title">
-            <h2>📚 命理知識專欄</h2>
-            <span></span>
-        </div>
+    .shadow-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
 
-        <div class="article-grid">
-            <div class="article-item">
-                <span class="article-tag">八字入門</span>
-                <h3>一分鐘看懂你的「日主」是什麼？</h3>
-                <p>八字中哪一個字代表你本人？答案是日柱的天干。甲木人正直，丙火人熱情，癸水人靈活。了解日主是認識天賦的第一步。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
-            
-            <div class="article-item">
-                <span class="article-tag">財富格局</span>
-                <h3>食傷生財 vs 財庫：你的賺錢模式</h3>
-                <p>不是每個人都適合做生意。食傷生財者靠才華技術賺錢，越動腦越有錢；命帶財庫者適合儲蓄與資產配置。選對跑道，事半功倍。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .shadow-card-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">紫微斗數</span>
-                <h3>夫妻宮：看透你未來伴侶的個性</h3>
-                <p>紫微斗數的夫妻宮是你理想伴侶的畫像。七殺星伴侶強勢獨立，天同星伴侶溫柔顧家。了解夫妻宮是為了學會相處，而非宿命。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .muted {
+      color: var(--text-gray);
+      font-size: 0.92rem;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">居家風水</span>
-                <h3>陽宅三要：門、主、灶的佈局關鍵</h3>
-                <p>風水不用太複雜，顧好三個點就有60分。大門納氣要明亮，臥室床頭要靠牆，廚房爐灶避水火相沖。這是居家平安的基礎。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .divider {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), transparent);
+      margin: 20px 0;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">流年運勢</span>
-                <h3>犯太歲真的很可怕嗎？</h3>
-                <p>犯太歲代表能量的衝擊與變動，不一定是大凶。轉職、搬家、結婚都是「動」。只要心存正念，保守行事，變動往往也是轉機。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">易經卜卦</span>
-                <h3>遇到抉擇？六爻占卜的決策智慧</h3>
-                <p>八字看大運，六爻斷單事。當你站在人生的十字路口，六爻能提供具體的「可否」與「吉凶」建議，是最佳的決策輔助工具。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
-            <div class="article-item">
-                <span class="article-tag">面相識人</span>
-                <h3>三停平等：從臉型看人生格局</h3>
-                <p>上停看早年與智慧，中停看中年與事業，下停看晚年與財庫。三停均勻飽滿，代表一生運勢平穩，少有大起大落。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
-            <div class="article-item">
-                <span class="article-tag">擇日學</span>
-                <h3>為什麼結婚入宅要看日子？</h3>
-                <p>擇日是尋找天地能量最和諧的時間點。避開歲破、月破，選擇天德、月德吉日，能讓事情的開端順利，減少阻礙。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
 
-            <div class="article-item">
-                <span class="article-tag">十神論命</span>
-                <h3>正官與七殺：你的事業領導風格</h3>
-                <p>正官代表循規蹈矩、重視名譽的管理者；七殺代表大刀闊斧、開疆闢土的將軍。了解你的事業星，才能放對位置。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    /* --------- Header 與導覽列 --------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(243, 236, 225, 0.9), rgba(243, 236, 225, 0.7), transparent);
+      border-bottom: 1px solid rgba(214, 201, 176, 0.6);
+    }
 
-            <div class="article-item">
-                <span class="article-tag">五行健康</span>
-                <h3>五行與身體器官的對應關係</h3>
-                <p>木主肝膽，火主心血管，土主脾胃，金主呼吸系統，水主腎臟。八字五行過旺或過缺，都需注意相應器官的保養。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">紫微進階</span>
-                <h3>四化星：運勢起伏的推手</h3>
-                <p>祿（財祿）、權（權力）、科（名聲）、忌（波折）。四化星是紫微斗數的靈魂，它揭示了運勢在什麼時間點會發生什麼變化。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-            <div class="article-item">
-                <span class="article-tag">命理觀念</span>
-                <h3>知命、順命、造命的層次</h3>
-                <p>知命是診斷，順命是導航，造命是改善。算命不是為了宿命論，而是為了在既定的劇本中，演繹出最精彩的版本。</p>
-                <div class="read-more">閱讀全文 (往下捲動)</div>
-            </div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 40px; color: #888;">(以上為精選摘要，詳細解析請預約諮詢)</p>
-    </div>
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 25% 20%, #fdfaf3, var(--primary-dark));
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-    <div id="contact">
-        <h2>📞 預約您的專屬諮詢</h2>
-        <p>無論是事業迷惘、感情困惑，還是流年運勢規劃，隨緣堂都能為您提供專業指引。<br>請點擊下方按鈕，直接發信給我們。</p>
-        
-        <a href="mailto:jackkok1388@gmail.com?subject=預約隨緣堂命理諮詢&body=您好，我想預約諮詢。%0D%0A我的姓名：%0D%0A我想諮詢的項目（八字/紫微/擇日/風水）：" class="mail-btn">
-            📧 發信預約 (jackkok1388@gmail.com)
-        </a>
-    </div>
+    .logo-mark::before {
+      content: '緣';
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      color: #fdf6dd;
+      letter-spacing: 0.12em;
+    }
 
-    <footer>
-        &copy; 2025 隨緣堂版權所有 | 弘揚中華傳統文化
-    </footer>
+    .logo-text-main {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.2em;
+      color: var(--primary-dark);
+    }
 
-</body>
-</html>
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-gray);
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-red));
+      transition: width 0.22s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-toggle {
+      border: none;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--primary-dark);
+      border-radius: 999px;
+      transition: all 0.25s ease;
+    }
+
+    @media (min-width: 960px) {
+      .nav {
+        height: 72px;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: none;
+      }
+    }
+
+    /* 手機版選單 */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: rgba(244, 237, 227, 0.98);
+      backdrop-filter: blur(12px);
+      z-index: 40;
+      padding: 18px 20px 32px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
