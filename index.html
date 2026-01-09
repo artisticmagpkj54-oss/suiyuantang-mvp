@@ -1895,15 +1895,28 @@
 
   const displayNumber = data.base + fluctuation;
 
-  const el = document.getElementById("visitorCount");
-  if (el) {
-    el.textContent = displayNumber.toLocaleString("zh-TW");
-  }
+ const el = document.getElementById("visitorCount");
+if (el) {
+  const target = displayNumber;
+  let current = Math.max(target - 120, 0);
+  const step = Math.ceil((target - current) / 30);
+
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = current.toLocaleString("zh-TW");
+  }, 30);
+}
+
 })();
 </script>
 
 </body>
 </html>
+
 
 
 
