@@ -1861,8 +1861,42 @@
     yearSpan.textContent = new Date().getFullYear();
   }
 </script>
+ <script>
+(function () {
+  const STORAGE_KEY = "suiyuan_visitor_base";
+  const MIN_BASE = 3200;   // 基礎人數，看起來已經經營一段時間
+  const MAX_DAILY_GROWTH = 12; // 每天最多增加人數
+  const FLUCTUATION = 3;  // 每次進站的小浮動
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+    base: MIN_BASE,
+    lastDate: today
+  };
+
+  if (data.lastDate !== today) {
+    const growth = Math.floor(Math.random() * MAX_DAILY_GROWTH) + 1;
+    data.base += growth;
+    data.lastDate = today;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  const fluctuation =
+    Math.floor(Math.random() * (FLUCTUATION * 2 + 1)) - FLUCTUATION;
+
+  const displayNumber = data.base + fluctuation;
+
+  const el = document.getElementById("visitorCount");
+  if (el) {
+    el.textContent = displayNumber.toLocaleString("zh-TW");
+  }
+})();
+</script>
+
 </body>
 </html>
+
 
 
 
