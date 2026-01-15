@@ -1933,9 +1933,25 @@ if (el) {
 
 })();
 </script>
+<script>
+function toggleSound(btn) {
+  const video = btn.previousElementSibling;
+  if (!video) return;
+
+  if (video.muted) {
+    video.muted = false;
+    video.volume = 1;
+    btn.textContent = "🔊";
+  } else {
+    video.muted = true;
+    btn.textContent = "🔇";
+  }
+}
+</script>
 
 </body>
 </html>
+
 
 
 
