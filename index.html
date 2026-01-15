@@ -933,20 +933,22 @@
     <aside class="hero-card" aria-label="命盤分析示意">
         <div class="hero-card-inner">
      <div style="margin-bottom:16px;">
+ <div class="hero-video-wrap">
   <video
     src="./suiyuantang-intro.mp4.mp4"
-    controls
+    autoplay
+    muted
+    loop
     playsinline
-    preload="metadata"
-    style="
-      width:100%;
-      border-radius:18px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.6);
-      background:#000;
-    "
-  >
-    您的瀏覽器不支援影片播放
-  </video>
+    preload="auto"
+    class="hero-video"
+  ></video>
+
+  <button class="video-sound-btn" onclick="toggleSound(this)">
+    🔇
+  </button>
+</div>
+
 </div>
 
    
@@ -1934,6 +1936,7 @@ if (el) {
 
 </body>
 </html>
+
 
 
 
