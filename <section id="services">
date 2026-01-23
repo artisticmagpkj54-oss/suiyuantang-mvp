@@ -509,40 +509,7 @@
     .hero-card-footer strong {
       color: var(--primary-strong);
     }
-   <section id="services" style="margin-top:64px;">
-  <h2>服務方案與收費</h2>
-
-  <p style="max-width:720px;">
-    以下服務以「結構分析、決策支持、長期路徑規劃」為核心，
-    不提供即時安慰、不保證結果，適合願意為人生負責的人。
-  </p>
-
-  <div style="display:grid; gap:24px; max-width:900px;">
-
-    <div class="card-soft">
-      <h3>人生結構深度解析（90 分鐘）</h3>
-      <p>整合命盤結構、人生階段、決策盲點與長期路徑。</p>
-      <strong>NT$ 18,000</strong>
-    </div>
-
-    <div class="card-soft">
-      <h3>年度策略陪跑（3 次）</h3>
-      <p>適合正在轉職、創業、人生重構期。</p>
-      <strong>NT$ 48,000</strong>
-    </div>
-
-    <div class="card-soft">
-      <h3>結構支持諮詢（保留名額）</h3>
-      <p>
-        為暫時無法負擔費用、但願意為自己負責的人，
-        每月僅保留極少量時段。
-      </p>
-      <strong>申請制</strong>
-    </div>
-
-  </div>
-</section>
-
+ 
 <section id="articles" style="margin-top: 64px;">
   <h2>命理學習專欄｜八字新手入門</h2>
 
@@ -1986,6 +1953,7 @@ function toggleSound(btn) {
 
 </body>
 </html>
+
 
 
 
