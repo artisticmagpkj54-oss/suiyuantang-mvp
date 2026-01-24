@@ -883,6 +883,56 @@
     html {
       scroll-behavior: smooth;
     }
+  .pricing-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.tab-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #f5c77a;
+  color: #000;
+}
+
+.pricing-group {
+  display: none;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.pricing-group.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+}
+
+.price-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.price-card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #f5c77a;
+}
+
+.price-card.charity {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
   </style>
 </head>
 <body><section style="position:absolute;left:-9999px;top:-9999px;height:1px;width:1px;overflow:hidden;">
@@ -1079,10 +1129,70 @@
     </aside>
   </div>
 </section>
- <section style="margin:120px 0; text-align:center;">
-  <h2 style="color:#f5c77a;">【測試】價目區是否顯示</h2>
-  <p style="color:#aaa;">如果你看到這段文字，代表位置完全正確。</p>
+<section id="pricing" style="margin-top:200px;">
+  <div class="container">
+
+    <h2 class="section-title">服務方案與收費標準</h2>
+    <p class="section-subtitle">
+      高價不是因為神秘，而是因為「判斷責任」與「深度陪伴」。
+    </p>
+
+    <!-- 分類按鈕 -->
+    <div class="pricing-tabs">
+      <button class="tab-btn active" onclick="showPricing('life')">人生／命盤</button>
+      <button class="tab-btn" onclick="showPricing('career')">事業／決策</button>
+      <button class="tab-btn" onclick="showPricing('support')">弱勢支援</button>
+    </div>
+
+    <!-- 分類內容 -->
+    <div class="pricing-content">
+
+      <!-- 人生類 -->
+      <div class="pricing-group active" id="life">
+        <div class="price-card">
+          <h3>人生結構深度解析（90 分鐘）</h3>
+          <p>完整八字 × 紫微 × 人生階段整合</p>
+          <strong>NT$18,000</strong>
+        </div>
+
+        <div class="price-card">
+          <h3>年度人生策略陪跑（3 次）</h3>
+          <p>適合重大轉換期、長期規劃</p>
+          <strong>NT$48,000</strong>
+        </div>
+      </div>
+
+      <!-- 事業類 -->
+      <div class="pricing-group" id="career">
+        <div class="price-card">
+          <h3>職涯／創業決策分析</h3>
+          <p>轉職、創業、合作風險判斷</p>
+          <strong>NT$22,000</strong>
+        </div>
+
+        <div class="price-card">
+          <h3>高風險選擇評估（六爻）</h3>
+          <p>單一關鍵選擇，清楚「該不該做」</p>
+          <strong>NT$12,000</strong>
+        </div>
+      </div>
+
+      <!-- 弱勢支援 -->
+      <div class="pricing-group" id="support">
+        <div class="price-card charity">
+          <h3>弱勢／困難者免費諮詢</h3>
+          <p>
+            限額申請，每月開放 2 名<br>
+            僅提供「方向釐清」，不做長期陪跑
+          </p>
+          <strong>免費（申請制）</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 
 <!-- ===================== Methodology ===================== -->
 <section id="methodology" style="margin-top: 80px;">
@@ -2033,9 +2143,19 @@ function toggleSound(btn) {
   }
 }
 </script>
+<script>
+function showPricing(id) {
+  document.querySelectorAll('.pricing-group').forEach(g => g.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
+
 
 
 
