@@ -551,110 +551,109 @@
     👉 <a href="article-bazi-intro.html">查看所有八字入門文章</a>
   </p>
 </section>
-   <section id="pricing">
+   <!-- ================== SERVICES / PRICING ================== -->
+<section id="pricing" style="margin-top: 96px;">
   <div class="container">
+
     <div class="section-header">
-      <div class="section-label">PRICING</div>
-      <h2 class="section-title">諮詢價目說明</h2>
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">諮詢服務與收費說明</h2>
       <p class="section-subtitle">
-        本堂各項諮詢服務，依所需準備時間、命理層次與結構複雜度定價，
-        非以諮詢時間長短作為唯一計價標準。
+        所有諮詢皆以「結構分析、現實可行性、長期責任」為核心，
+        不提供快速斷語，亦不以安慰性說法取代判斷。
       </p>
     </div>
 
-    <div class="grid grid-2">
-
-      <!-- 命局 -->
-      <div class="card-soft">
-        <h3>四柱命局結構解析</h3>
-        <p class="muted">八字命局鑑定</p>
-        <ul class="list">
-          <li>命局結構與用神取向判讀</li>
-          <li>性格根源與行事模式分析</li>
-          <li>可承擔方向與限制邊界</li>
-        </ul>
-        <strong>NT$ 6,800</strong>
-      </div>
-
-      <!-- 大運 -->
-      <div class="card-soft">
-        <h3>大運流轉與人生階段判讀</h3>
-        <p class="muted">人生節奏分析</p>
-        <ul class="list">
-          <li>順勢期、停滯期、轉折期判斷</li>
-          <li>不作年度吉凶預言</li>
-        </ul>
-        <strong>NT$ 4,800</strong>
-      </div>
-
-      <!-- 六爻單項 -->
-      <div class="card-soft">
-        <h3>六爻卦象決策判讀</h3>
-        <p class="muted">單一事項</p>
-        <ul class="list">
-          <li>是否適合當下行動</li>
-          <li>事件阻力與變化方向</li>
-        </ul>
-        <strong>NT$ 3,600 / 件</strong>
-      </div>
-
-      <!-- 六爻多選 -->
-      <div class="card-soft">
-        <h3>六爻多選項比較判斷</h3>
-        <p class="muted">2–3 選項</p>
-        <ul class="list">
-          <li>比較各選項風險結構</li>
-          <li>判斷可承擔後果</li>
-        </ul>
-        <strong>NT$ 6,000</strong>
-      </div>
-
-      <!-- 關係 -->
-      <div class="card-soft">
-        <h3>人際關係結構分析</h3>
-        <p class="muted">感情・家庭・合作</p>
-        <ul class="list">
-          <li>互動模式與衝突來源</li>
-          <li>可磨合與結構性不合</li>
-        </ul>
-        <strong>NT$ 8,800</strong>
-      </div>
-
-      <!-- 陽宅 -->
-      <div class="card-soft">
-        <h3>陽宅堪輿鑑定</h3>
-        <p class="muted">形勢 × 理氣 × 人宅相應</p>
-        <ul class="list">
-          <li>外局形勢與坐向分析</li>
-          <li>內局門、主、灶配置</li>
-          <li>人宅是否相應</li>
-        </ul>
-        <strong>NT$ 18,000 – 36,000</strong>
-      </div>
-
-      <!-- 年度 -->
-      <div class="card-soft">
-        <h3>人生結構年度追蹤解析</h3>
-        <p class="muted">年度制</p>
-        <ul class="list">
-          <li>年度方向回顧與修正</li>
-          <li>結構性調整建議</li>
-        </ul>
-        <strong>NT$ 48,000 / 年</strong>
-      </div>
-
-      <!-- 特殊 -->
-      <div class="card-soft">
-        <h3>特殊人生狀況命理判讀</h3>
-        <p class="muted">申請制</p>
-        <p>
-          僅限特殊或困難人生狀況，需經申請評估後安排，
-          非一般公開服務項目。
-        </p>
-        <strong>依評估安排</strong>
-      </div>
-
+    <!-- 分類切換 -->
+    <div class="pricing-tabs">
+      <button class="tab-btn active" onclick="showPricing('life')">人生結構</button>
+      <button class="tab-btn" onclick="showPricing('career')">職涯與決策</button>
+      <button class="tab-btn" onclick="showPricing('environment')">環境與堪輿</button>
+      <button class="tab-btn" onclick="showPricing('support')">公益支援</button>
     </div>
+
+    <!-- 人生結構 -->
+    <div id="life" class="pricing-group active grid grid-2">
+      <div class="card-soft">
+        <h3>人生結構總體解析（90 分鐘）</h3>
+        <p class="muted">八字 × 紫微 × 人生階段整合分析</p>
+        <ul class="list">
+          <li>人格傾向與決策模式</li>
+          <li>關係結構與責任配置</li>
+          <li>金錢、壓力與風險承受度</li>
+          <li>未來 3–5 年主軸判斷</li>
+        </ul>
+        <strong>NT$ 18,000</strong>
+      </div>
+
+      <div class="card-soft">
+        <h3>年度人生策略陪伴（3 次）</h3>
+        <p class="muted">適合重大轉換期或長期規劃者</p>
+        <ul class="list">
+          <li>年度結構回顧與修正</li>
+          <li>階段性決策討論</li>
+          <li>避免短期情緒誤判</li>
+        </ul>
+        <strong>NT$ 48,000</strong>
+      </div>
+    </div>
+
+    <!-- 職涯 -->
+    <div id="career" class="pricing-group grid grid-2">
+      <div class="card-soft">
+        <h3>職涯方向與工作策略評估</h3>
+        <p class="muted">升遷 / 轉職 / 創業 / 多軌並行</p>
+        <ul class="list">
+          <li>現有結構與能力匹配度</li>
+          <li>風險與時間成本分析</li>
+          <li>是否適合承擔管理或創業</li>
+        </ul>
+        <strong>NT$ 15,000</strong>
+      </div>
+
+      <div class="card-soft">
+        <h3>重大決策單項諮詢</h3>
+        <p class="muted">單一事件判斷（非情緒支持）</p>
+        <ul class="list">
+          <li>轉換時機是否成熟</li>
+          <li>最壞情境與承擔能力</li>
+          <li>是否值得下注</li>
+        </ul>
+        <strong>NT$ 9,800</strong>
+      </div>
+    </div>
+
+    <!-- 環境堪輿 -->
+    <div id="environment" class="pricing-group grid grid-2">
+      <div class="card-soft">
+        <h3>居住／工作環境結構評估</h3>
+        <p class="muted">傳統堪輿 × 現代使用邏輯</p>
+        <ul class="list">
+          <li>空間配置與人際影響</li>
+          <li>長期居住或營運穩定度</li>
+          <li>是否適合當前人生階段</li>
+        </ul>
+        <strong>NT$ 12,000 起</strong>
+      </div>
+    </div>
+
+    <!-- 公益 -->
+    <div id="support" class="pricing-group grid grid-1">
+      <div class="card-soft">
+        <h3>公益諮詢｜結構支持方案</h3>
+        <p class="muted">
+          僅提供給經濟困難但願意承擔自身責任者，
+          非情緒安撫或逃避現實之替代方案。
+        </p>
+        <ul class="list">
+          <li>需事前書面申請與說明</li>
+          <li>每月名額有限</li>
+          <li>保留是否受理之決定權</li>
+        </ul>
+        <strong>申請制</strong>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1275,67 +1274,109 @@
     </aside>
   </div>
 </section>
-<section id="pricing" style="margin-top:200px;">
+<!-- ================== SERVICES / PRICING ================== -->
+<section id="pricing" style="margin-top: 96px;">
   <div class="container">
 
-    <h2 class="section-title">服務方案與收費標準</h2>
-    <p class="section-subtitle">
-      不是因為神秘，而是因為「判斷責任」與「深度陪伴」。
-    </p>
+    <div class="section-header">
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">諮詢服務與收費說明</h2>
+      <p class="section-subtitle">
+        所有諮詢皆以「結構分析、現實可行性、長期責任」為核心，
+        不提供快速斷語，亦不以安慰性說法取代判斷。
+      </p>
+    </div>
 
-    <!-- 分類按鈕 -->
+    <!-- 分類切換 -->
     <div class="pricing-tabs">
-      <button class="tab-btn active" onclick="showPricing('life')">人生／命盤</button>
-      <button class="tab-btn" onclick="showPricing('career')">事業／決策</button>
-      <button class="tab-btn" onclick="showPricing('support')">弱勢支援</button>
+      <button class="tab-btn active" onclick="showPricing('life')">人生結構</button>
+      <button class="tab-btn" onclick="showPricing('career')">職涯與決策</button>
+      <button class="tab-btn" onclick="showPricing('environment')">環境與堪輿</button>
+      <button class="tab-btn" onclick="showPricing('support')">公益支援</button>
     </div>
 
-    <!-- 分類內容 -->
-    <div class="pricing-content">
-
-      <!-- 人生類 -->
-      <div class="pricing-group active" id="life">
-        <div class="price-card">
-          <h3>人生結構深度解析（90 分鐘）</h3>
-          <p>完整八字 × 紫微 × 人生階段整合</p>
-          <strong>NT$18,000</strong>
-        </div>
-
-        <div class="price-card">
-          <h3>年度人生策略陪跑（3 次）</h3>
-          <p>適合重大轉換期、長期規劃</p>
-          <strong>NT$48,000</strong>
-        </div>
+    <!-- 人生結構 -->
+    <div id="life" class="pricing-group active grid grid-2">
+      <div class="card-soft">
+        <h3>人生結構總體解析（90 分鐘）</h3>
+        <p class="muted">八字 × 紫微 × 人生階段整合分析</p>
+        <ul class="list">
+          <li>人格傾向與決策模式</li>
+          <li>關係結構與責任配置</li>
+          <li>金錢、壓力與風險承受度</li>
+          <li>未來 3–5 年主軸判斷</li>
+        </ul>
+        <strong>NT$ 18,000</strong>
       </div>
 
-      <!-- 事業類 -->
-      <div class="pricing-group" id="career">
-        <div class="price-card">
-          <h3>職涯／創業決策分析</h3>
-          <p>轉職、創業、合作風險判斷</p>
-          <strong>NT$22,000</strong>
-        </div>
-
-        <div class="price-card">
-          <h3>高風險選擇評估（六爻）</h3>
-          <p>單一關鍵選擇，清楚「該不該做」</p>
-          <strong>NT$12,000</strong>
-        </div>
+      <div class="card-soft">
+        <h3>年度人生策略陪伴（3 次）</h3>
+        <p class="muted">適合重大轉換期或長期規劃者</p>
+        <ul class="list">
+          <li>年度結構回顧與修正</li>
+          <li>階段性決策討論</li>
+          <li>避免短期情緒誤判</li>
+        </ul>
+        <strong>NT$ 48,000</strong>
       </div>
-
-      <!-- 弱勢支援 -->
-      <div class="pricing-group" id="support">
-        <div class="price-card charity">
-          <h3>弱勢／困難者免費諮詢</h3>
-          <p>
-            限額申請，每月開放 2 名<br>
-            僅提供「方向釐清」，不做長期陪跑
-          </p>
-          <strong>免費（申請制）</strong>
-        </div>
-      </div>
-
     </div>
+
+    <!-- 職涯 -->
+    <div id="career" class="pricing-group grid grid-2">
+      <div class="card-soft">
+        <h3>職涯方向與工作策略評估</h3>
+        <p class="muted">升遷 / 轉職 / 創業 / 多軌並行</p>
+        <ul class="list">
+          <li>現有結構與能力匹配度</li>
+          <li>風險與時間成本分析</li>
+          <li>是否適合承擔管理或創業</li>
+        </ul>
+        <strong>NT$ 15,000</strong>
+      </div>
+
+      <div class="card-soft">
+        <h3>重大決策單項諮詢</h3>
+        <p class="muted">單一事件判斷（非情緒支持）</p>
+        <ul class="list">
+          <li>轉換時機是否成熟</li>
+          <li>最壞情境與承擔能力</li>
+          <li>是否值得下注</li>
+        </ul>
+        <strong>NT$ 9,800</strong>
+      </div>
+    </div>
+
+    <!-- 環境堪輿 -->
+    <div id="environment" class="pricing-group grid grid-2">
+      <div class="card-soft">
+        <h3>居住／工作環境結構評估</h3>
+        <p class="muted">傳統堪輿 × 現代使用邏輯</p>
+        <ul class="list">
+          <li>空間配置與人際影響</li>
+          <li>長期居住或營運穩定度</li>
+          <li>是否適合當前人生階段</li>
+        </ul>
+        <strong>NT$ 12,000 起</strong>
+      </div>
+    </div>
+
+    <!-- 公益 -->
+    <div id="support" class="pricing-group grid grid-1">
+      <div class="card-soft">
+        <h3>公益諮詢｜結構支持方案</h3>
+        <p class="muted">
+          僅提供給經濟困難但願意承擔自身責任者，
+          非情緒安撫或逃避現實之替代方案。
+        </p>
+        <ul class="list">
+          <li>需事前書面申請與說明</li>
+          <li>每月名額有限</li>
+          <li>保留是否受理之決定權</li>
+        </ul>
+        <strong>申請制</strong>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2301,7 +2342,6 @@ function showPricing(id) {
 
 </body>
 </html>
-
 
 
 
