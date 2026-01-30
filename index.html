@@ -350,9 +350,12 @@
     }
 
     .hero-inner {
-      display: grid;
-      gap: 26px;
-      align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 380px; /* 右邊收一點，視覺才穩 */
+  gap: 56px;
+  align-items: center; /* ⭐⭐⭐ 這一行就是你現在不對稱的原因 */
+}
+
     }
 
     @media (min-width: 960px) {
@@ -2234,6 +2237,7 @@ function showPricing(id) {
 
 </body>
 </html>
+
 
 
 
