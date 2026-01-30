@@ -1221,21 +1221,26 @@
         <div class="hero-card-inner">
       <div style="margin-bottom:16px; text-align:center;">
 
- <div class="hero-video-wrap">
-  <video
-    src="./suiyuantang-intro.mp4.mp4"
-    autoplay
-    muted
-   controls 
-    playsinline
-    preload="auto"
-    class="hero-video"
-  ></video>
+/* === Hero 右側影片視覺修正 === */
+.hero-video-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 420px;
+  margin: 0 auto; /* 關鍵：真正置中 */
+}
 
-  <button class="video-sound-btn" onclick="toggleSound(this)">
-    🔇
-  </button>
-</div>
+.hero-video-wrap video {
+  display: block;
+  width: 100%;
+  max-width: 360px;       /* 控制重量，避免右邊過重 */
+  aspect-ratio: 9 / 16;  /* 強制直式比例 */
+  border-radius: 20px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(198,156,74,0.35); /* 金色細框 */
+}
+
 
 </div>
 
@@ -2237,6 +2242,7 @@ function showPricing(id) {
 
 </body>
 </html>
+
 
 
 
