@@ -2230,10 +2230,33 @@ function showPricing(id) {
   document.getElementById(id).classList.add('active');
   event.target.classList.add('active');
 }
+ <script>
+  (function () {
+    const START = 35201;
+    const KEY = 'site_visit_count';
+
+    let count = localStorage.getItem(KEY);
+
+    if (!count) {
+      count = START;
+    } else {
+      count = parseInt(count, 10) + 1;
+    }
+
+    localStorage.setItem(KEY, count);
+
+    const el = document.getElementById('visitorCount');
+    if (el) {
+      el.textContent = count.toLocaleString();
+    }
+  })();
+</script>
+
 </script>
 
 </body>
 </html>
+
 
 
 
