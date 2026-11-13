@@ -357,8 +357,9 @@
       border-color:transparent;
     }
 
-    .pricing-group{ display:none; gap:24px; margin-top:18px; }
+    .pricing-group{ display:none; gap:24px; margin-top:18px; position:relative; }
     .pricing-group.active{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); }
+    #teaching{ padding-bottom:48px; }
     .price-card{
       background:rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.1);
@@ -367,6 +368,17 @@
     }
     .price-card strong{ display:block; margin-top:12px; font-size:1.2rem; color:var(--primary); }
     .price-card.charity{ border-style:dashed; opacity:.9; }
+    .pricing-note{
+      position:absolute;
+      right:0;
+      bottom:0;
+      left:0;
+      margin:0;
+      text-align:center;
+      color:var(--text-muted);
+      font-size:.86rem;
+      letter-spacing:.04em;
+    }
 
     /* Hero video */
     .hero-video-wrap{
@@ -725,6 +737,7 @@
             <p class="muted" style="margin-top:18px;">進階班・15 堂課</p><strong>NT$70,000</strong>
             <p class="muted" style="margin-top:18px;">高階師資實戰論斷班・15 堂課</p><strong>NT$98,000</strong>
           </div>
+          <p class="pricing-note">註：每堂課上課時間為 50 分鐘。</p>
         </div>
 
         <div class="pricing-group" id="support">
